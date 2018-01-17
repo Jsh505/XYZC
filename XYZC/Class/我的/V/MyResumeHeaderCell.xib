@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyResumeHeaderCellident" rowHeight="219" id="KGk-i7-Jjw" customClass="MyResumeHeaderCell">
+            <rect key="frame" x="0.0" y="0.0" width="346" height="220"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="346" height="219.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="头像" translatesAutoresizingMaskIntoConstraints="NO" id="4V8-K2-s2B">
+                        <rect key="frame" x="133" y="21" width="80" height="80"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="4V8-K2-s2B" secondAttribute="height" multiplier="1:1" id="SvB-TL-fk7"/>
+                            <constraint firstAttribute="width" constant="80" id="WGe-HC-ZMM"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="40"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="文章个人性别男" translatesAutoresizingMaskIntoConstraints="NO" id="UzQ-hp-Lwk">
+                        <rect key="frame" x="187" y="75" width="26" height="26"/>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vMf-eh-87S">
+                        <rect key="frame" x="266" y="0.0" width="80" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="60" id="Cbd-GQ-u6v"/>
+                            <constraint firstAttribute="width" constant="80" id="iib-m9-aaR"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <state key="normal" title=" 编辑" image="修改简历">
+                            <color key="titleColor" red="1" green="0.4823529412" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="editButtonCilick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="8Q7-sE-Y1U"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="姓名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GqU-d0-P1H">
+                        <rect key="frame" x="158" y="111" width="31" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22岁丨2017级丨大学名字" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FjQ-pd-PFg">
+                        <rect key="frame" x="98" y="139" width="151" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="手机：12312312312" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GuI-Gk-bdb">
+                        <rect key="frame" x="109.5" y="165" width="127.5" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="邮箱：12312312312@qq.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FFx-FO-nxL">
+                        <rect key="frame" x="79" y="192" width="188.5" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="UzQ-hp-Lwk" firstAttribute="bottom" secondItem="4V8-K2-s2B" secondAttribute="bottom" id="7d8-Aj-Tb0"/>
+                    <constraint firstItem="FFx-FO-nxL" firstAttribute="centerX" secondItem="GuI-Gk-bdb" secondAttribute="centerX" id="7ix-uS-gjz"/>
+                    <constraint firstItem="vMf-eh-87S" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="7mM-fU-Mgv"/>
+                    <constraint firstItem="GqU-d0-P1H" firstAttribute="top" secondItem="4V8-K2-s2B" secondAttribute="bottom" constant="10" id="NTu-0S-wFC"/>
+                    <constraint firstItem="GqU-d0-P1H" firstAttribute="centerX" secondItem="4V8-K2-s2B" secondAttribute="centerX" id="Qis-NQ-TDh"/>
+                    <constraint firstItem="4V8-K2-s2B" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="21" id="Uf1-Ta-yAG"/>
+                    <constraint firstAttribute="trailing" secondItem="vMf-eh-87S" secondAttribute="trailing" id="VFO-Jb-1RF"/>
+                    <constraint firstItem="FjQ-pd-PFg" firstAttribute="centerX" secondItem="GqU-d0-P1H" secondAttribute="centerX" id="YZu-ij-qYJ"/>
+                    <constraint firstItem="UzQ-hp-Lwk" firstAttribute="trailing" secondItem="4V8-K2-s2B" secondAttribute="trailing" id="i2F-XI-nHY"/>
+                    <constraint firstItem="FFx-FO-nxL" firstAttribute="top" secondItem="GuI-Gk-bdb" secondAttribute="bottom" constant="10" id="kJT-m6-nuz"/>
+                    <constraint firstItem="4V8-K2-s2B" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="lap-QV-Mjz"/>
+                    <constraint firstItem="GuI-Gk-bdb" firstAttribute="top" secondItem="FjQ-pd-PFg" secondAttribute="bottom" constant="10" id="pY3-je-G2h"/>
+                    <constraint firstItem="FjQ-pd-PFg" firstAttribute="top" secondItem="GqU-d0-P1H" secondAttribute="bottom" constant="10" id="w5K-iS-AIG"/>
+                    <constraint firstItem="GuI-Gk-bdb" firstAttribute="centerX" secondItem="FjQ-pd-PFg" secondAttribute="centerX" id="yNK-RY-ZGA"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="emailLB" destination="FFx-FO-nxL" id="MFG-3H-mN8"/>
+                <outlet property="genderImage" destination="UzQ-hp-Lwk" id="v5s-Z3-TXX"/>
+                <outlet property="headerImage" destination="4V8-K2-s2B" id="Lmk-Ha-emd"/>
+                <outlet property="infoLB" destination="FjQ-pd-PFg" id="VoX-ze-jip"/>
+                <outlet property="nameLB" destination="GqU-d0-P1H" id="wuO-u5-7Se"/>
+                <outlet property="phoneLB" destination="GuI-Gk-bdb" id="kAh-y3-aKD"/>
+            </connections>
+            <point key="canvasLocation" x="63" y="-20.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="修改简历" width="15" height="15"/>
+        <image name="头像" width="84" height="84"/>
+        <image name="文章个人性别男" width="26" height="26"/>
+    </resources>
+</document>

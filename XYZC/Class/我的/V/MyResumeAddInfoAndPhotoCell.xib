@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyResumeAddInfoAndPhotoCellident" rowHeight="328" id="uXg-jL-UVK" customClass="MyResumeAddInfoAndPhotoCell">
+            <rect key="frame" x="0.0" y="0.0" width="312" height="330"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uXg-jL-UVK" id="ebU-uy-BNM">
+                <rect key="frame" x="0.0" y="0.0" width="312" height="329.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="详细标题" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IQD-oj-iLS">
+                        <rect key="frame" x="15" y="10" width="61.5" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CGG-pI-jmj">
+                        <rect key="frame" x="15" y="38" width="282" height="137"/>
+                        <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhB-FI-eMf">
+                        <rect key="frame" x="15" y="303.5" width="225.5" height="16"/>
+                        <attributedString key="attributedText">
+                            <fragment content="注：需填写打">
+                                <attributes>
+                                    <color key="NSColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <font key="NSFont" usesAppearanceFont="YES"/>
+                                </attributes>
+                            </fragment>
+                            <fragment content="＊">
+                                <attributes>
+                                    <color key="NSColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <font key="NSFont" usesAppearanceFont="YES"/>
+                                </attributes>
+                            </fragment>
+                            <fragment content="的内容才能保存该模板">
+                                <attributes>
+                                    <color key="NSColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <font key="NSFont" usesAppearanceFont="YES"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="上传照片" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Nn-ue-KxR">
+                        <rect key="frame" x="27.5" y="260" width="45" height="13.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="拍照" translatesAutoresizingMaskIntoConstraints="NO" id="hjc-lT-mLy">
+                        <rect key="frame" x="15" y="185" width="70" height="70"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="hjc-lT-mLy" secondAttribute="height" id="Zmp-6E-Dbk"/>
+                            <constraint firstAttribute="width" constant="70" id="seC-Tm-R8y"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="9Nn-ue-KxR" firstAttribute="centerX" secondItem="hjc-lT-mLy" secondAttribute="centerX" id="05V-8i-7EN"/>
+                    <constraint firstItem="CGG-pI-jmj" firstAttribute="top" secondItem="IQD-oj-iLS" secondAttribute="bottom" constant="10" id="8DX-dG-Gxx"/>
+                    <constraint firstItem="IQD-oj-iLS" firstAttribute="top" secondItem="ebU-uy-BNM" secondAttribute="top" constant="10" id="A60-OE-526"/>
+                    <constraint firstItem="hjc-lT-mLy" firstAttribute="leading" secondItem="CGG-pI-jmj" secondAttribute="leading" id="DGn-7j-fSH"/>
+                    <constraint firstAttribute="bottom" secondItem="yhB-FI-eMf" secondAttribute="bottom" constant="10" id="Q7L-af-ahb"/>
+                    <constraint firstAttribute="trailing" secondItem="CGG-pI-jmj" secondAttribute="trailing" constant="15" id="RMN-Xk-ycY"/>
+                    <constraint firstItem="hjc-lT-mLy" firstAttribute="top" secondItem="CGG-pI-jmj" secondAttribute="bottom" constant="10" id="Yxl-a7-KMg"/>
+                    <constraint firstItem="yhB-FI-eMf" firstAttribute="leading" secondItem="CGG-pI-jmj" secondAttribute="leading" id="cV4-S8-LnE"/>
+                    <constraint firstItem="9Nn-ue-KxR" firstAttribute="top" secondItem="hjc-lT-mLy" secondAttribute="bottom" constant="5" id="fVQ-ln-Fdo"/>
+                    <constraint firstItem="yhB-FI-eMf" firstAttribute="top" secondItem="9Nn-ue-KxR" secondAttribute="bottom" constant="30" id="hCj-Be-6qp"/>
+                    <constraint firstItem="IQD-oj-iLS" firstAttribute="leading" secondItem="ebU-uy-BNM" secondAttribute="leading" constant="15" id="sdK-Dj-Ivn"/>
+                    <constraint firstItem="CGG-pI-jmj" firstAttribute="leading" secondItem="IQD-oj-iLS" secondAttribute="leading" id="tIi-46-A5v"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="7xB-rg-Ogd"/>
+            <connections>
+                <outlet property="infoTextView" destination="CGG-pI-jmj" id="8aY-p4-pa9"/>
+                <outlet property="phtotImageView" destination="hjc-lT-mLy" id="AzL-Ur-KGM"/>
+                <outlet property="titleLB" destination="IQD-oj-iLS" id="mGf-8y-o62"/>
+            </connections>
+            <point key="canvasLocation" x="21" y="431"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="拍照" width="78" height="77"/>
+    </resources>
+</document>

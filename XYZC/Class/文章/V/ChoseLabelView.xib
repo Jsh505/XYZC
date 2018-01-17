@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ChoseLabelView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F7n-F6-HYe">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <gestureRecognizers/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vuY-qV-Aau">
+                    <rect key="frame" x="47.5" y="153.5" width="280" height="380"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="XXX的标签" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="glt-sn-ag1">
+                            <rect key="frame" x="97.5" y="15" width="85.5" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TEl-k0-MdB">
+                            <rect key="frame" x="15" y="330" width="250" height="40"/>
+                            <color key="backgroundColor" red="1" green="0.83137254901960778" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="44G-Kz-Jdg"/>
+                            </constraints>
+                            <state key="normal" title="赠送标签">
+                                <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="sendLabelButtonCilick:" destination="iN0-l3-epB" eventType="touchUpInside" id="dmm-xO-XBc"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="选择为心仪的TA送一款标签" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Jn-aT-NRY">
+                            <rect key="frame" x="15" y="310.5" width="149.5" height="14.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pkp-dC-NUV">
+                            <rect key="frame" x="0.0" y="46" width="280" height="254.5"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="TEl-k0-MdB" firstAttribute="leading" secondItem="vuY-qV-Aau" secondAttribute="leading" constant="15" id="0gA-Wt-Ahk"/>
+                        <constraint firstAttribute="trailing" secondItem="Pkp-dC-NUV" secondAttribute="trailing" id="5XH-QI-s0S"/>
+                        <constraint firstItem="0Jn-aT-NRY" firstAttribute="top" secondItem="Pkp-dC-NUV" secondAttribute="bottom" constant="10" id="5pZ-KI-DVy"/>
+                        <constraint firstItem="0Jn-aT-NRY" firstAttribute="leading" secondItem="TEl-k0-MdB" secondAttribute="leading" id="Bga-WM-ZGF"/>
+                        <constraint firstItem="TEl-k0-MdB" firstAttribute="top" secondItem="0Jn-aT-NRY" secondAttribute="bottom" constant="5" id="CjU-ar-Fhd"/>
+                        <constraint firstItem="TEl-k0-MdB" firstAttribute="centerX" secondItem="vuY-qV-Aau" secondAttribute="centerX" id="DK2-3p-WYe"/>
+                        <constraint firstItem="Pkp-dC-NUV" firstAttribute="top" secondItem="glt-sn-ag1" secondAttribute="bottom" constant="10" id="Dbm-sV-9aI"/>
+                        <constraint firstItem="glt-sn-ag1" firstAttribute="top" secondItem="vuY-qV-Aau" secondAttribute="top" constant="15" id="GBG-qK-7zb"/>
+                        <constraint firstAttribute="width" constant="280" id="HrG-aR-N61"/>
+                        <constraint firstAttribute="height" constant="380" id="IEI-wm-ERh"/>
+                        <constraint firstItem="Pkp-dC-NUV" firstAttribute="leading" secondItem="vuY-qV-Aau" secondAttribute="leading" id="N8u-yI-Mbl"/>
+                        <constraint firstAttribute="bottom" secondItem="TEl-k0-MdB" secondAttribute="bottom" constant="10" id="rIY-ht-2Qu"/>
+                        <constraint firstItem="glt-sn-ag1" firstAttribute="centerX" secondItem="vuY-qV-Aau" secondAttribute="centerX" id="sWG-CQ-gqf"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="F7n-F6-HYe" secondAttribute="trailing" id="3mi-LB-BCb"/>
+                <constraint firstItem="F7n-F6-HYe" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="4dE-Bp-MPm"/>
+                <constraint firstItem="vuY-qV-Aau" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="Kzb-Hu-5rg"/>
+                <constraint firstItem="F7n-F6-HYe" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="SJR-UE-uad"/>
+                <constraint firstItem="vuY-qV-Aau" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="h4B-Pi-DQJ"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="F7n-F6-HYe" secondAttribute="bottom" id="qWH-aT-Q4a"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="collectionBackView" destination="Pkp-dC-NUV" id="9hX-3h-ybr"/>
+                <outlet property="contentView" destination="vuY-qV-Aau" id="bXd-vg-FtI"/>
+                <outlet property="masView" destination="F7n-F6-HYe" id="wN2-Yu-CaC"/>
+            </connections>
+            <point key="canvasLocation" x="25.5" y="51.5"/>
+        </view>
+    </objects>
+</document>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CampusDisplayCellident" rowHeight="120" id="KGk-i7-Jjw" customClass="CampusDisplayCell">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="135"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="393" height="134.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yCe-NE-GBU">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="1"/>
+                        <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="MBn-f2-GFk"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="大图" translatesAutoresizingMaskIntoConstraints="NO" id="cO8-42-aZp">
+                        <rect key="frame" x="10" y="10" width="142" height="114.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="cO8-42-aZp" secondAttribute="height" multiplier="130:105" id="st2-er-ulY"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="中国最高立刻学府" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AMc-BA-PAB">
+                        <rect key="frame" x="167" y="10" width="216" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="jZh-kH-tcL"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="清华大学" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xbU-3I-1TY">
+                        <rect key="frame" x="167" y="36" width="53.5" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="xmU-du-1je"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="详细内容详细内容详细内容详细内容详细内容详细内容" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pvl-2G-7Y9">
+                        <rect key="frame" x="167" y="57" width="216" height="46"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21312人阅读" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="768-1L-9EE">
+                        <rect key="frame" x="167" y="108" width="75.5" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="FcM-up-HRy"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="cO8-42-aZp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="7ca-s1-Gtz"/>
+                    <constraint firstItem="cO8-42-aZp" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="B7g-eI-Y07"/>
+                    <constraint firstAttribute="trailing" secondItem="yCe-NE-GBU" secondAttribute="trailing" id="FM4-aT-Ho3"/>
+                    <constraint firstItem="yCe-NE-GBU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="FQi-LQ-puL"/>
+                    <constraint firstItem="xbU-3I-1TY" firstAttribute="leading" secondItem="AMc-BA-PAB" secondAttribute="leading" id="JLG-sX-HqP"/>
+                    <constraint firstItem="pvl-2G-7Y9" firstAttribute="top" secondItem="xbU-3I-1TY" secondAttribute="bottom" constant="5" id="LBM-2L-zoK"/>
+                    <constraint firstItem="pvl-2G-7Y9" firstAttribute="width" secondItem="AMc-BA-PAB" secondAttribute="width" id="M3f-1E-Qzv"/>
+                    <constraint firstItem="xbU-3I-1TY" firstAttribute="top" secondItem="AMc-BA-PAB" secondAttribute="bottom" constant="5" id="NYL-dd-Zub"/>
+                    <constraint firstItem="768-1L-9EE" firstAttribute="top" secondItem="pvl-2G-7Y9" secondAttribute="bottom" constant="5" id="OQl-C6-4c0"/>
+                    <constraint firstItem="768-1L-9EE" firstAttribute="bottom" secondItem="cO8-42-aZp" secondAttribute="bottom" id="aGX-qq-dDt"/>
+                    <constraint firstItem="cO8-42-aZp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="cnp-2A-cC6"/>
+                    <constraint firstItem="768-1L-9EE" firstAttribute="leading" secondItem="pvl-2G-7Y9" secondAttribute="leading" id="jjc-ie-kIJ"/>
+                    <constraint firstItem="AMc-BA-PAB" firstAttribute="top" secondItem="cO8-42-aZp" secondAttribute="top" id="ovd-ds-2b5"/>
+                    <constraint firstAttribute="trailing" secondItem="AMc-BA-PAB" secondAttribute="trailing" constant="10" id="qAY-hk-aIu"/>
+                    <constraint firstItem="yCe-NE-GBU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="rJi-ZB-vHH"/>
+                    <constraint firstItem="pvl-2G-7Y9" firstAttribute="leading" secondItem="xbU-3I-1TY" secondAttribute="leading" id="sa7-6j-ClP"/>
+                    <constraint firstItem="AMc-BA-PAB" firstAttribute="leading" secondItem="cO8-42-aZp" secondAttribute="trailing" constant="15" id="seM-Fp-RqG"/>
+                </constraints>
+            </tableViewCellContentView>
+            <gestureRecognizers/>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <point key="canvasLocation" x="-275.5" y="148.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="大图" width="750" height="432"/>
+    </resources>
+</document>

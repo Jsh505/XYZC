@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MyPointsHeaderView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="195"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OzJ-NP-8hK">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="360" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XMy-KH-TLD">
+                            <rect key="frame" x="137.5" y="38" width="80.5" height="53"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="44"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="积分" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eSr-jQ-5AF">
+                            <rect key="frame" x="218" y="64" width="29" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="已连续签到2天" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hv3-iO-qQx">
+                            <rect key="frame" x="282.5" y="107" width="87.5" height="16"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.98039215686274506" green="0.83137254901960778" blue="0.28235294117647058" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="hv3-iO-qQx" secondAttribute="bottom" constant="5" id="6R8-bp-JtW"/>
+                        <constraint firstAttribute="trailing" secondItem="hv3-iO-qQx" secondAttribute="trailing" constant="5" id="979-h8-CUQ"/>
+                        <constraint firstItem="eSr-jQ-5AF" firstAttribute="bottom" secondItem="XMy-KH-TLD" secondAttribute="bottom" constant="-10" id="UM5-vF-sV1"/>
+                        <constraint firstItem="XMy-KH-TLD" firstAttribute="centerY" secondItem="OzJ-NP-8hK" secondAttribute="centerY" id="rFG-LY-buZ"/>
+                        <constraint firstItem="eSr-jQ-5AF" firstAttribute="leading" secondItem="XMy-KH-TLD" secondAttribute="trailing" id="s6L-iT-Lgc"/>
+                        <constraint firstItem="XMy-KH-TLD" firstAttribute="centerX" secondItem="OzJ-NP-8hK" secondAttribute="centerX" constant="-10" id="y5m-1L-ied"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Thb-EU-gaF">
+                    <rect key="frame" x="0.0" y="128" width="187.5" height="67"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="   签到" image="我的积分_签到">
+                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                    </state>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sbh-7D-YUE">
+                    <rect key="frame" x="187.5" y="128" width="1" height="67"/>
+                    <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="1" id="yPT-4P-oqR"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7wz-Wj-f2R">
+                    <rect key="frame" x="187.5" y="128" width="187.5" height="67"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="  我的兑换" image="我的积分_兑换">
+                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="7wz-Wj-f2R" firstAttribute="leading" secondItem="Thb-EU-gaF" secondAttribute="trailing" id="064-oR-CVH"/>
+                <constraint firstItem="Thb-EU-gaF" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.5" id="1Qa-bu-WxB"/>
+                <constraint firstItem="Thb-EU-gaF" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="6mf-Zt-GDT"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Thb-EU-gaF" secondAttribute="bottom" id="7yJ-2x-xSe"/>
+                <constraint firstItem="OzJ-NP-8hK" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="115:175" id="9GE-vo-4Kx"/>
+                <constraint firstItem="OzJ-NP-8hK" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Fkv-TQ-UL6"/>
+                <constraint firstItem="Sbh-7D-YUE" firstAttribute="leading" secondItem="Thb-EU-gaF" secondAttribute="trailing" id="HA7-vf-N3d"/>
+                <constraint firstItem="7wz-Wj-f2R" firstAttribute="width" secondItem="Thb-EU-gaF" secondAttribute="width" id="Lkn-a5-XVR"/>
+                <constraint firstItem="OzJ-NP-8hK" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="OTU-oA-Hiv"/>
+                <constraint firstItem="Sbh-7D-YUE" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="bun-cw-h9C"/>
+                <constraint firstItem="7wz-Wj-f2R" firstAttribute="height" secondItem="Thb-EU-gaF" secondAttribute="height" id="far-TS-wmu"/>
+                <constraint firstItem="7wz-Wj-f2R" firstAttribute="centerY" secondItem="Thb-EU-gaF" secondAttribute="centerY" id="iRA-6f-Mm7"/>
+                <constraint firstItem="Sbh-7D-YUE" firstAttribute="top" secondItem="OzJ-NP-8hK" secondAttribute="bottom" id="n9p-9F-BBx"/>
+                <constraint firstItem="Thb-EU-gaF" firstAttribute="top" secondItem="OzJ-NP-8hK" secondAttribute="bottom" id="oGN-3C-65f"/>
+                <constraint firstItem="OzJ-NP-8hK" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="uIR-FO-3JK"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="exchangeButton" destination="7wz-Wj-f2R" id="x0Q-CO-nYy"/>
+                <outlet property="headerView" destination="OzJ-NP-8hK" id="6bM-5u-5oF"/>
+                <outlet property="infoLB" destination="hv3-iO-qQx" id="Goc-cV-ASS"/>
+                <outlet property="pointLB" destination="XMy-KH-TLD" id="rAW-Po-iHn"/>
+                <outlet property="signButton" destination="Thb-EU-gaF" id="Etp-Pn-yv0"/>
+            </connections>
+            <point key="canvasLocation" x="39.5" y="-215.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="我的积分_兑换" width="33" height="33"/>
+        <image name="我的积分_签到" width="33" height="33"/>
+    </resources>
+</document>

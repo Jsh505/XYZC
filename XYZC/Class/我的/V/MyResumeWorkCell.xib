@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyResumeWorkCellident" rowHeight="98" id="AY9-fB-MEQ" customClass="MyResumeWorkCell">
+            <rect key="frame" x="0.0" y="0.0" width="339" height="90"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AY9-fB-MEQ" id="lU0-QU-s2e">
+                <rect key="frame" x="0.0" y="0.0" width="339" height="89.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ibT-qz-vq3">
+                        <rect key="frame" x="0.0" y="0.0" width="339" height="1"/>
+                        <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="euf-WW-od6"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2007-02-2008-12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1zx-u4-xnA">
+                        <rect key="frame" x="15" y="10" width="126.5" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="18" id="fcp-sC-y4c"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="公司名字" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ahp-UQ-BbN">
+                        <rect key="frame" x="15" y="38" width="61.5" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="在校经历：详细内容详细内容详细内容详细内容详细内容详细内容详细内容详细内容详细内容" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xEe-CU-1cd">
+                        <rect key="frame" x="15" y="66" width="309" height="13.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="修改简历_右键" translatesAutoresizingMaskIntoConstraints="NO" id="jSh-jN-Jxs">
+                        <rect key="frame" x="308" y="39" width="16" height="16"/>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="jSh-jN-Jxs" secondAttribute="trailing" constant="15" id="2xo-ax-RJr"/>
+                    <constraint firstAttribute="trailing" secondItem="xEe-CU-1cd" secondAttribute="trailing" constant="15" id="5XR-cQ-DZl"/>
+                    <constraint firstAttribute="bottom" secondItem="xEe-CU-1cd" secondAttribute="bottom" constant="10" id="5hi-iD-nmt"/>
+                    <constraint firstItem="ibT-qz-vq3" firstAttribute="top" secondItem="lU0-QU-s2e" secondAttribute="top" id="BB6-a0-aSd"/>
+                    <constraint firstAttribute="trailing" secondItem="ibT-qz-vq3" secondAttribute="trailing" id="ER6-0S-YVg"/>
+                    <constraint firstItem="1zx-u4-xnA" firstAttribute="leading" secondItem="lU0-QU-s2e" secondAttribute="leading" constant="15" id="MJi-OT-lLF"/>
+                    <constraint firstItem="xEe-CU-1cd" firstAttribute="top" secondItem="ahp-UQ-BbN" secondAttribute="bottom" constant="10" id="S7m-7v-Cmw"/>
+                    <constraint firstItem="ahp-UQ-BbN" firstAttribute="leading" secondItem="1zx-u4-xnA" secondAttribute="leading" id="Vv7-mG-CeC"/>
+                    <constraint firstItem="jSh-jN-Jxs" firstAttribute="centerY" secondItem="ahp-UQ-BbN" secondAttribute="centerY" id="gKt-4s-QGj"/>
+                    <constraint firstItem="ahp-UQ-BbN" firstAttribute="height" secondItem="1zx-u4-xnA" secondAttribute="height" id="lNM-qa-lpp"/>
+                    <constraint firstItem="xEe-CU-1cd" firstAttribute="leading" secondItem="ahp-UQ-BbN" secondAttribute="leading" id="pBP-8t-idl"/>
+                    <constraint firstItem="1zx-u4-xnA" firstAttribute="top" secondItem="lU0-QU-s2e" secondAttribute="top" constant="10" id="paI-Vg-kQ2"/>
+                    <constraint firstItem="ahp-UQ-BbN" firstAttribute="top" secondItem="1zx-u4-xnA" secondAttribute="bottom" constant="10" id="qCf-5h-ASM"/>
+                    <constraint firstItem="ibT-qz-vq3" firstAttribute="leading" secondItem="lU0-QU-s2e" secondAttribute="leading" id="yU6-rh-MjJ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="nY9-Wj-VEw"/>
+            <connections>
+                <outlet property="infoLB" destination="xEe-CU-1cd" id="dO8-7u-fwk"/>
+                <outlet property="nameLB" destination="ahp-UQ-BbN" id="Wb7-d5-VEN"/>
+                <outlet property="timeLB" destination="1zx-u4-xnA" id="mXY-bF-bQc"/>
+            </connections>
+            <point key="canvasLocation" x="34.5" y="78.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="修改简历_右键" width="16" height="16"/>
+    </resources>
+</document>

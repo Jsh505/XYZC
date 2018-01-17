@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="bindingSuccessVC">
+            <connections>
+                <outlet property="view" destination="rw3-Bg-iw5" id="lkz-1W-C4m"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="rw3-Bg-iw5">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eAb-0j-D0F">
+                    <rect key="frame" x="20" y="320" width="335" height="50"/>
+                    <color key="backgroundColor" red="0.97254901959999995" green="0.83921568629999999" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="d1Q-JX-b4b"/>
+                    </constraints>
+                    <state key="normal" title="确 定">
+                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="我的积分_签到成功" translatesAutoresizingMaskIntoConstraints="NO" id="TPb-MK-Qon">
+                    <rect key="frame" x="150.5" y="140" width="73" height="73"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="绑定成功" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lid-Fd-hMh">
+                    <rect key="frame" x="152.5" y="228" width="69.5" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.40494662523269653" green="0.7906154990196228" blue="0.61173409223556519" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Vrq-ZW-K7m" firstAttribute="trailing" secondItem="eAb-0j-D0F" secondAttribute="trailing" constant="20" id="L56-RJ-z8z"/>
+                <constraint firstItem="eAb-0j-D0F" firstAttribute="top" secondItem="lid-Fd-hMh" secondAttribute="bottom" constant="71" id="Oai-hn-2PQ"/>
+                <constraint firstItem="TPb-MK-Qon" firstAttribute="top" secondItem="Vrq-ZW-K7m" secondAttribute="top" constant="120" id="S4D-my-8sH"/>
+                <constraint firstItem="lid-Fd-hMh" firstAttribute="top" secondItem="TPb-MK-Qon" secondAttribute="bottom" constant="15" id="XVF-FL-2n3"/>
+                <constraint firstItem="eAb-0j-D0F" firstAttribute="leading" secondItem="Vrq-ZW-K7m" secondAttribute="leading" constant="20" id="ceW-xw-ocF"/>
+                <constraint firstItem="TPb-MK-Qon" firstAttribute="centerX" secondItem="Vrq-ZW-K7m" secondAttribute="centerX" id="cmC-UT-4Ai"/>
+                <constraint firstItem="lid-Fd-hMh" firstAttribute="centerX" secondItem="TPb-MK-Qon" secondAttribute="centerX" id="gyy-0L-RrG"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Vrq-ZW-K7m"/>
+            <point key="canvasLocation" x="24.5" y="52.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="我的积分_签到成功" width="73" height="73"/>
+    </resources>
+</document>

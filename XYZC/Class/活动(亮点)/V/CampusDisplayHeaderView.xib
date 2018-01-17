@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="210"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fPX-S2-nVQ">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="155"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="详细内容详细内容详细内容详细内容" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AOe-fR-xsT">
+                    <rect key="frame" x="10" y="186.5" width="355" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12312人观看" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IQh-N8-HRg">
+                    <rect key="frame" x="290" y="129.5" width="75.5" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="大标题---大学" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YCe-9s-ZLf">
+                    <rect key="frame" x="10" y="160.5" width="355" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="AOe-fR-xsT" firstAttribute="top" secondItem="YCe-9s-ZLf" secondAttribute="bottom" constant="5" id="6jl-WJ-YSN"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="YCe-9s-ZLf" secondAttribute="trailing" constant="10" id="7RB-pM-9cc"/>
+                <constraint firstItem="IQh-N8-HRg" firstAttribute="bottom" secondItem="fPX-S2-nVQ" secondAttribute="bottom" constant="-10" id="A8M-7r-7BM"/>
+                <constraint firstItem="IQh-N8-HRg" firstAttribute="trailing" secondItem="fPX-S2-nVQ" secondAttribute="trailing" constant="-10" id="GXD-1U-6bR"/>
+                <constraint firstItem="fPX-S2-nVQ" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="HDb-2t-3Td"/>
+                <constraint firstItem="fPX-S2-nVQ" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="155:210" id="LOz-gg-txX"/>
+                <constraint firstItem="AOe-fR-xsT" firstAttribute="width" secondItem="YCe-9s-ZLf" secondAttribute="width" id="Yja-t1-C3F"/>
+                <constraint firstItem="YCe-9s-ZLf" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="eC5-VR-9ee"/>
+                <constraint firstAttribute="trailing" secondItem="fPX-S2-nVQ" secondAttribute="trailing" id="ea2-wA-jjh"/>
+                <constraint firstItem="AOe-fR-xsT" firstAttribute="leading" secondItem="YCe-9s-ZLf" secondAttribute="leading" id="jl0-BX-h67"/>
+                <constraint firstItem="fPX-S2-nVQ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="k64-in-mzu"/>
+                <constraint firstItem="YCe-9s-ZLf" firstAttribute="top" secondItem="fPX-S2-nVQ" secondAttribute="bottom" constant="5" id="wpk-WL-FX6"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="24.5" y="58"/>
+        </view>
+    </objects>
+</document>
