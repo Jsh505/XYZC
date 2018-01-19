@@ -12,6 +12,22 @@
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
+
+#endif /* PrefixHeader_pch */
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+
+//#import "ChatDemoUIDefine.h"
+//#import "EMAlertView.h"
+//#import "TTGlobalUICommon.h"
+
+#import <HyphenateLite/HyphenateLite.h>
+#import "EaseUI.h"
+
+#define DEMO_CALL 1
+
 #define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
 #define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
 #define IOS_VERSION [[[UIDevice currentDevice] systemVersion] floatValue]
@@ -67,7 +83,6 @@
 #define KColor(r,g,b) [UIColor colorWithRed:(r/255.0) green:(g/255.0) blue:(b/255.0) alpha:1.0]
 
 //配置常量
-#ifdef __OBJC__
 
 #define WXDoctor_App_ID @"wxd1931d4a0e462***"  // 注册微信时的AppID
 #import "AppDelegate.h"
@@ -79,6 +94,3 @@
 
 #endif
 
-
-
-#endif /* PrefixHeader_pch */

@@ -25,5 +25,7 @@ pod 'SDCycleScrollView', '~> 1.75'
 pod 'TTTAttributedLabel'
 #选项卡
 pod 'YUSegment', '~> 1.0.1'
+#环信
+pod 'HyphenateLite'
 
 end

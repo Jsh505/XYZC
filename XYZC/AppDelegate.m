@@ -11,6 +11,7 @@
 #import "LoginVC.h"
 #import "BaseNavigationController.h"
 #import <IQKeyboardManager.h>
+#import <HyphenateLite/HyphenateLite.h>
 
 @interface AppDelegate ()
 
@@ -38,6 +39,18 @@
     [self configureBoardManager];
     [[UITextField appearance] setTintColor:[UIColor mainColor]];  //改变光标颜色
     
+    //AppKey:注册的AppKey，详细见下面注释。
+    //apnsCertName:推送证书名（不需要加后缀），详细见下面注释。
+    EMOptions *options = [EMOptions optionsWithAppkey:@"1162161114115050#emchatdemo"];
+    options.apnsCertName = @"istore_dev";
+    [[EMClient sharedClient] initializeSDKWithOptions:options];
+    
+    
+    EMError *error = [[EMClient sharedClient] loginWithUsername:@"13684071409" password:@"123123"];
+    if (!error)
+    {
+        [[EMClient sharedClient].options setIsAutoLogin:YES];
+    }
     return YES;
 }
 
@@ -76,13 +89,13 @@
 // APP进入后台
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    //    [[EMClient sharedClient] applicationDidEnterBackground:application];
+        [[EMClient sharedClient] applicationDidEnterBackground:application];
 }
 
 // APP将要从后台返回
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
-    //    [[EMClient sharedClient] applicationWillEnterForeground:application];
+        [[EMClient sharedClient] applicationWillEnterForeground:application];
 }
 
 

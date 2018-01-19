@@ -9,6 +9,7 @@
 #import "LoginVC.h"
 #import "RegisterVC.h"
 #import "UserInfoModel.h"
+//#import "EaseMessageViewController.h"
 
 @interface LoginVC ()
 
@@ -77,7 +78,12 @@
     {
         [MBProgressHUD showErrorMessage:error];
     }];
-    
+}
+
+- (void)forgetPassWordButtonClicked
+{
+    EaseMessageViewController *chatController = [[EaseMessageViewController alloc] initWithConversationChatter:@"8001" conversationType:EMConversationTypeChat];
+    [self.navigationController pushViewController:chatController animated:YES];
 }
 
 #pragma mark - IBActions(xib响应方法)
@@ -85,6 +91,7 @@
 - (IBAction)QQLogin:(id)sender
 {
     //QQ
+    
 }
 
 - (IBAction)WXLogin:(id)sender

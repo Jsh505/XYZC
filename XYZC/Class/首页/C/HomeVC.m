@@ -125,6 +125,8 @@
 
 - (void)leftBarButtonClicked
 {
+    
+    
     [self.conditionFilterView dismiss];
     TLCityPickerController *cityPickerVC = [[TLCityPickerController alloc] init];
     [cityPickerVC setDelegate:self];
