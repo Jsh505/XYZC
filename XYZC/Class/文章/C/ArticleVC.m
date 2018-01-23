@@ -14,6 +14,9 @@
 #import "PopoverView.h"
 
 @interface ArticleVC () <UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource, ArticleListCellDelegate>
+{
+    int _type;
+}
 
 @property (nonatomic, strong) UIButton * rightBarButton;
 @property (nonatomic,strong) UISegmentedControl   *headerSegment;
@@ -39,33 +42,71 @@
     
     [self creatArticleView];
     
+    _type = 1;
+    self.dataSource = [[NSMutableArray alloc] init];
+    self.dataSource1 = [[NSMutableArray alloc] init];
+    self.dataSource2 = [[NSMutableArray alloc] init];
     [self loadData];
+    
+    //获取通知中心单例对象
+    NSNotificationCenter * center = [NSNotificationCenter defaultCenter];
+    //添加当前类对象为一个观察者，name和object设置为nil，表示接收一切通知
+    [center addObserver:self selector:@selector(loadData) name:@"articleHomeRefush" object:nil];
 }
 
 - (void)loadData
 {
     //result ，msg ，articleList 列表字段如下：articleid 文章id title 标题content 内容，cdate添加时间 name 作者姓名 nickname作者昵称 userId作者id picturename 图片名称 headpicturename 作者头像图片名称   school 学校 grade 年级 gender 性别 goodnumber 点赞数 commnumber 评论数 isgood  当前用户是否点赞（1  点过 0 未点）
-    for (int i = 1; i < 4; i ++)
-    {
-        NSMutableDictionary * parametersDic = [[NSMutableDictionary alloc] init];
-        [parametersDic setObject:@([UserSignData share].user.userId) forKey:@"userId"];
-        [parametersDic setObject:@(i) forKey:@"type"];
-        
-        [PPNetworkHelper POST:@"queryArticleList.app" parameters:parametersDic hudString:@"获取中..." success:^(id responseObject)
+    NSMutableDictionary * parametersDic = [[NSMutableDictionary alloc] init];
+    [parametersDic setObject:@([UserSignData share].user.userId) forKey:@"userId"];
+    [parametersDic setObject:@(_type) forKey:@"type"];
+    
+    [PPNetworkHelper POST:@"queryArticleList.app" parameters:parametersDic hudString:@"获取中..." success:^(id responseObject)
+     {
+         switch (_type)
          {
-             [self.dataSource removeAllObjects];
-             
-             for (NSDictionary * dic in [responseObject objectForKey:@"articleList"])
+             case 1:
              {
-                 MyarticleModel * model = [[MyarticleModel alloc] initWithDictionary:dic];
-                 [self.dataSource addObject:model];
+                 [self.dataSource removeAllObjects];
+                 for (NSDictionary * dic in [responseObject objectForKey:@"articleList"])
+                 {
+                     MyarticleModel * model = [[MyarticleModel alloc] initWithDictionary:dic];
+                     [self.dataSource addObject:model];
+                 }
+                 [self.coustromTableView reloadData];
+                 break;
              }
-             [self.coustromTableView reloadData];
-         } failure:^(NSString *error)
-         {
-             
-         }];
-    }
+             case 2:
+             {
+                 [self.dataSource1 removeAllObjects];
+                 for (NSDictionary * dic in [responseObject objectForKey:@"articleList"])
+                 {
+                     MyarticleModel * model = [[MyarticleModel alloc] initWithDictionary:dic];
+                     [self.dataSource1 addObject:model];
+                 }
+                 [self.coustromTableView1 reloadData];
+                 break;
+             }
+             case 3:
+             {
+                 [self.dataSource2 removeAllObjects];
+                 for (NSDictionary * dic in [responseObject objectForKey:@"articleList"])
+                 {
+                     MyarticleModel * model = [[MyarticleModel alloc] initWithDictionary:dic];
+                     [self.dataSource2 addObject:model];
+                 }
+                 [self.coustromTableView2 reloadData];
+                 break;
+             }
+             default:
+                 break;
+         }
+         
+         
+     } failure:^(NSString *error)
+     {
+         [MBProgressHUD showErrorMessage:error];
+     }];
     
 }
 
@@ -85,6 +126,8 @@
     frame.origin.x = index * CGRectGetWidth(self.contentScrollview.frame);
     frame.origin.y = 0;
     [self.contentScrollview scrollRectToVisible:frame animated:YES];
+    _type = (int)index + 1;
+    [self loadData];
 }
 
 #pragma mark - IBActions(xib响应方法)
@@ -158,10 +201,22 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-- (void)dianzanButton:(UIButton *)button
+- (void)dianzanButton:(UIButton *)button Model:(MyarticleModel *)model
 {
     //点赞
-    button.selected = YES;
+    NSMutableDictionary * parametersDic = [[NSMutableDictionary alloc] init];
+    [parametersDic setObject:@([UserSignData share].user.userId) forKey:@"userId"];
+    [parametersDic setObject:@(model.id) forKey:@"articleId"];
+    
+    [PPNetworkHelper POST:@"goodArticle.app" parameters:parametersDic hudString:nil success:^(id responseObject)
+    {
+        button.selected = !button.selected;
+        
+    } failure:^(NSString *error)
+    {
+        [MBProgressHUD showErrorMessage:error];
+    }];
+    
 }
 
 - (void)pinglunButton:(UIButton *)button
@@ -172,11 +227,13 @@
 #pragma mark - Scrollview delegate
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    if (scrollView != self.coustromTableView)
+    if (scrollView != self.coustromTableView && scrollView != self.coustromTableView1 && scrollView != self.coustromTableView2)
     {
         CGFloat offSetX = scrollView.contentOffset.x;
         NSInteger ratio = round(offSetX / SCREEN_WIDTH);
         _headerSegment.selectedSegmentIndex = ratio;
+        _type = (int)ratio + 1;
+        [self loadData];
     }
 }
 
@@ -186,15 +243,15 @@
 {
     if (tableView == self.coustromTableView)
     {
-        return 3;
+        return self.dataSource.count;
     }
     else if (tableView == self.coustromTableView1)
     {
-        return 2;
+        return self.dataSource1.count;
     }
     else
     {
-        return 1;
+        return self.dataSource2.count;
     }
 }
 
@@ -212,6 +269,18 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     cell.delegate = self;
+    if (tableView == self.coustromTableView)
+    {
+        cell.model = self.dataSource[indexPath.row];
+    }
+    else if (tableView == self.coustromTableView1)
+    {
+        cell.model = self.dataSource1[indexPath.row];
+    }
+    else
+    {
+        cell.model = self.dataSource2[indexPath.row];
+    }
     return cell;
 }
 
@@ -220,6 +289,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ArticleInfoVC * vc = [[ArticleInfoVC alloc] init];
+    vc.model = self.dataSource[indexPath.row];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

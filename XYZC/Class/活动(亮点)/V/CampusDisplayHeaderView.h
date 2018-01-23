@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CampusDisplayListModel.h"
 
 @interface CampusDisplayHeaderView : UIView
+
+@property (weak, nonatomic) IBOutlet UIImageView *headerImageView;
+@property (weak, nonatomic) IBOutlet UILabel *titleLB;
+@property (weak, nonatomic) IBOutlet UILabel *watchNumberLB;
+@property (weak, nonatomic) IBOutlet UILabel *infoLB;
+
+@property (nonatomic, strong) CampusDisplayListModel * model;
 
 @end

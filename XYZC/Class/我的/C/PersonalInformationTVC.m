@@ -29,7 +29,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *heightTF;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (weak, nonatomic) IBOutlet UILabel *phoneLB;
-@property (weak, nonatomic) IBOutlet UILabel *emailLB;
+@property (weak, nonatomic) IBOutlet UITextField *emailTF;
 
 @property (nonatomic, strong) UIButton * rightBarButton;
 
@@ -108,7 +108,7 @@
     [parametersDic setObject:self.textView.text forKey:@"perSignature"];
     [parametersDic setObject:self.cityLB.text forKey:@"city"];
     [parametersDic setObject:self.phoneLB.text forKey:@"phone"];
-    [parametersDic setObject:self.emailLB.text forKey:@"email"];
+    [parametersDic setObject:self.emailTF.text forKey:@"email"];
     [parametersDic setObject:self.textView.text forKey:@"evaluate"];
     
     [PPNetworkHelper POST:@"addOrUpdateResume.app" parameters:parametersDic hudString:@"修改中..." success:^(id responseObject)
@@ -187,7 +187,7 @@
     self.birthLB.text = [NSString is_NulllWithObject:[UserSignData share].user.userInfo.birth] ? @"" : [UserSignData share].user.userInfo.birth;
     self.textView.text = [NSString is_NulllWithObject:[UserSignData share].user.userInfo.perSignature] ? @"" : [UserSignData share].user.userInfo.perSignature;
     self.phoneLB.text = [NSString is_NulllWithObject:[UserSignData share].user.userInfo.phone] ? @"" : [UserSignData share].user.userInfo.phone;
-    self.emailLB.text = [NSString is_NulllWithObject:[UserSignData share].user.userInfo.email] ? @"" : [UserSignData share].user.userInfo.email;
+    self.emailTF.text = [NSString is_NulllWithObject:[UserSignData share].user.userInfo.email] ? @"" : [UserSignData share].user.userInfo.email;
     //    self.infoLB.text = [NSString stringWithFormat:@"%@ 无参数 %@",[NSString is_NulllWithObject:[UserSignData share].user.userInfo.colleges] ? @"未设置" : [UserSignData share].user.userInfo.colleges,
     //                        [NSString is_NulllWithObject:[UserSignData share].user.userInfo.grade] ? @"未设置" : [UserSignData share].user.userInfo.grade];
 }
@@ -220,9 +220,8 @@
     
 }
 
-- (void)imagePicker:(LDImagePicker *)imagePicker didFinished:(UIImage *)editedImage{
-    
-    
+- (void)imagePicker:(LDImagePicker *)imagePicker didFinished:(UIImage *)editedImage
+{
     //上传图片
     NSDate* dat = [NSDate dateWithTimeIntervalSinceNow:0];
     NSTimeInterval a=[dat timeIntervalSince1970]*1000;

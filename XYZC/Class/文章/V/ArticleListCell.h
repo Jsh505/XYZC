@@ -13,7 +13,7 @@
 
 - (void)moreButton:(UIButton *)button;
 - (void)pushPerson;
-- (void)dianzanButton:(UIButton *)button;
+- (void)dianzanButton:(UIButton *)button Model:(MyarticleModel *)model;
 - (void)pinglunButton:(UIButton *)button;
 
 @end

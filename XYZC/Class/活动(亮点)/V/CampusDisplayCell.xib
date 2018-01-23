@@ -95,6 +95,13 @@
             </tableViewCellContentView>
             <gestureRecognizers/>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="headImageView" destination="cO8-42-aZp" id="7ex-1K-WtR"/>
+                <outlet property="infoLB" destination="pvl-2G-7Y9" id="RMi-gt-7Pd"/>
+                <outlet property="schoolLB" destination="xbU-3I-1TY" id="B6D-6w-wfA"/>
+                <outlet property="titleLB" destination="AMc-BA-PAB" id="meN-Dj-QiH"/>
+                <outlet property="watchNumberLB" destination="768-1L-9EE" id="YZB-CY-Ltj"/>
+            </connections>
             <point key="canvasLocation" x="-275.5" y="148.5"/>
         </tableViewCell>
     </objects>

@@ -26,13 +26,39 @@
  goodnumber 点赞数
  commnumber 评论数
  isgood  当前用户是否点赞（1  点过 0 未点）
+ 
+ colleges = "\U5317\U5927";
+ commnumber = 3;
+ content = "\U7a33\U7a33\U7684\U5e78\U798f";
+ createDate = "2018-01-15";
+ gender = "\U7537";
+ goodnumber = 5;
+ grade = "\U4e8c";
+ id = 1;
+ isgood = 1;
+ name = "\U5f20\U4e09";
+ nickname = any;
+ pictureName = "2.jpg";
+ picturename = "2.jpg";
+ title = "\U7a33\U7a33\U7684\U5e78\U798f";
+ userId = 1;
  */
 
 @property (nonatomic, assign) int id;
-@property (nonatomic, copy) NSString * content;
-@property (nonatomic, copy) NSString * createDate;
-@property (nonatomic, copy) NSString * pictureName;
 @property (nonatomic, copy) NSString * title;
-@property (nonatomic, copy) NSString * userId;
+@property (nonatomic, copy) NSString * createDate;
+@property (nonatomic, copy) NSString * content;
+@property (nonatomic, copy) NSString * artPicture;
+@property (nonatomic, assign) int goodnumber;
+@property (nonatomic, assign) int commnumber;
+
+@property (nonatomic, copy) NSString * name;
+@property (nonatomic, copy) NSString * headPicture;
+@property (nonatomic, copy) NSString * colleges;
+@property (nonatomic, copy) NSString * grade;
+@property (nonatomic, copy) NSString * gender;
+@property (nonatomic, copy) NSString * nickname;
+@property (nonatomic, assign) int isgood;
+@property (nonatomic, assign) int userId;
 
 @end

@@ -21,4 +21,14 @@
     // Configure the view for the selected state
 }
 
+- (void)setModel:(CampusDisplayListModel *)model
+{
+    _model = model;
+    [self.headImageView jsh_sdsetImageWithURL:nil placeholderImage:Default_General_Image];
+    self.watchNumberLB.text = [NSString stringWithFormat:@"%d人观看",model.watchTime];
+    self.titleLB.text = model.campusAlias;
+    self.schoolLB.text = model.campusName;
+    self.infoLB.text = model.campusSynopsis;
+}
+
 @end

@@ -41,12 +41,12 @@
     
     //AppKey:注册的AppKey，详细见下面注释。
     //apnsCertName:推送证书名（不需要加后缀），详细见下面注释。
-    EMOptions *options = [EMOptions optionsWithAppkey:@"1162161114115050#emchatdemo"];
+    EMOptions *options = [EMOptions optionsWithAppkey:@"1152180119115297#xiaoyuanzhixing"];
     options.apnsCertName = @"istore_dev";
     [[EMClient sharedClient] initializeSDKWithOptions:options];
     
     
-    EMError *error = [[EMClient sharedClient] loginWithUsername:@"13684071409" password:@"123123"];
+    EMError *error = [[EMClient sharedClient] loginWithUsername:@"18980623464" password:@"123123"];
     if (!error)
     {
         [[EMClient sharedClient].options setIsAutoLogin:YES];

@@ -18,4 +18,32 @@
 }
 */
 
+- (void)setModel:(MyarticleModel *)model
+{
+    _model = model;
+    
+    [self.headerImageView jsh_sdsetImageWithHeaderimg:model.headPicture];
+    [self.backgroundImageView jsh_sdsetImageWithURL:model.artPicture placeholderImage:Default_General_Image];
+    self.nameLB.text = model.name;
+    if ([model.gender isEqualToString:@"男"])
+    {
+        self.grdenImageView.image = [UIImage imageNamed:@"性别_男"];
+    }
+    else
+    {
+        self.grdenImageView.image = [UIImage imageNamed:@"性别_女"];
+    }
+    self.edutioneLB.text = [NSString stringWithFormat:@"%@ %@",model.colleges,model.grade];
+    self.infoLB.text = model.content;
+    if (model.isgood == 1)
+    {
+        self.dianzanButton.selected = YES;
+    }
+    else
+    {
+        self.dianzanButton.selected = NO;
+    }
+    self.timeLB.text = model.createDate;
+}
+
 @end

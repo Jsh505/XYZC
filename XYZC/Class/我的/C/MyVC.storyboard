@@ -211,6 +211,9 @@
                             <outlet property="delegate" destination="25T-wA-218" id="mbM-Ep-9oA"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="friendsInfoLB" destination="gZG-r4-YoD" id="qnj-3H-N67"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wQj-Uw-tuD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

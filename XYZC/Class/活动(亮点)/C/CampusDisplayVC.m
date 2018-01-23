@@ -9,10 +9,12 @@
 #import "CampusDisplayVC.h"
 #import "CampusDisplayHeaderView.h"
 #import "CampusDisplayCell.h"
+#import "CampusDisplayListModel.h"
 
 @interface CampusDisplayVC ()
 
 @property (nonatomic, strong) CampusDisplayHeaderView * headerView;
+@property (nonatomic, strong) NSMutableArray * dataSource;
 
 @end
 
@@ -34,6 +36,27 @@
     .leftSpaceToView(self.view, 0);
     
     self.coustromTableView.tableHeaderView = self.headerView;
+    self.dataSource = [[NSMutableArray alloc] init];
+    [self loadData];
+}
+
+- (void)loadData
+{
+    [PPNetworkHelper POST:@"campusList.app" parameters:nil hudString:@"加载中..." success:^(id responseObject)
+     {
+         [self.dataSource removeAllObjects];
+         for (NSDictionary * dic in [responseObject objectForKey:@"campusList"])
+         {
+             CampusDisplayListModel * model = [[CampusDisplayListModel alloc] initWithDictionary:dic];
+             [self.dataSource addObject:model];
+         }
+         self.headerView.model = self.dataSource[0];
+         [self.coustromTableView reloadData];
+         
+     } failure:^(NSString *error)
+     {
+         [MBProgressHUD showErrorMessage:error];
+     }];
 }
 
 #pragma mark - Custom Accessors (控件响应方法)
@@ -53,7 +76,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return self.dataSource.count - 1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -70,6 +93,7 @@
         cell = array[0];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
+    cell.model = self.dataSource[indexPath.row + 1];
     return cell;
     
 }

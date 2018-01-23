@@ -25,6 +25,7 @@
     [super viewDidLoad];
     
     [self creatHighlightsView];
+    
 }
 
 #pragma mark - Custom Accessors (控件响应方法)

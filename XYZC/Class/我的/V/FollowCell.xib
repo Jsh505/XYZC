@@ -29,6 +29,7 @@
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                 <integer key="value" value="30"/>
                             </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="这是用户昵称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3kr-sh-TqO">
@@ -53,6 +54,9 @@
                         <state key="normal" title="已关注">
                             <color key="titleColor" red="0.98039215690000003" green="0.83137254900000002" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
+                        <connections>
+                            <action selector="morebuttonCilick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="rc1-T8-szp"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>
@@ -83,6 +87,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="头像" width="86" height="86"/>
+        <image name="头像" width="84" height="84"/>
     </resources>
 </document>

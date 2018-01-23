@@ -8,13 +8,23 @@
 
 #import "MyFriendVC.h"
 #import "FollowCell.h"
+#import "FansModel.h"
 
-@interface MyFriendVC () <UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface MyFriendVC () <UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource, FollowCellDelegate>
+{
+    int _type;
+}
 
 @property (nonatomic, strong) UISegmentedControl   *headerSegment;
 @property (nonatomic, strong) UIScrollView         *contentScrollview;
-@property (nonatomic, strong) UITableView * coustromTableView;
 
+@property (nonatomic, strong) UITableView * coustromTableView;
+@property (nonatomic, strong) UITableView * coustromTableView1;
+@property (nonatomic, strong) UITableView * coustromTableView2;
+
+@property (nonatomic, strong) NSMutableArray * dataSource;
+@property (nonatomic, strong) NSMutableArray * dataSource1;
+@property (nonatomic, strong) NSMutableArray * dataSource2;
 @end
 
 @implementation MyFriendVC
@@ -42,6 +52,11 @@
     .widthIs(SCREEN_WIDTH)
     .heightIs(SCREEN_HEIGHT - JSH_NavbarAndStatusBarHeight - JSH_TabBarHeight);
     
+    _type = 1;
+    self.dataSource = [[NSMutableArray alloc] init];
+    self.dataSource1 = [[NSMutableArray alloc] init];
+    self.dataSource2 = [[NSMutableArray alloc] init];
+    
     [self loadData];
 }
 
@@ -49,14 +64,55 @@
 {
     NSMutableDictionary * parametersDic = [[NSMutableDictionary alloc] init];
     [parametersDic setObject:@([UserSignData share].user.userId) forKey:@"userId"];
+    [parametersDic setObject:@(_type) forKey:@"type"];
     
-//    [PPNetworkHelper POST:@"fansAndFocus.app" parameters:parametersDic hudString:@"获取中..." success:^(id responseObject)
-//    {
-//
-//    } failure:^(NSString *error)
-//     {
-//
-//    }];
+    [PPNetworkHelper POST:@"fansList.app" parameters:parametersDic hudString:@"获取中..." success:^(id responseObject)
+    {
+        switch (_type)
+        {
+            case 1:
+            {
+                [self.dataSource removeAllObjects];
+                for (NSDictionary * dic in [responseObject objectForKey:@"fansList"])
+                {
+                    FansModel * model = [[FansModel alloc] initWithDictionary:dic];
+                    model.type = _type;
+                    [self.dataSource addObject:model];
+                }
+                [self.coustromTableView reloadData];
+                break;
+            }
+            case 2:
+            {
+                [self.dataSource1 removeAllObjects];
+                for (NSDictionary * dic in [responseObject objectForKey:@"fansList"])
+                {
+                    FansModel * model = [[FansModel alloc] initWithDictionary:dic];
+                    model.type = _type;
+                    [self.dataSource1 addObject:model];
+                }
+                [self.coustromTableView1 reloadData];
+                break;
+            }
+            case 3:
+            {
+                [self.dataSource2 removeAllObjects];
+                for (NSDictionary * dic in [responseObject objectForKey:@"fansList"])
+                {
+                    FansModel * model = [[FansModel alloc] initWithDictionary:dic];
+                    model.type = _type;
+                    [self.dataSource2 addObject:model];
+                }
+                [self.coustromTableView2 reloadData];
+                break;
+            }
+            default:
+                break;
+        }
+    } failure:^(NSString *error)
+     {
+         [MBProgressHUD showErrorMessage:error];
+    }];
 }
 
 #pragma mark - Custom Accessors (控件响应方法)
@@ -68,6 +124,8 @@
     frame.origin.x = index * CGRectGetWidth(self.contentScrollview.frame);
     frame.origin.y = 0;
     [self.contentScrollview scrollRectToVisible:frame animated:YES];
+    _type = (int)index + 1;
+    [self loadData];
 }
 
 #pragma mark - IBActions(xib响应方法)
@@ -82,17 +140,85 @@
 #pragma mark - Deletate/DataSource (相关代理)
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    if (scrollView == self.contentScrollview)
+    if (scrollView != self.coustromTableView && scrollView != self.coustromTableView1 && scrollView != self.coustromTableView2)
     {
         CGFloat offSetX = scrollView.contentOffset.x;
         NSInteger ratio = round(offSetX / SCREEN_WIDTH);
-        self.headerSegment.selectedSegmentIndex = ratio;
+        _headerSegment.selectedSegmentIndex = ratio;
+        _type = (int)ratio + 1;
+        [self loadData];
+    }
+}
+
+- (void)moreButton:(UIButton *)button Model:(FansModel *)model
+{
+    //cell代理
+    switch (model.type)
+    {
+        case 1:
+        {
+            //取消关注
+            NSMutableDictionary * parametersDic = [[NSMutableDictionary alloc] init];
+            [parametersDic setObject:@([UserSignData share].user.userId) forKey:@"userId"];
+            [parametersDic setObject:@(model.userId) forKey:@"fansFriendUserId"];
+            [parametersDic setObject:@(2) forKey:@"type"];
+            
+            [PPNetworkHelper POST:@"deleteFocusFriends.app" parameters:parametersDic hudString:@"加好友..." success:^(id responseObject)
+             {
+                 [MBProgressHUD showInfoMessage:@"操作成功"];
+                 [self loadData];
+             } failure:^(NSString *error)
+             {
+                 [MBProgressHUD showErrorMessage:error];
+             }];
+            
+            break;
+        }
+        case 2:
+        {
+            //加好友
+            NSMutableDictionary * parametersDic = [[NSMutableDictionary alloc] init];
+            [parametersDic setObject:@([UserSignData share].user.userId) forKey:@"userId"];
+            [parametersDic setObject:@(model.userId) forKey:@"fansFriendUserId"];
+            [parametersDic setObject:@(1) forKey:@"type"];
+            
+            [PPNetworkHelper POST:@"addFansOrFriends.app" parameters:parametersDic hudString:@"加好友..." success:^(id responseObject)
+            {
+                [MBProgressHUD showInfoMessage:@"操作成功"];
+                [self loadData];
+            } failure:^(NSString *error)
+             {
+                [MBProgressHUD showErrorMessage:error];
+            }];
+            
+            break;
+        }
+        case 3:
+        {
+            //聊天
+            EaseMessageViewController *chatController = [[EaseMessageViewController alloc] initWithConversationChatter:@"13080808285" conversationType:EMConversationTypeChat];
+            [self.navigationController pushViewController:chatController animated:YES];
+            break;
+        }
+        default:
+            break;
     }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    if (tableView == self.coustromTableView)
+    {
+        return self.dataSource.count;
+    }
+    else if (tableView == self.coustromTableView1)
+    {
+        return self.dataSource1.count;
+    }
+    else
+    {
+        return self.dataSource2.count;
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -107,6 +233,19 @@
         NSArray *array = [[NSBundle mainBundle]loadNibNamed:@"FollowCell" owner:nil options:nil];
         cell = array[0];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
+    cell.delegate = self;
+    if (tableView == self.coustromTableView)
+    {
+        cell.model = self.dataSource[indexPath.row];
+    }
+    else if (tableView == self.coustromTableView1)
+    {
+        cell.model = self.dataSource1[indexPath.row];
+    }
+    else
+    {
+        cell.model = self.dataSource2[indexPath.row];
     }
     return cell;
     
@@ -159,7 +298,10 @@
         self.automaticallyAdjustsScrollViewInsets = NO;
         //为scrollview设置大小  需要计算调整
         _contentScrollview.contentSize = CGSizeMake(SCREEN_WIDTH * 3, SCREEN_HEIGHT - JSH_NavbarAndStatusBarHeight - JSH_TabBarHeight);
+        
         [_contentScrollview addSubview:self.coustromTableView];
+        [_contentScrollview addSubview:self.coustromTableView1];
+        [_contentScrollview addSubview:self.coustromTableView2];
     }
     return _contentScrollview;
 }
@@ -177,6 +319,32 @@
     }
     return _coustromTableView;
 }
+- (UITableView *)coustromTableView1
+{
+    if (!_coustromTableView1)
+    {
+        _coustromTableView1 = [[UITableView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH, 0, SCREEN_WIDTH, SCREEN_HEIGHT - JSH_NavbarAndStatusBarHeight - JSH_TabBarHeight) style:UITableViewStylePlain];
+        _coustromTableView1.delegate = self;
+        _coustromTableView1.dataSource = self;
+        _coustromTableView1.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _coustromTableView1.showsVerticalScrollIndicator = NO;
+        _coustromTableView1.showsHorizontalScrollIndicator = NO;
+    }
+    return _coustromTableView1;
+}
 
+- (UITableView *)coustromTableView2
+{
+    if (!_coustromTableView2)
+    {
+        _coustromTableView2 = [[UITableView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 2, 0, SCREEN_WIDTH, SCREEN_HEIGHT - JSH_NavbarAndStatusBarHeight - JSH_TabBarHeight) style:UITableViewStylePlain];
+        _coustromTableView2.delegate = self;
+        _coustromTableView2.dataSource = self;
+        _coustromTableView2.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _coustromTableView2.showsVerticalScrollIndicator = NO;
+        _coustromTableView2.showsHorizontalScrollIndicator = NO;
+    }
+    return _coustromTableView2;
+}
 
 @end

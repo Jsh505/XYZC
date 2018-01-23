@@ -89,18 +89,9 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="详细介绍内容详细介绍内容详细介绍内容详细介绍内容详细介绍内容详细介绍内容" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Egt-UE-9x0">
-                    <rect key="frame" x="10" y="278" width="355" height="36"/>
+                    <rect key="frame" x="10" y="278" width="355" height="37"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="文章点赞" translatesAutoresizingMaskIntoConstraints="NO" id="7ep-P1-PiW">
-                    <rect key="frame" x="10" y="324" width="22" height="22"/>
-                </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ST0-Et-uD9">
-                    <rect key="frame" x="35" y="327" width="22" height="16"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2012-03-12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4w0-Y4-X4I">
@@ -109,34 +100,57 @@
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kpY-Nc-lwS">
+                    <rect key="frame" x="0.0" y="315" width="60" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="M8F-6s-Xxc"/>
+                        <constraint firstAttribute="width" constant="60" id="Ygo-oV-8yz"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <state key="normal" title="123" image="文章点赞">
+                        <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <state key="selected" image="文章已点赞"/>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="ST0-Et-uD9" firstAttribute="centerY" secondItem="7ep-P1-PiW" secondAttribute="centerY" id="3N5-t9-eUg"/>
-                <constraint firstItem="ST0-Et-uD9" firstAttribute="leading" secondItem="7ep-P1-PiW" secondAttribute="trailing" constant="3" id="6YS-wg-eld"/>
                 <constraint firstItem="QrD-FC-KEG" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="8eb-Tg-oTc"/>
-                <constraint firstItem="7ep-P1-PiW" firstAttribute="leading" secondItem="Egt-UE-9x0" secondAttribute="leading" id="HP0-rE-DOC"/>
                 <constraint firstItem="Egt-UE-9x0" firstAttribute="top" secondItem="Jin-jz-As9" secondAttribute="bottom" constant="18" id="KOL-d2-1PQ"/>
                 <constraint firstItem="QrD-FC-KEG" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="MNo-7I-oIK"/>
                 <constraint firstItem="QrD-FC-KEG" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Osj-sR-aMl"/>
-                <constraint firstItem="7ep-P1-PiW" firstAttribute="top" secondItem="Egt-UE-9x0" secondAttribute="bottom" constant="10" id="P3e-IN-7bK"/>
                 <constraint firstItem="Egt-UE-9x0" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="QCn-lE-bAt"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="kpY-Nc-lwS" secondAttribute="bottom" id="Res-RF-eJu"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Jin-jz-As9" secondAttribute="trailing" id="WHJ-P7-780"/>
-                <constraint firstItem="4w0-Y4-X4I" firstAttribute="centerY" secondItem="ST0-Et-uD9" secondAttribute="centerY" id="Yn5-cw-Gwn"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="4w0-Y4-X4I" secondAttribute="trailing" constant="10" id="ZHA-DH-Iom"/>
                 <constraint firstItem="Jin-jz-As9" firstAttribute="top" secondItem="QrD-FC-KEG" secondAttribute="bottom" id="bdr-eR-kbP"/>
+                <constraint firstItem="kpY-Nc-lwS" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="cTd-gi-i8u"/>
                 <constraint firstItem="Jin-jz-As9" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="lOJ-wk-aTo"/>
+                <constraint firstItem="4w0-Y4-X4I" firstAttribute="centerY" secondItem="kpY-Nc-lwS" secondAttribute="centerY" id="mzJ-GX-o40"/>
+                <constraint firstItem="kpY-Nc-lwS" firstAttribute="top" secondItem="Egt-UE-9x0" secondAttribute="bottom" id="ouQ-Nj-aRQ"/>
                 <constraint firstAttribute="trailing" secondItem="Egt-UE-9x0" secondAttribute="trailing" constant="10" id="q0b-KV-vz2"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="backgroundImageView" destination="Jin-jz-As9" id="TjD-y8-qrT"/>
+                <outlet property="dianzanButton" destination="kpY-Nc-lwS" id="eG2-hF-XY4"/>
+                <outlet property="edutioneLB" destination="gco-wd-meC" id="O27-Vv-bxf"/>
+                <outlet property="grdenImageView" destination="lWL-qr-dnT" id="dTq-SG-G8g"/>
+                <outlet property="guanzhuButton" destination="WH0-wq-67H" id="8Jx-Ko-VW5"/>
+                <outlet property="headerImageView" destination="opN-6f-0u8" id="Y42-kF-FKa"/>
+                <outlet property="infoLB" destination="Egt-UE-9x0" id="jdv-4e-wpR"/>
+                <outlet property="nameLB" destination="v6t-ab-I3p" id="Lka-q7-6Wk"/>
+                <outlet property="timeLB" destination="4w0-Y4-X4I" id="2Co-Ml-IlX"/>
+            </connections>
             <point key="canvasLocation" x="27.5" y="-63"/>
         </view>
     </objects>
     <resources>
         <image name="大图" width="750" height="432"/>
-        <image name="头像" width="86" height="86"/>
+        <image name="头像" width="84" height="84"/>
         <image name="性别_女" width="17" height="17"/>
+        <image name="文章已点赞" width="22" height="22"/>
         <image name="文章点赞" width="22" height="22"/>
     </resources>
 </document>

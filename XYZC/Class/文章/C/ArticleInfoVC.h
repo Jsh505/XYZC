@@ -7,7 +7,10 @@
 //
 
 #import "CoustromViewController.h"
+#import "MyarticleModel.h"
 
 @interface ArticleInfoVC : CoustromViewController
+
+@property (nonatomic, strong) MyarticleModel * model;
 
 @end

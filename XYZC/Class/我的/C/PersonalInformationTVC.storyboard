@@ -347,20 +347,25 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="绑定" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HdS-3B-DLG">
-                                                    <rect key="frame" x="305" y="13.5" width="31" height="18"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="绑定" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="akS-Gq-aZu">
+                                                    <rect key="frame" x="86.5" y="1" width="248" height="44"/>
+                                                    <viewLayoutGuide key="safeArea" id="7tm-xC-v10"/>
                                                     <color key="textColor" red="0.94117647059999998" green="0.50980392159999999" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="HdS-3B-DLG" secondAttribute="trailing" constant="5" id="iV2-Xj-PsZ"/>
-                                                <constraint firstItem="HdS-3B-DLG" firstAttribute="centerY" secondItem="n1h-fc-pcI" secondAttribute="centerY" id="kP8-jK-iFI"/>
+                                                <constraint firstItem="akS-Gq-aZu" firstAttribute="centerY" secondItem="0dl-9L-6Qa" secondAttribute="centerY" id="RLJ-cE-il3"/>
                                                 <constraint firstItem="0dl-9L-6Qa" firstAttribute="leading" secondItem="n1h-fc-pcI" secondAttribute="leading" constant="20" id="oac-U3-Oyw"/>
                                                 <constraint firstItem="0dl-9L-6Qa" firstAttribute="centerY" secondItem="n1h-fc-pcI" secondAttribute="centerY" id="wzn-FE-Lh8"/>
+                                                <constraint firstItem="akS-Gq-aZu" firstAttribute="leading" secondItem="0dl-9L-6Qa" secondAttribute="trailing" constant="5" id="yXo-Xs-ekC"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="akS-Gq-aZu" secondAttribute="trailing" constant="40.5" id="jlV-Yw-3nh"/>
+                                            <constraint firstItem="akS-Gq-aZu" firstAttribute="height" secondItem="h3h-aV-D8a" secondAttribute="height" id="vpc-vz-74w"/>
+                                        </constraints>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="44" id="vb8-Bu-308">
                                         <rect key="frame" x="0.0" y="569" width="375" height="44"/>
@@ -412,7 +417,7 @@
                         <outlet property="birthLB" destination="rlv-kW-sV5" id="6cv-CU-IGf"/>
                         <outlet property="boyButton" destination="bkI-ha-PLE" id="UdV-9W-jyp"/>
                         <outlet property="cityLB" destination="nJG-P7-GpL" id="M2v-7J-13X"/>
-                        <outlet property="emailLB" destination="HdS-3B-DLG" id="tvC-0I-ug3"/>
+                        <outlet property="emailTF" destination="akS-Gq-aZu" id="Udb-1Q-qrI"/>
                         <outlet property="girlButton" destination="SGs-He-KLG" id="agW-Wu-vs5"/>
                         <outlet property="headerImage" destination="rHd-qS-v2H" id="OaF-7v-s7f"/>
                         <outlet property="heightTF" destination="M1k-3z-8vP" id="jqs-WV-Jw3"/>

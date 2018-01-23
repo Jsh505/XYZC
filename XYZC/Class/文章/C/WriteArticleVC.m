@@ -12,8 +12,11 @@
 @interface WriteArticleVC () <LDImagePickerDelegate>
 
 @property (nonatomic, strong) UIButton * rightBarButton;
+
+@property (weak, nonatomic) IBOutlet UITextField *titleTF;
 @property (weak, nonatomic) IBOutlet UITextView *infoTextView;
 @property (weak, nonatomic) IBOutlet UIButton *photoButton;
+@property (nonatomic, copy) NSString * imageUrl;
 
 @end
 
@@ -74,11 +77,38 @@
 
 - (void)rightBarButtonClicked
 {
+    if (self.titleTF.text.length == 0)
+    {
+        [MBProgressHUD showErrorMessage:@"标题不能为空"];
+        return;
+    }
     if (self.infoTextView.text.length == 0)
     {
         [MBProgressHUD showErrorMessage:@"内容不能为空"];
         return;
     }
+    if (self.imageUrl.length == 0)
+    {
+        [MBProgressHUD showErrorMessage:@"图片不能为空"];
+        return;
+    }
+    
+    NSMutableDictionary * parametersDic = [[NSMutableDictionary alloc] init];
+    [parametersDic setObject:self.titleTF.text forKey:@"title"];
+    [parametersDic setObject:self.imageUrl forKey:@"pictureName"];
+    [parametersDic setObject:self.infoTextView.text forKey:@"content"];
+     [parametersDic setObject:@([UserSignData share].user.userId) forKey:@"userId"];
+    
+    [PPNetworkHelper POST:@"addOrUpdateArticle.app" parameters:parametersDic hudString:@"发布中..." success:^(id responseObject)
+    {
+        [MBProgressHUD showInfoMessage:@"发布成功"];
+        [self.navigationController popViewControllerAnimated:YES];
+        //发送消息
+        [[NSNotificationCenter defaultCenter]postNotification:[NSNotification notificationWithName:@"articleHomeRefush" object:nil userInfo:nil]];
+    } failure:^(NSString *error)
+    {
+        [MBProgressHUD showErrorMessage:error];
+    }];
 }
 
 #pragma mark - Public (.h 公共调用方法)
@@ -89,14 +119,24 @@
     
 }
 
-- (void)imagePicker:(LDImagePicker *)imagePicker didFinished:(UIImage *)editedImage{
-    
+- (void)imagePicker:(LDImagePicker *)imagePicker didFinished:(UIImage *)editedImage
+{
     //上传图片
     NSDate* dat = [NSDate dateWithTimeIntervalSinceNow:0];
     NSTimeInterval a=[dat timeIntervalSince1970]*1000;
     NSString *timeString = [NSString stringWithFormat:@"%f", a];
     
-    
+    [PPNetworkHelper uploadWithURL:@"uploadPicture.app" parameters:nil images:@[editedImage] name:@"pictureName" fileName:timeString mimeType:@"png" hudString:@"上传中..." progress:^(NSProgress *progress) {
+        
+    } success:^(id responseObject)
+     {
+         [self.photoButton setImage:editedImage forState:UIControlStateNormal];
+         self.imageUrl = [responseObject objectForKey:@"pictureName"][0];
+         
+     } failure:^(NSString *error)
+     {
+         [MBProgressHUD showInfoMessage:error];
+     }];
 }
 
 #pragma mark - Deletate/DataSource (相关代理)

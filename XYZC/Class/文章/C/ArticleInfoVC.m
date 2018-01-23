@@ -34,6 +34,22 @@
     .leftSpaceToView(self.view, 0);
     
     self.coustromTableView.tableHeaderView = self.headerView;
+    
+    [self loadData];
+}
+
+- (void)loadData
+{
+    NSMutableDictionary * parametersDic = [[NSMutableDictionary alloc] init];
+    [parametersDic setObject:@(self.model.id) forKey:@"articleId"];
+    
+    [PPNetworkHelper POST:@"commentList.app" parameters:parametersDic hudString:@"获取中..." success:^(id responseObject)
+     {
+        
+    } failure:^(NSString *error)
+    {
+        [MBProgressHUD showErrorMessage:error];
+    }];
 }
 
 #pragma mark - Custom Accessors (控件响应方法)
@@ -90,6 +106,7 @@
     {
         _headerView = [ArticleInfoHeaderView loadViewFromXIB];
         _headerView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH * 200 / 375 + 155);
+        _headerView.model = self.model;
     }
     return _headerView;
 }

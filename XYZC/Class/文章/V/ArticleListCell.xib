@@ -129,19 +129,14 @@
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                 <integer key="value" value="33"/>
                             </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                <integer key="value" value="2"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
-                                <color key="value" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                         </userDefinedRuntimeAttributes>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="4r4-WN-IfL" appends="YES" id="ZGv-FX-jFr"/>
                         </connections>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="文章_女汉子" translatesAutoresizingMaskIntoConstraints="NO" id="exq-1k-BbX">
-                        <rect key="frame" x="102" y="0.0" width="112" height="54"/>
+                        <rect key="frame" x="89" y="0.0" width="125" height="59"/>
                         <gestureRecognizers/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="IOi-NZ-Sz1" appends="YES" id="FjW-V6-bIH"/>
@@ -213,7 +208,7 @@
     <resources>
         <image name="大图" width="750" height="432"/>
         <image name="头像" width="84" height="84"/>
-        <image name="文章_女汉子" width="112" height="54"/>
+        <image name="文章_女汉子" width="125" height="59"/>
         <image name="文章_更多" width="37" height="37"/>
         <image name="文章已点赞" width="22" height="22"/>
         <image name="文章点赞" width="22" height="22"/>

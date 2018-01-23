@@ -45,7 +45,7 @@
 
 - (void)creatFindJobListView
 {
-    self.customNavBar.title = @"我的文章";
+    self.customNavBar.title = @"找工作";
     
     self.coustromTableView.frame = CGRectMake(0, JSH_NavbarAndStatusBarHeight + 50, SCREEN_WIDTH, SCREEN_HEIGHT - JSH_NavbarAndStatusBarHeight - 50);
     [self.view addSubview:self.coustromTableView];

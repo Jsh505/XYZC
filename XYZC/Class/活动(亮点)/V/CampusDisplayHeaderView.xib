@@ -13,7 +13,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CampusDisplayHeaderView">
             <rect key="frame" x="0.0" y="0.0" width="375" height="210"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -57,6 +57,12 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="headerImageView" destination="fPX-S2-nVQ" id="d3f-3E-YCc"/>
+                <outlet property="infoLB" destination="AOe-fR-xsT" id="PAm-V5-Klx"/>
+                <outlet property="titleLB" destination="YCe-9s-ZLf" id="PV7-yl-wbd"/>
+                <outlet property="watchNumberLB" destination="IQh-N8-HRg" id="OYS-OL-nTN"/>
+            </connections>
             <point key="canvasLocation" x="24.5" y="58"/>
         </view>
     </objects>

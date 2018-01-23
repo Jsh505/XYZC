@@ -13,6 +13,8 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    self.headerImageView.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.headerImageView.layer.borderWidth = 2;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -24,9 +26,24 @@
 - (void)setModel:(MyarticleModel *)model
 {
     _model = model;
-    self.timeLB.text = model.createDate;
-    [self.backgroundImageView jsh_sdsetImageWithURL:model.pictureName placeholderImage:Default_General_Image];
     self.titleLB.text = model.title;
+    self.timeLB.text = model.createDate;
+    if (model.isgood == 1)
+    {
+        self.dianzanButton.selected = YES;
+    }
+    else
+    {
+        self.dianzanButton.selected = NO;
+    }
+    [self.dianzanButton setTitle:[NSString stringWithFormat:@"%d",model.goodnumber] forState:UIControlStateNormal];
+    [self.pinglunButton setTitle:[NSString stringWithFormat:@"%d",model.commnumber] forState:UIControlStateNormal];
+    [self.backgroundImageView jsh_sdsetImageWithURL:model.artPicture placeholderImage:Default_General_Image];
+    [self.headerImageView jsh_sdsetImageWithURL:model.headPicture placeholderImage:Default_General_Image];
+    self.nameLB.text = model.name;
+    self.schoolLB.text = [NSString stringWithFormat:@"%@ %@",model.colleges,model.grade];
+    
+    
 }
 
 - (IBAction)moreButtonCilick:(id)sender
@@ -47,9 +64,9 @@
 
 - (IBAction)dianzanButtonCilick:(id)sender
 {
-    if ([self.delegate respondsToSelector:@selector(dianzanButton:)])
+    if ([self.delegate respondsToSelector:@selector(dianzanButton:Model:)])
     {
-        [self.delegate dianzanButton:sender];
+        [self.delegate dianzanButton:sender Model:_model];
     }
 }
 

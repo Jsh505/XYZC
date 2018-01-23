@@ -86,11 +86,12 @@
     NSMutableDictionary * parametersDic = [[NSMutableDictionary alloc] init];
     [parametersDic setObject:self.phoneTF.text forKey:@"username"];
     [parametersDic setObject:self.passWordTF.text forKey:@"password"];
+    [parametersDic setObject:self.codeTF.text forKey:@"code"];
     
     [PPNetworkHelper POST:@"register.app" parameters:parametersDic hudString:@"注册中..." success:^(id responseObject)
      {
          [MBProgressHUD showInfoMessage:@"注册成功"];
-         
+         [self dismissViewControllerAnimated:YES completion:nil];
     } failure:^(NSString *error)
      {
          [MBProgressHUD showErrorMessage:error];

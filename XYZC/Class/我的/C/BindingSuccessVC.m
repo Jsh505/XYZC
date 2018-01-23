@@ -1,19 +1,18 @@
 //
-//  BindingBankCardVC.m
+//  bindingSuccessVC.m
 //  笑园之窗
 //
 //  Created by 贾仕海 on 2018/1/4.
 //  Copyright © 2018年 xyzc. All rights reserved.
 //
 
-#import "BindingBankCardVC.h"
 #import "BindingSuccessVC.h"
 
-@interface BindingBankCardVC ()
+@interface BindingSuccessVC ()
 
 @end
 
-@implementation BindingBankCardVC
+@implementation BindingSuccessVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -28,12 +27,6 @@
 
 #pragma mark - IBActions(xib响应方法)
 
-- (IBAction)bindingButtonCilick:(id)sender
-{
-    //绑定
-    BindingSuccessVC * vc = [[BindingSuccessVC alloc] init];
-    [self.navigationController pushViewController:vc animated:YES];
-}
 
 #pragma mark - Public (.h 公共调用方法)
 

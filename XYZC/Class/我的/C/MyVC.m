@@ -27,6 +27,7 @@
 @property (nonatomic, strong) UILabel * nameLB;
 @property (nonatomic, strong) UIImageView * grdenImageView;
 @property (nonatomic, strong) UILabel * infoLB;
+@property (weak, nonatomic) IBOutlet UILabel *friendsInfoLB;
 
 @end
 
@@ -66,6 +67,8 @@
     self.grdenImageView.image = [[UserSignData share].user.userInfo.gender isEqualToString:@"女"] ? [UIImage imageNamed:@"性别_女"] : [UIImage imageNamed:@"性别_男"];
     self.infoLB.text = [NSString stringWithFormat:@"%@ 无参数 %@",[NSString is_NulllWithObject:[UserSignData share].user.userInfo.colleges] ? @"未设置" : [UserSignData share].user.userInfo.colleges,
                                                             [NSString is_NulllWithObject:[UserSignData share].user.userInfo.grade] ? @"未设置" : [UserSignData share].user.userInfo.grade];
+    self.friendsInfoLB.text = @"0粉丝·0关注·0好友";
+    [self loadFansNumber];
     
 }
 //
@@ -76,6 +79,21 @@
 //}
 
 
+- (void)loadFansNumber
+{
+    NSMutableDictionary * parametersDic = [[NSMutableDictionary alloc] init];
+    [parametersDic setObject:@([UserSignData share].user.userId) forKey:@"userId"];
+    
+    [PPNetworkHelper POST:@"fansAndFocusFriends.app" parameters:parametersDic hudString:nil success:^(id responseObject)
+    {
+        
+        self.friendsInfoLB.text = [NSString stringWithFormat:@"%@粉丝·%@关注·%@好友",[[responseObject objectForKey:@"fansAndFocusMap"][0] objectForKey:@"fans"],
+                                                                                [[responseObject objectForKey:@"fansAndFocusMap"][0] objectForKey:@"focus"],
+                                                                                [[responseObject objectForKey:@"fansAndFocusMap"][0] objectForKey:@"friends"]];
+    } failure:^(NSString *error)
+    {
+    }];
+}
 #pragma mark - Custom Accessors (控件响应方法)
 
 - (void)setButtonClicked

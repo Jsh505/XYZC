@@ -82,8 +82,7 @@
 
 - (void)forgetPassWordButtonClicked
 {
-    EaseMessageViewController *chatController = [[EaseMessageViewController alloc] initWithConversationChatter:@"8001" conversationType:EMConversationTypeChat];
-    [self.navigationController pushViewController:chatController animated:YES];
+    
 }
 
 #pragma mark - IBActions(xib响应方法)
@@ -109,8 +108,8 @@
     self.phoneTF.text = @"13080808285";
     self.passWordTF.text = @"123456";
     
-//    self.phoneTF.text = @"18980623464";
-//    self.passWordTF.text = @"123123";
+    self.phoneTF.text = @"18980623464";
+    self.passWordTF.text = @"123123";
     
     self.customNavBar.title = @"登录";
     
