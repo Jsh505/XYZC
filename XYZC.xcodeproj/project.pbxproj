@@ -297,25 +297,26 @@
 		A8BED829201575480071EB87 /* BankCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8BED7DB201575470071EB87 /* BankCardCell.xib */; };
 		A8BED82A201575480071EB87 /* MyResumeAddInfoAndPhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8BED7DC201575470071EB87 /* MyResumeAddInfoAndPhotoCell.xib */; };
 		A8BED82B201575480071EB87 /* MyResumeCertificateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8BED7DD201575470071EB87 /* MyResumeCertificateCell.xib */; };
-		A8BED884201577F00071EB87 /* UIView+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BED865201577E10071EB87 /* UIView+Tool.m */; };
-		A8BED885201577F00071EB87 /* NSArray+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BED867201577E20071EB87 /* NSArray+Tool.m */; };
-		A8BED886201577F00071EB87 /* NSMutableString+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BED868201577E30071EB87 /* NSMutableString+Tool.m */; };
-		A8BED887201577F00071EB87 /* ObjcRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BED869201577E30071EB87 /* ObjcRuntime.m */; };
-		A8BED888201577F00071EB87 /* NSString+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BED86A201577E40071EB87 /* NSString+Tool.m */; };
-		A8BED889201577F00071EB87 /* UITextView+YLTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BED86B201577E40071EB87 /* UITextView+YLTextView.m */; };
-		A8BED88A201577F00071EB87 /* UIImageView+SDSetImage.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BED86C201577E50071EB87 /* UIImageView+SDSetImage.m */; };
-		A8BED88B201577F00071EB87 /* NSObject+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BED86F201577E60071EB87 /* NSObject+Tool.m */; };
-		A8BED88C201577F00071EB87 /* UIImage+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BED870201577E70071EB87 /* UIImage+Tool.m */; };
-		A8BED88D201577F00071EB87 /* UIColor+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BED871201577E70071EB87 /* UIColor+Tool.m */; };
-		A8BED88E201577F00071EB87 /* UIScrollView+EmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BED872201577E80071EB87 /* UIScrollView+EmptyDataSet.m */; };
-		A8BED88F201577F00071EB87 /* UIButton+countDown.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BED874201577E90071EB87 /* UIButton+countDown.m */; };
-		A8BED890201577F00071EB87 /* UIViewController+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BED875201577E90071EB87 /* UIViewController+Tool.m */; };
-		A8BED891201577F00071EB87 /* UIButton+TouchOne.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BED877201577EA0071EB87 /* UIButton+TouchOne.m */; };
-		A8BED892201577F00071EB87 /* NSDictionary+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BED879201577EB0071EB87 /* NSDictionary+Tool.m */; };
-		A8BED893201577F00071EB87 /* CoustromViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BED87B201577EC0071EB87 /* CoustromViewController.m */; };
-		A8BED894201577F00071EB87 /* UIButton+SDSetImage.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BED87D201577ED0071EB87 /* UIButton+SDSetImage.m */; };
 		A8BED8972015BCCE0071EB87 /* FansModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BED8962015BCCE0071EB87 /* FansModel.m */; };
 		A8BED89A20170A670071EB87 /* CampusDisplayListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BED89920170A670071EB87 /* CampusDisplayListModel.m */; };
+		A8BED8BF2017173B0071EB87 /* UIButton+countDown.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BED89D2017173B0071EB87 /* UIButton+countDown.m */; };
+		A8BED8C02017173B0071EB87 /* UIView+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BED89F2017173B0071EB87 /* UIView+Tool.m */; };
+		A8BED8C12017173B0071EB87 /* UIButton+TouchOne.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BED8A22017173B0071EB87 /* UIButton+TouchOne.m */; };
+		A8BED8C22017173B0071EB87 /* UIScrollView+EmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BED8A52017173B0071EB87 /* UIScrollView+EmptyDataSet.m */; };
+		A8BED8C32017173B0071EB87 /* NSString+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BED8A92017173B0071EB87 /* NSString+Tool.m */; };
+		A8BED8C42017173B0071EB87 /* NSObject+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BED8AB2017173B0071EB87 /* NSObject+Tool.m */; };
+		A8BED8C52017173B0071EB87 /* CoustromViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BED8AC2017173B0071EB87 /* CoustromViewController.m */; };
+		A8BED8C62017173B0071EB87 /* NSArray+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BED8AD2017173B0071EB87 /* NSArray+Tool.m */; };
+		A8BED8C72017173B0071EB87 /* UIImage+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BED8AE2017173B0071EB87 /* UIImage+Tool.m */; };
+		A8BED8C82017173B0071EB87 /* UIImageView+SDSetImage.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BED8AF2017173B0071EB87 /* UIImageView+SDSetImage.m */; };
+		A8BED8C92017173B0071EB87 /* UITextView+YLTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BED8B12017173B0071EB87 /* UITextView+YLTextView.m */; };
+		A8BED8CA2017173B0071EB87 /* NSDictionary+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BED8B22017173B0071EB87 /* NSDictionary+Tool.m */; };
+		A8BED8CB2017173B0071EB87 /* UIColor+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BED8B52017173B0071EB87 /* UIColor+Tool.m */; };
+		A8BED8CC2017173B0071EB87 /* ObjcRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BED8B62017173B0071EB87 /* ObjcRuntime.m */; };
+		A8BED8CD2017173B0071EB87 /* NSMutableString+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BED8B92017173B0071EB87 /* NSMutableString+Tool.m */; };
+		A8BED8CE2017173B0071EB87 /* UIViewController+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BED8BA2017173B0071EB87 /* UIViewController+Tool.m */; };
+		A8BED8CF2017173B0071EB87 /* UIButton+SDSetImage.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BED8BB2017173B0071EB87 /* UIButton+SDSetImage.m */; };
+		A8BED8D2201979660071EB87 /* FindTrainModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BED8D1201979660071EB87 /* FindTrainModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -838,45 +839,47 @@
 		A8BED7DB201575470071EB87 /* BankCardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BankCardCell.xib; sourceTree = "<group>"; };
 		A8BED7DC201575470071EB87 /* MyResumeAddInfoAndPhotoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyResumeAddInfoAndPhotoCell.xib; sourceTree = "<group>"; };
 		A8BED7DD201575470071EB87 /* MyResumeCertificateCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyResumeCertificateCell.xib; sourceTree = "<group>"; };
-		A8BED861201577DF0071EB87 /* NSString+Tool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Tool.h"; sourceTree = "<group>"; };
-		A8BED862201577E00071EB87 /* UIButton+countDown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+countDown.h"; sourceTree = "<group>"; };
-		A8BED863201577E00071EB87 /* UIScrollView+EmptyDataSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+EmptyDataSet.h"; sourceTree = "<group>"; };
-		A8BED864201577E10071EB87 /* NSObject+Tool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Tool.h"; sourceTree = "<group>"; };
-		A8BED865201577E10071EB87 /* UIView+Tool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Tool.m"; sourceTree = "<group>"; };
-		A8BED866201577E20071EB87 /* ObjcRuntime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjcRuntime.h; sourceTree = "<group>"; };
-		A8BED867201577E20071EB87 /* NSArray+Tool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Tool.m"; sourceTree = "<group>"; };
-		A8BED868201577E30071EB87 /* NSMutableString+Tool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableString+Tool.m"; sourceTree = "<group>"; };
-		A8BED869201577E30071EB87 /* ObjcRuntime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjcRuntime.m; sourceTree = "<group>"; };
-		A8BED86A201577E40071EB87 /* NSString+Tool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Tool.m"; sourceTree = "<group>"; };
-		A8BED86B201577E40071EB87 /* UITextView+YLTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+YLTextView.m"; sourceTree = "<group>"; };
-		A8BED86C201577E50071EB87 /* UIImageView+SDSetImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+SDSetImage.m"; sourceTree = "<group>"; };
-		A8BED86D201577E50071EB87 /* ToolHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolHeader.h; sourceTree = "<group>"; };
-		A8BED86E201577E60071EB87 /* CoustromViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoustromViewController.h; sourceTree = "<group>"; };
-		A8BED86F201577E60071EB87 /* NSObject+Tool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Tool.m"; sourceTree = "<group>"; };
-		A8BED870201577E70071EB87 /* UIImage+Tool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Tool.m"; sourceTree = "<group>"; };
-		A8BED871201577E70071EB87 /* UIColor+Tool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Tool.m"; sourceTree = "<group>"; };
-		A8BED872201577E80071EB87 /* UIScrollView+EmptyDataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+EmptyDataSet.m"; sourceTree = "<group>"; };
-		A8BED873201577E80071EB87 /* NSDictionary+Tool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Tool.h"; sourceTree = "<group>"; };
-		A8BED874201577E90071EB87 /* UIButton+countDown.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+countDown.m"; sourceTree = "<group>"; };
-		A8BED875201577E90071EB87 /* UIViewController+Tool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Tool.m"; sourceTree = "<group>"; };
-		A8BED876201577EA0071EB87 /* UIColor+Tool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Tool.h"; sourceTree = "<group>"; };
-		A8BED877201577EA0071EB87 /* UIButton+TouchOne.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+TouchOne.m"; sourceTree = "<group>"; };
-		A8BED878201577EB0071EB87 /* UIImage+Tool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Tool.h"; sourceTree = "<group>"; };
-		A8BED879201577EB0071EB87 /* NSDictionary+Tool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Tool.m"; sourceTree = "<group>"; };
-		A8BED87A201577EC0071EB87 /* UITextView+YLTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+YLTextView.h"; sourceTree = "<group>"; };
-		A8BED87B201577EC0071EB87 /* CoustromViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoustromViewController.m; sourceTree = "<group>"; };
-		A8BED87C201577ED0071EB87 /* UIButton+SDSetImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+SDSetImage.h"; sourceTree = "<group>"; };
-		A8BED87D201577ED0071EB87 /* UIButton+SDSetImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+SDSetImage.m"; sourceTree = "<group>"; };
-		A8BED87E201577EE0071EB87 /* UIImageView+SDSetImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+SDSetImage.h"; sourceTree = "<group>"; };
-		A8BED87F201577EE0071EB87 /* UIButton+TouchOne.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+TouchOne.h"; sourceTree = "<group>"; };
-		A8BED880201577EF0071EB87 /* UIView+Tool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Tool.h"; sourceTree = "<group>"; };
-		A8BED881201577EF0071EB87 /* NSArray+Tool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Tool.h"; sourceTree = "<group>"; };
-		A8BED882201577F00071EB87 /* NSMutableString+Tool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableString+Tool.h"; sourceTree = "<group>"; };
-		A8BED883201577F00071EB87 /* UIViewController+Tool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Tool.h"; sourceTree = "<group>"; };
 		A8BED8952015BCCE0071EB87 /* FansModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FansModel.h; sourceTree = "<group>"; };
 		A8BED8962015BCCE0071EB87 /* FansModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FansModel.m; sourceTree = "<group>"; };
 		A8BED89820170A670071EB87 /* CampusDisplayListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CampusDisplayListModel.h; sourceTree = "<group>"; };
 		A8BED89920170A670071EB87 /* CampusDisplayListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CampusDisplayListModel.m; sourceTree = "<group>"; };
+		A8BED89C2017173B0071EB87 /* NSArray+Tool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Tool.h"; sourceTree = "<group>"; };
+		A8BED89D2017173B0071EB87 /* UIButton+countDown.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+countDown.m"; sourceTree = "<group>"; };
+		A8BED89E2017173B0071EB87 /* UIColor+Tool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Tool.h"; sourceTree = "<group>"; };
+		A8BED89F2017173B0071EB87 /* UIView+Tool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Tool.m"; sourceTree = "<group>"; };
+		A8BED8A02017173B0071EB87 /* NSDictionary+Tool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Tool.h"; sourceTree = "<group>"; };
+		A8BED8A12017173B0071EB87 /* UITextView+YLTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+YLTextView.h"; sourceTree = "<group>"; };
+		A8BED8A22017173B0071EB87 /* UIButton+TouchOne.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+TouchOne.m"; sourceTree = "<group>"; };
+		A8BED8A32017173B0071EB87 /* UIImageView+SDSetImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+SDSetImage.h"; sourceTree = "<group>"; };
+		A8BED8A42017173B0071EB87 /* UIImage+Tool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Tool.h"; sourceTree = "<group>"; };
+		A8BED8A52017173B0071EB87 /* UIScrollView+EmptyDataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+EmptyDataSet.m"; sourceTree = "<group>"; };
+		A8BED8A62017173B0071EB87 /* UIButton+SDSetImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+SDSetImage.h"; sourceTree = "<group>"; };
+		A8BED8A72017173B0071EB87 /* NSMutableString+Tool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableString+Tool.h"; sourceTree = "<group>"; };
+		A8BED8A82017173B0071EB87 /* UIViewController+Tool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Tool.h"; sourceTree = "<group>"; };
+		A8BED8A92017173B0071EB87 /* NSString+Tool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Tool.m"; sourceTree = "<group>"; };
+		A8BED8AA2017173B0071EB87 /* ObjcRuntime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjcRuntime.h; sourceTree = "<group>"; };
+		A8BED8AB2017173B0071EB87 /* NSObject+Tool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Tool.m"; sourceTree = "<group>"; };
+		A8BED8AC2017173B0071EB87 /* CoustromViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoustromViewController.m; sourceTree = "<group>"; };
+		A8BED8AD2017173B0071EB87 /* NSArray+Tool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Tool.m"; sourceTree = "<group>"; };
+		A8BED8AE2017173B0071EB87 /* UIImage+Tool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Tool.m"; sourceTree = "<group>"; };
+		A8BED8AF2017173B0071EB87 /* UIImageView+SDSetImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+SDSetImage.m"; sourceTree = "<group>"; };
+		A8BED8B02017173B0071EB87 /* UIButton+TouchOne.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+TouchOne.h"; sourceTree = "<group>"; };
+		A8BED8B12017173B0071EB87 /* UITextView+YLTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+YLTextView.m"; sourceTree = "<group>"; };
+		A8BED8B22017173B0071EB87 /* NSDictionary+Tool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Tool.m"; sourceTree = "<group>"; };
+		A8BED8B32017173B0071EB87 /* UIView+Tool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Tool.h"; sourceTree = "<group>"; };
+		A8BED8B42017173B0071EB87 /* UIButton+countDown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+countDown.h"; sourceTree = "<group>"; };
+		A8BED8B52017173B0071EB87 /* UIColor+Tool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Tool.m"; sourceTree = "<group>"; };
+		A8BED8B62017173B0071EB87 /* ObjcRuntime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjcRuntime.m; sourceTree = "<group>"; };
+		A8BED8B72017173B0071EB87 /* NSString+Tool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Tool.h"; sourceTree = "<group>"; };
+		A8BED8B82017173B0071EB87 /* ToolHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolHeader.h; sourceTree = "<group>"; };
+		A8BED8B92017173B0071EB87 /* NSMutableString+Tool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableString+Tool.m"; sourceTree = "<group>"; };
+		A8BED8BA2017173B0071EB87 /* UIViewController+Tool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Tool.m"; sourceTree = "<group>"; };
+		A8BED8BB2017173B0071EB87 /* UIButton+SDSetImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+SDSetImage.m"; sourceTree = "<group>"; };
+		A8BED8BC2017173B0071EB87 /* UIScrollView+EmptyDataSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+EmptyDataSet.h"; sourceTree = "<group>"; };
+		A8BED8BD2017173B0071EB87 /* NSObject+Tool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Tool.h"; sourceTree = "<group>"; };
+		A8BED8BE2017173B0071EB87 /* CoustromViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoustromViewController.h; sourceTree = "<group>"; };
+		A8BED8D0201979660071EB87 /* FindTrainModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FindTrainModel.h; sourceTree = "<group>"; };
+		A8BED8D1201979660071EB87 /* FindTrainModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FindTrainModel.m; sourceTree = "<group>"; };
 		C53D2B02A5C7BC5AE629F678 /* libPods-XYZC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XYZC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F97844C0566DE5EB07E15FE7 /* Pods-XYZC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XYZC.release.xcconfig"; path = "Pods/Target Support Files/Pods-XYZC/Pods-XYZC.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -952,7 +955,7 @@
 		A802C95C200F390B0058B25C /* XYZC */ = {
 			isa = PBXGroup;
 			children = (
-				A8BED82C201577A90071EB87 /* Category */,
+				A8BED89B2017173B0071EB87 /* Category */,
 				A802CBE4200F39CA0058B25C /* Main */,
 				A802CBF4200F39CA0058B25C /* NetWork */,
 				A802C974200F39C80058B25C /* Other */,
@@ -1104,10 +1107,10 @@
 			isa = PBXGroup;
 			children = (
 				A802CAD3200F39C80058B25C /* PopoverView.h */,
-				A802CAD4200F39C80058B25C /* PopoverViewCell.h */,
+				A802CAD7200F39C80058B25C /* PopoverView.m */,
 				A802CAD5200F39C80058B25C /* PopoverAction.h */,
 				A802CAD6200F39C80058B25C /* PopoverAction.m */,
-				A802CAD7200F39C80058B25C /* PopoverView.m */,
+				A802CAD4200F39C80058B25C /* PopoverViewCell.h */,
 				A802CAD8200F39C80058B25C /* PopoverViewCell.m */,
 			);
 			path = PopoverView;
@@ -1150,6 +1153,8 @@
 			children = (
 				A802CB61200F39C90058B25C /* ArtileModel.h */,
 				A802CB60200F39C90058B25C /* ArtileModel.m */,
+				A8BED8D0201979660071EB87 /* FindTrainModel.h */,
+				A8BED8D1201979660071EB87 /* FindTrainModel.m */,
 			);
 			path = M;
 			sourceTree = "<group>";
@@ -1164,13 +1169,13 @@
 				A802CB66200F39C90058B25C /* SearchRuesltVC.h */,
 				A802CB6A200F39C90058B25C /* SearchRuesltVC.m */,
 				A802CB6C200F39C90058B25C /* FindJobListVC.h */,
+				A802CB64200F39C90058B25C /* FindJobListVC.m */,
+				A802CB70200F39C90058B25C /* FindTrainingVC.h */,
 				A802CB68200F39C90058B25C /* FindTrainingVC.m */,
 				A802CB6D200F39C90058B25C /* JobInfoVC.h */,
 				A802CB63200F39C90058B25C /* JobInfoVC.m */,
 				A802CB67200F39C90058B25C /* DdTestVC.h */,
 				A802CB6E200F39C90058B25C /* DdTestVC.m */,
-				A802CB70200F39C90058B25C /* FindTrainingVC.h */,
-				A802CB64200F39C90058B25C /* FindJobListVC.m */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -2008,47 +2013,46 @@
 			path = V;
 			sourceTree = "<group>";
 		};
-		A8BED82C201577A90071EB87 /* Category */ = {
+		A8BED89B2017173B0071EB87 /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				A8BED86E201577E60071EB87 /* CoustromViewController.h */,
-				A8BED87B201577EC0071EB87 /* CoustromViewController.m */,
-				A8BED881201577EF0071EB87 /* NSArray+Tool.h */,
-				A8BED867201577E20071EB87 /* NSArray+Tool.m */,
-				A8BED873201577E80071EB87 /* NSDictionary+Tool.h */,
-				A8BED879201577EB0071EB87 /* NSDictionary+Tool.m */,
-				A8BED882201577F00071EB87 /* NSMutableString+Tool.h */,
-				A8BED868201577E30071EB87 /* NSMutableString+Tool.m */,
-				A8BED864201577E10071EB87 /* NSObject+Tool.h */,
-				A8BED86F201577E60071EB87 /* NSObject+Tool.m */,
-				A8BED861201577DF0071EB87 /* NSString+Tool.h */,
-				A8BED86A201577E40071EB87 /* NSString+Tool.m */,
-				A8BED866201577E20071EB87 /* ObjcRuntime.h */,
-				A8BED869201577E30071EB87 /* ObjcRuntime.m */,
-				A8BED86D201577E50071EB87 /* ToolHeader.h */,
-				A8BED862201577E00071EB87 /* UIButton+countDown.h */,
-				A8BED874201577E90071EB87 /* UIButton+countDown.m */,
-				A8BED87C201577ED0071EB87 /* UIButton+SDSetImage.h */,
-				A8BED87D201577ED0071EB87 /* UIButton+SDSetImage.m */,
-				A8BED87F201577EE0071EB87 /* UIButton+TouchOne.h */,
-				A8BED877201577EA0071EB87 /* UIButton+TouchOne.m */,
-				A8BED876201577EA0071EB87 /* UIColor+Tool.h */,
-				A8BED871201577E70071EB87 /* UIColor+Tool.m */,
-				A8BED878201577EB0071EB87 /* UIImage+Tool.h */,
-				A8BED870201577E70071EB87 /* UIImage+Tool.m */,
-				A8BED87E201577EE0071EB87 /* UIImageView+SDSetImage.h */,
-				A8BED86C201577E50071EB87 /* UIImageView+SDSetImage.m */,
-				A8BED863201577E00071EB87 /* UIScrollView+EmptyDataSet.h */,
-				A8BED872201577E80071EB87 /* UIScrollView+EmptyDataSet.m */,
-				A8BED87A201577EC0071EB87 /* UITextView+YLTextView.h */,
-				A8BED86B201577E40071EB87 /* UITextView+YLTextView.m */,
-				A8BED880201577EF0071EB87 /* UIView+Tool.h */,
-				A8BED865201577E10071EB87 /* UIView+Tool.m */,
-				A8BED883201577F00071EB87 /* UIViewController+Tool.h */,
-				A8BED875201577E90071EB87 /* UIViewController+Tool.m */,
+				A8BED89C2017173B0071EB87 /* NSArray+Tool.h */,
+				A8BED89D2017173B0071EB87 /* UIButton+countDown.m */,
+				A8BED89E2017173B0071EB87 /* UIColor+Tool.h */,
+				A8BED89F2017173B0071EB87 /* UIView+Tool.m */,
+				A8BED8A02017173B0071EB87 /* NSDictionary+Tool.h */,
+				A8BED8A12017173B0071EB87 /* UITextView+YLTextView.h */,
+				A8BED8A22017173B0071EB87 /* UIButton+TouchOne.m */,
+				A8BED8A32017173B0071EB87 /* UIImageView+SDSetImage.h */,
+				A8BED8A42017173B0071EB87 /* UIImage+Tool.h */,
+				A8BED8A52017173B0071EB87 /* UIScrollView+EmptyDataSet.m */,
+				A8BED8A62017173B0071EB87 /* UIButton+SDSetImage.h */,
+				A8BED8A72017173B0071EB87 /* NSMutableString+Tool.h */,
+				A8BED8A82017173B0071EB87 /* UIViewController+Tool.h */,
+				A8BED8A92017173B0071EB87 /* NSString+Tool.m */,
+				A8BED8AA2017173B0071EB87 /* ObjcRuntime.h */,
+				A8BED8AB2017173B0071EB87 /* NSObject+Tool.m */,
+				A8BED8AC2017173B0071EB87 /* CoustromViewController.m */,
+				A8BED8AD2017173B0071EB87 /* NSArray+Tool.m */,
+				A8BED8AE2017173B0071EB87 /* UIImage+Tool.m */,
+				A8BED8AF2017173B0071EB87 /* UIImageView+SDSetImage.m */,
+				A8BED8B02017173B0071EB87 /* UIButton+TouchOne.h */,
+				A8BED8B12017173B0071EB87 /* UITextView+YLTextView.m */,
+				A8BED8B22017173B0071EB87 /* NSDictionary+Tool.m */,
+				A8BED8B32017173B0071EB87 /* UIView+Tool.h */,
+				A8BED8B42017173B0071EB87 /* UIButton+countDown.h */,
+				A8BED8B52017173B0071EB87 /* UIColor+Tool.m */,
+				A8BED8B62017173B0071EB87 /* ObjcRuntime.m */,
+				A8BED8B72017173B0071EB87 /* NSString+Tool.h */,
+				A8BED8B82017173B0071EB87 /* ToolHeader.h */,
+				A8BED8B92017173B0071EB87 /* NSMutableString+Tool.m */,
+				A8BED8BA2017173B0071EB87 /* UIViewController+Tool.m */,
+				A8BED8BB2017173B0071EB87 /* UIButton+SDSetImage.m */,
+				A8BED8BC2017173B0071EB87 /* UIScrollView+EmptyDataSet.h */,
+				A8BED8BD2017173B0071EB87 /* NSObject+Tool.h */,
+				A8BED8BE2017173B0071EB87 /* CoustromViewController.h */,
 			);
-			name = Category;
-			path = "../../XYZC 2/XYZC/Category";
+			path = Category;
 			sourceTree = "<group>";
 		};
 		CF517F0A22550B6E92C00192 /* Pods */ = {
@@ -2260,10 +2264,9 @@
 				A802D0A6200F532A0058B25C /* EaseBubbleView+Image.m in Sources */,
 				A802D05A200F532A0058B25C /* amrFileCodec.mm in Sources */,
 				A802CC8E200F39CB0058B25C /* PopoverView.m in Sources */,
-				A8BED88B201577F00071EB87 /* NSObject+Tool.m in Sources */,
+				A8BED8C42017173B0071EB87 /* NSObject+Tool.m in Sources */,
 				A802D09B200F532A0058B25C /* EaseFaceView.m in Sources */,
 				A8BED7E9201575480071EB87 /* MyArticleVC.m in Sources */,
-				A8BED886201577F00071EB87 /* NSMutableString+Tool.m in Sources */,
 				A8BED823201575480071EB87 /* FollowCell.m in Sources */,
 				A802D062200F532A0058B25C /* EMCDDeviceManagerBase.m in Sources */,
 				A802D03C200F532A0058B25C /* EaseChineseToPinyin.m in Sources */,
@@ -2277,14 +2280,18 @@
 				A8BED810201575480071EB87 /* MyResumeWorkCell.m in Sources */,
 				A8BED80E201575480071EB87 /* MyResumeEducationCell.m in Sources */,
 				A802D0A2200F532A0058B25C /* EaseBubbleView+File.m in Sources */,
+				A8BED8C62017173B0071EB87 /* NSArray+Tool.m in Sources */,
+				A8BED8CC2017173B0071EB87 /* ObjcRuntime.m in Sources */,
 				A802CC02200F39CB0058B25C /* QZFilterDataTableView.m in Sources */,
 				A802CCF6200F39CB0058B25C /* LoginVC.m in Sources */,
 				A802CC01200F39CB0058B25C /* QZSortCell.m in Sources */,
+				A8BED8C92017173B0071EB87 /* UITextView+YLTextView.m in Sources */,
 				A802CD03200F39CB0058B25C /* HighlightsListCell.m in Sources */,
 				A802CD07200F39CB0058B25C /* PersonInfoVC.m in Sources */,
 				A802CC8C200F39CB0058B25C /* LZCityPickerController.m in Sources */,
 				A802D081200F532A0058B25C /* UIImageView+EMWebCache.m in Sources */,
 				A8BED81F201575480071EB87 /* MyResumeAddTFCell.m in Sources */,
+				A8BED8C32017173B0071EB87 /* NSString+Tool.m in Sources */,
 				A802CCE2200F39CB0058B25C /* FindJobListVC.m in Sources */,
 				A802D043200F532A0058B25C /* EaseUserModel.m in Sources */,
 				A802D08F200F532A0058B25C /* EaseRefreshTableViewController.m in Sources */,
@@ -2292,14 +2299,11 @@
 				A8BED825201575480071EB87 /* CapitalRecordCell.m in Sources */,
 				A802CCF7200F39CB0058B25C /* RegisterVC.m in Sources */,
 				A802CD2E200F39CB0058B25C /* FL_Button.m in Sources */,
-				A8BED890201577F00071EB87 /* UIViewController+Tool.m in Sources */,
 				A8BED7FA201575480071EB87 /* AddBankCardVC.m in Sources */,
 				A8BED81D201575480071EB87 /* MyResumeAddInfoTFCell.m in Sources */,
 				A802CC09200F39CB0058B25C /* TLCityHeaderView.m in Sources */,
 				A8BED7E6201575480071EB87 /* CapitalRecordVC.m in Sources */,
 				A8BED808201575480071EB87 /* BindingSuccessVC.m in Sources */,
-				A8BED893201577F00071EB87 /* CoustromViewController.m in Sources */,
-				A8BED88D201577F00071EB87 /* UIColor+Tool.m in Sources */,
 				A802CD2B200F39CB0058B25C /* UserModel.m in Sources */,
 				A802D037200F532A0058B25C /* UIViewController+DismissKeyboard.m in Sources */,
 				A802D064200F532A0058B25C /* MWCaptionView.m in Sources */,
@@ -2319,22 +2323,22 @@
 				A802CCF2200F39CB0058B25C /* JobInfoCell.m in Sources */,
 				A802D038200F532A0058B25C /* NSDateFormatter+Category.m in Sources */,
 				A802C962200F390B0058B25C /* ViewController.m in Sources */,
-				A8BED888201577F00071EB87 /* NSString+Tool.m in Sources */,
 				A802D078200F532A0058B25C /* PSTGridLayoutItem.m in Sources */,
 				A8BED8972015BCCE0071EB87 /* FansModel.m in Sources */,
+				A8BED8C52017173B0071EB87 /* CoustromViewController.m in Sources */,
 				A802CD26200F39CB0058B25C /* BaseNavigationController.m in Sources */,
 				A8BED817201575480071EB87 /* MyResumeCertificateCell.m in Sources */,
 				A802CD00200F39CB0058B25C /* HighlightsTitleCell.m in Sources */,
-				A8BED88A201577F00071EB87 /* UIImageView+SDSetImage.m in Sources */,
+				A8BED8C72017173B0071EB87 /* UIImage+Tool.m in Sources */,
 				A8BED826201575480071EB87 /* MyResumeAddNormlCell.m in Sources */,
 				A802D0A1200F532A0058B25C /* EaseBubbleView+Location.m in Sources */,
 				A802CCF4200F39CB0058B25C /* FindTrainingTimeCell.m in Sources */,
 				A8BED7F6201575480071EB87 /* signVC.m in Sources */,
-				A8BED891201577F00071EB87 /* UIButton+TouchOne.m in Sources */,
 				A802D06C200F532A0058B25C /* PSTCollectionViewController.m in Sources */,
 				A8BED7FB201575480071EB87 /* MyPointsVC.m in Sources */,
 				A802D05E200F532A0058B25C /* EMCDDeviceManager+Media.m in Sources */,
 				A802D08C200F532A0058B25C /* EaseLocationViewController.m in Sources */,
+				A8BED8CB2017173B0071EB87 /* UIColor+Tool.m in Sources */,
 				A802CC8F200F39CB0058B25C /* PopoverViewCell.m in Sources */,
 				A802D073200F532A0058B25C /* PSTGridLayoutSection.m in Sources */,
 				A802D075200F532A0058B25C /* PSTCollectionView.m in Sources */,
@@ -2342,23 +2346,24 @@
 				A802D07A200F532A0058B25C /* NSData+EMImageContentType.m in Sources */,
 				A8BED7FE201575480071EB87 /* WithdrawalsVC.m in Sources */,
 				A802D095200F532A0058B25C /* EaseCustomMessageCell.m in Sources */,
+				A8BED8D2201979660071EB87 /* FindTrainModel.m in Sources */,
 				A802CD29200F39CB0058B25C /* BaseModel.m in Sources */,
 				A802D07C200F532A0058B25C /* EMSDWebImagePrefetcher.m in Sources */,
+				A8BED8C12017173B0071EB87 /* UIButton+TouchOne.m in Sources */,
 				A802CC0B200F39CB0058B25C /* HYCalendarTool.m in Sources */,
 				A8BED7ED201575480071EB87 /* MyResumeVC.m in Sources */,
 				A802D03A200F532A0058B25C /* EaseMessageReadManager.m in Sources */,
 				A8BED7FF201575480071EB87 /* MessageHomeVC.m in Sources */,
 				A8BED81B201575480071EB87 /* MessageNotifCommentCell.m in Sources */,
 				A802CC06200F39CB0058B25C /* TLCityGroupCell.m in Sources */,
+				A8BED8CF2017173B0071EB87 /* UIButton+SDSetImage.m in Sources */,
 				A802D074200F532A0058B25C /* PSTCollectionViewItemKey.m in Sources */,
 				A802D05B200F532A0058B25C /* EMVoiceConverter.mm in Sources */,
 				A802CC03200F39CB0058B25C /* UIView+Extension.m in Sources */,
 				A802CD13200F39CB0058B25C /* ArticlPersonInfoHeaderView.m in Sources */,
 				A8BED814201575480071EB87 /* MyPointCCell.m in Sources */,
 				A802CC91200F39CB0058B25C /* MBProgressHUD+JDragon.m in Sources */,
-				A8BED889201577F00071EB87 /* UITextView+YLTextView.m in Sources */,
 				A802D0AB200F532A0058B25C /* EaseUI.m in Sources */,
-				A8BED885201577F00071EB87 /* NSArray+Tool.m in Sources */,
 				A802D092200F532A0058B25C /* EaseUserCell.m in Sources */,
 				A802D083200F532A0058B25C /* UIImage+EMWebP.m in Sources */,
 				A802CD0E200F39CB0058B25C /* ArticleInfoHeaderView.m in Sources */,
@@ -2384,8 +2389,6 @@
 				A802CC08200F39CB0058B25C /* TLCityPickerSearchResultController.m in Sources */,
 				A802CD06200F39CB0058B25C /* PersonsFansListVC.m in Sources */,
 				A802D05F200F532A0058B25C /* EMCDDeviceManager+Microphone.m in Sources */,
-				A8BED88C201577F00071EB87 /* UIImage+Tool.m in Sources */,
-				A8BED887201577F00071EB87 /* ObjcRuntime.m in Sources */,
 				A8BED80B201575480071EB87 /* FeedbackVC.m in Sources */,
 				A802CC04200F39CB0058B25C /* TLCity.m in Sources */,
 				A8BED821201575480071EB87 /* MyResumeHeaderCell.m in Sources */,
@@ -2393,6 +2396,7 @@
 				A802D09D200F532A0058B25C /* EaseChatToolbar.m in Sources */,
 				A8BED89A20170A670071EB87 /* CampusDisplayListModel.m in Sources */,
 				A802D09C200F532A0058B25C /* EaseTextView.m in Sources */,
+				A8BED8C02017173B0071EB87 /* UIView+Tool.m in Sources */,
 				A802CD0C200F39CB0058B25C /* ChoseLabelCCell.m in Sources */,
 				A802D042200F532A0058B25C /* EaseConversationModel.m in Sources */,
 				A802CD0A200F39CB0058B25C /* ArticleListCell.m in Sources */,
@@ -2409,7 +2413,6 @@
 				A802C96D200F390B0058B25C /* main.m in Sources */,
 				A802D059200F532A0058B25C /* wav.mm in Sources */,
 				A802D0A7200F532A0058B25C /* EaseBubbleView+Gif.m in Sources */,
-				A8BED88E201577F00071EB87 /* UIScrollView+EmptyDataSet.m in Sources */,
 				A802D079200F532A0058B25C /* EMSDWebImageDownloader.m in Sources */,
 				A802CCE4200F39CB0058B25C /* HomeVC.m in Sources */,
 				A802CCFA200F39CB0058B25C /* HighlightsVC.m in Sources */,
@@ -2441,16 +2444,17 @@
 				A802D0A3200F532A0058B25C /* EaseBubbleView.m in Sources */,
 				A802D06B200F532A0058B25C /* DACircularProgressView.m in Sources */,
 				A802CC0C200F39CB0058B25C /* BRStringPickerView.m in Sources */,
-				A8BED884201577F00071EB87 /* UIView+Tool.m in Sources */,
 				A802CC87200F39CB0058B25C /* LDImagePicker.m in Sources */,
 				A802CC07200F39CB0058B25C /* TLCityPickerController.m in Sources */,
 				A802CCFC200F39CB0058B25C /* CampusDisplayHeaderView.m in Sources */,
-				A8BED894201577F00071EB87 /* UIButton+SDSetImage.m in Sources */,
 				A802CCE5200F39CB0058B25C /* SearchRuesltVC.m in Sources */,
 				A8BED819201575480071EB87 /* MyPointsHeaderView.m in Sources */,
 				A802D088200F532A0058B25C /* UIImageView+EMHighlightedWebCache.m in Sources */,
+				A8BED8CD2017173B0071EB87 /* NSMutableString+Tool.m in Sources */,
 				A802CC8A200F39CB0058B25C /* LZPickerModel.m in Sources */,
+				A8BED8C22017173B0071EB87 /* UIScrollView+EmptyDataSet.m in Sources */,
 				A802D094200F532A0058B25C /* EaseMessageTimeCell.m in Sources */,
+				A8BED8CA2017173B0071EB87 /* NSDictionary+Tool.m in Sources */,
 				A802CCE3200F39CB0058B25C /* FindTrainingVC.m in Sources */,
 				A802D060200F532A0058B25C /* EMAudioRecorderUtil.m in Sources */,
 				A8BED804201575480071EB87 /* PersonalInformationTVC.m in Sources */,
@@ -2463,17 +2467,18 @@
 				A802D097200F532A0058B25C /* EaseBaseMessageCell.m in Sources */,
 				A8BED7E8201575480071EB87 /* MyWalletVC.m in Sources */,
 				A802D041200F532A0058B25C /* EaseMessageModel.m in Sources */,
-				A8BED88F201577F00071EB87 /* UIButton+countDown.m in Sources */,
 				A802CC88200F39CB0058B25C /* EBTAttributeLinkClickLabel.m in Sources */,
 				A802D069200F532A0058B25C /* MWGridViewController.m in Sources */,
-				A8BED892201577F00071EB87 /* NSDictionary+Tool.m in Sources */,
 				A802CD28200F39CB0058B25C /* UserSignData.m in Sources */,
 				A8BED7F5201575480071EB87 /* AddCertificateVC.m in Sources */,
+				A8BED8C82017173B0071EB87 /* UIImageView+SDSetImage.m in Sources */,
 				A8BED7EB201575480071EB87 /* AddEducationVC.m in Sources */,
 				A8BED812201575480071EB87 /* MyResumeEvaluateCell.m in Sources */,
 				A802D087200F532A0058B25C /* UIImage+EMMultiFormat.m in Sources */,
 				A802CD2C200F39CB0058B25C /* PPNetworkHelper.m in Sources */,
 				A802D098200F532A0058B25C /* EaseChatBarMoreView.m in Sources */,
+				A8BED8BF2017173B0071EB87 /* UIButton+countDown.m in Sources */,
+				A8BED8CE2017173B0071EB87 /* UIViewController+Tool.m in Sources */,
 				A802C95F200F390B0058B25C /* AppDelegate.m in Sources */,
 				A802D080200F532A0058B25C /* EMSDWebImageDecoder.m in Sources */,
 				A802D09A200F532A0058B25C /* EaseFacialView.m in Sources */,

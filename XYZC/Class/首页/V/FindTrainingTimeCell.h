@@ -10,4 +10,11 @@
 
 @interface FindTrainingTimeCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *shangkeStartTimeLB;
+@property (weak, nonatomic) IBOutlet UILabel *shangkeStartLB;
+
+@property (weak, nonatomic) IBOutlet UILabel *addressLB;
+@property (weak, nonatomic) IBOutlet UILabel *phoneLB;
+@property (weak, nonatomic) IBOutlet UILabel *numberLB;
+
 @end

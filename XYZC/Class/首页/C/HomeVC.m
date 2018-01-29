@@ -277,6 +277,7 @@
         {
             //找培训
             FindTrainingVC * vc = [[FindTrainingVC alloc] init];
+            vc.type = 1;
             [self.navigationController pushViewController:vc animated:YES];
             break;
         }
@@ -284,6 +285,7 @@
         {
             //提升
             FindTrainingVC * vc = [[FindTrainingVC alloc] init];
+            vc.type = 2;
             [self.navigationController pushViewController:vc animated:YES];
             break;
         }

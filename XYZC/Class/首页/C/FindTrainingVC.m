@@ -12,6 +12,7 @@
 #import "FindTrainingInfoCell.h"
 #import "JobInfoCell.h"
 #import "PopoverView.h"
+#import "FindTrainModel.h"
 
 @interface FindTrainingVC () <UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource>
 
@@ -21,6 +22,7 @@
 @property (nonatomic, strong) UITableView * coustromTableView;
 @property (nonatomic, strong) UIView * footerView;
 @property (nonatomic, strong) UITableView * rightCoustromTableView;
+@property (nonatomic, strong) FindTrainModel * dataModel;
 
 @end
 
@@ -56,6 +58,22 @@
     .heightIs(SCREEN_HEIGHT - JSH_NavbarAndStatusBarHeight);
     
     self.coustromTableView.tableFooterView = self.footerView;
+    
+    [self loadData];
+}
+- (void)loadData
+{
+    NSMutableDictionary * parametersDic = [[NSMutableDictionary alloc] init];
+    [parametersDic setObject:@(self.type) forKey:@"type"];
+    
+    [PPNetworkHelper POST:@"cultivateListByType.app" parameters:parametersDic hudString:@"加载中..." success:^(id responseObject)
+    {
+        self.dataModel = [[FindTrainModel alloc] initWithDictionary:[responseObject objectForKey:@"cultivateList"][0]];
+        [self.coustromTableView reloadData];
+    } failure:^(NSString *error)
+    {
+        [MBProgressHUD showErrorMessage:error];
+    }];
 }
 
 #pragma mark - Custom Accessors (控件响应方法)
@@ -182,6 +200,7 @@
                 cell = array[0];
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
             }
+            cell.model = self.dataModel;
             return cell;
         }
         else if (indexPath.row == 1)
@@ -192,6 +211,8 @@
                 cell = array[0];
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
             }
+            cell.shangkeStartTimeLB.text = self.dataModel.startDate;
+            cell.shangkeStartLB.text = [NSString stringWithFormat:@"%@-%@ 午休：%@-%@",self.dataModel.attendClassStartTime,self.dataModel.attendClassEndTime,self.dataModel.siestaStartTime,self.dataModel.siestaEndTime];
             return cell;
         }
         else
@@ -205,12 +226,12 @@
             if (indexPath.row == 2)
             {
                 cell.tyoeLB.text = @"培训内容";
-                cell.infoLB.text = @"这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容内容这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容内容这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容";
+                cell.infoLB.text = self.dataModel.trainingContent;
             }
             else
             {
                 cell.tyoeLB.text = @"师资力量";
-                cell.infoLB.text = @"这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容内容这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容内容这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容这是详细这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容内容这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容内容这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容";
+                cell.infoLB.text = self.dataModel.teacherStrength;
             }
             return cell;
         }
@@ -225,6 +246,8 @@
                 cell = array[0];
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
             }
+            cell.titleLB.text = self.dataModel.companyName;
+            cell.infoLB.text = self.dataModel.companyInfo;
             return cell;
         }
         else
@@ -235,6 +258,7 @@
                 cell = array[2];
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
             }
+            cell.phoneLB.text = self.dataModel.phone;
             return cell;
         }
     }

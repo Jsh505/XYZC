@@ -43,6 +43,9 @@
     self.nameLB.text = model.name;
     self.schoolLB.text = [NSString stringWithFormat:@"%@ %@",model.colleges,model.grade];
     
+    [self.labelImageView jsh_sdsetImageWithURL:model.labelPicName placeholderImage:[UIImage imageNamed:@"文章_女汉子"]];
+    self.labelLB.text = model.labelName;
+    self.labelLB.transform=CGAffineTransformMakeRotation(M_PI/4);
     
 }
 

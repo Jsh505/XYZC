@@ -351,7 +351,7 @@
     self.navigationController.navigationBar.backIndicatorImage = nil;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
     UIButton *cancleButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    cancleButton.titleLabel.font = [UIFont boldSystemFontOfSize:16];
+    cancleButton.titleLabel.font = [UIFont boldSystemFontOfSize:15];
     [cancleButton setTitle:[NSBundle py_localizedStringForKey:PYSearchCancelButtonText] forState:UIControlStateNormal];
     [cancleButton addTarget:self action:@selector(cancelDidClick)  forControlEvents:UIControlEventTouchUpInside];
     [cancleButton sizeToFit];
@@ -438,6 +438,22 @@
     self.baseSearchTableView.tableFooterView = footerView;
     
     self.hotSearches = nil;
+}
+
+
+- (UIImage*) imageWithColor:(UIColor *)color {
+    CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, color.CGColor);
+    CGContextFillRect(context, rect);
+    
+    UIImage* image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    NSData* imageData = UIImageJPEGRepresentation(image, 1.0f);
+    image = [UIImage imageWithData:imageData];
+    return image;
 }
 
 - (UILabel *)setupTitleLabel:(NSString *)title

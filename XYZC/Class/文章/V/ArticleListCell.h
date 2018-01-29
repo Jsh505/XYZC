@@ -22,6 +22,7 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *headerImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *labelImageView;
+@property (weak, nonatomic) IBOutlet UILabel *labelLB;
 @property (weak, nonatomic) IBOutlet UILabel *nameLB;
 @property (weak, nonatomic) IBOutlet UILabel *schoolLB;
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;

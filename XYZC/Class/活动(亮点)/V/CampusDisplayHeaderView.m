@@ -22,7 +22,7 @@
 {
     //campusAlias 学校别名;campusName 名称;campusSynopsis 学校简介;watchTime 查看学校次数
     _model = model;
-    [self.headerImageView jsh_sdsetImageWithURL:nil placeholderImage:Default_General_Image];
+    [self.headerImageView jsh_sdsetImageWithURL:model.campuPicture placeholderImage:Default_General_Image];
     self.watchNumberLB.text = [NSString stringWithFormat:@"%d人观看",model.watchTime];
     self.titleLB.text = [NSString stringWithFormat:@"%@——%@",model.campusAlias,model.campusName];
     self.infoLB.text = model.campusSynopsis;

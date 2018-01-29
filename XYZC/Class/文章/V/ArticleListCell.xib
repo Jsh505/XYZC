@@ -135,13 +135,6 @@
                             <outletCollection property="gestureRecognizers" destination="4r4-WN-IfL" appends="YES" id="ZGv-FX-jFr"/>
                         </connections>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="文章_女汉子" translatesAutoresizingMaskIntoConstraints="NO" id="exq-1k-BbX">
-                        <rect key="frame" x="89" y="0.0" width="125" height="59"/>
-                        <gestureRecognizers/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="IOi-NZ-Sz1" appends="YES" id="FjW-V6-bIH"/>
-                        </connections>
-                    </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rfw-iu-0KQ">
                         <rect key="frame" x="295" y="0.0" width="80" height="50"/>
                         <constraints>
@@ -153,8 +146,25 @@
                             <action selector="moreButtonCilick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="9GX-p3-nz4"/>
                         </connections>
                     </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="文章_女汉子" translatesAutoresizingMaskIntoConstraints="NO" id="exq-1k-BbX">
+                        <rect key="frame" x="104" y="0.0" width="110" height="53"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="exq-1k-BbX" secondAttribute="height" multiplier="56:27" id="VMl-nC-pWw"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="IOi-NZ-Sz1" appends="YES" id="FjW-V6-bIH"/>
+                        </connections>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="女汉子" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ijv-9i-nFl">
+                        <rect key="frame" x="166" y="18.5" width="43" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="1" green="0.83137254900000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="ijv-9i-nFl" firstAttribute="centerY" secondItem="exq-1k-BbX" secondAttribute="centerY" id="111-fB-j3D"/>
                     <constraint firstItem="7i7-P8-g1W" firstAttribute="top" secondItem="Ute-HX-0Gl" secondAttribute="top" id="11P-vW-AxW"/>
                     <constraint firstItem="7i7-P8-g1W" firstAttribute="leading" secondItem="Ute-HX-0Gl" secondAttribute="trailing" constant="-33" id="88G-97-8BG"/>
                     <constraint firstAttribute="trailing" secondItem="a6Y-iO-WPo" secondAttribute="trailing" id="88d-qc-AKu"/>
@@ -162,12 +172,14 @@
                     <constraint firstItem="7i7-P8-g1W" firstAttribute="height" secondItem="Ute-HX-0Gl" secondAttribute="height" multiplier="4:5" id="Qql-vl-zcS"/>
                     <constraint firstItem="a6Y-iO-WPo" firstAttribute="top" secondItem="Efh-rJ-OrQ" secondAttribute="bottom" id="Uin-dK-Msp"/>
                     <constraint firstItem="l5d-MY-NeS" firstAttribute="leading" secondItem="Ute-HX-0Gl" secondAttribute="trailing" constant="10" id="VNN-8s-YWJ"/>
+                    <constraint firstItem="exq-1k-BbX" firstAttribute="height" secondItem="HOp-Qc-a61" secondAttribute="height" id="YtR-5y-vwn"/>
                     <constraint firstItem="Efh-rJ-OrQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="cZ3-PW-FPy"/>
                     <constraint firstItem="exq-1k-BbX" firstAttribute="trailing" secondItem="HOp-Qc-a61" secondAttribute="trailing" constant="20" id="cbW-3D-oDi"/>
                     <constraint firstAttribute="trailing" secondItem="Efh-rJ-OrQ" secondAttribute="trailing" id="cvh-nP-gze"/>
                     <constraint firstItem="Rfw-iu-0KQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="hQV-wQ-KT3"/>
                     <constraint firstItem="Ute-HX-0Gl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="jeA-Vf-1Ye"/>
                     <constraint firstItem="exq-1k-BbX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="kNJ-q2-inT"/>
+                    <constraint firstItem="ijv-9i-nFl" firstAttribute="centerX" secondItem="exq-1k-BbX" secondAttribute="centerX" multiplier="1.18" id="pt5-LY-ZHG"/>
                     <constraint firstAttribute="trailing" secondItem="Rfw-iu-0KQ" secondAttribute="trailing" id="sx1-TJ-UgV"/>
                     <constraint firstItem="Efh-rJ-OrQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="uv3-Vm-vQI"/>
                     <constraint firstItem="a6Y-iO-WPo" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="60:275" id="vY2-mF-Xia"/>
@@ -181,6 +193,7 @@
                 <outlet property="dianzanButton" destination="Kh5-xo-EIz" id="YYU-SW-JE9"/>
                 <outlet property="headerImageView" destination="Ute-HX-0Gl" id="5DK-G7-eMx"/>
                 <outlet property="labelImageView" destination="exq-1k-BbX" id="dv6-8X-3ov"/>
+                <outlet property="labelLB" destination="ijv-9i-nFl" id="w6F-vm-IOC"/>
                 <outlet property="nameLB" destination="l5d-MY-NeS" id="W8b-kN-roG"/>
                 <outlet property="pinglunButton" destination="PRe-TO-uJ9" id="Ire-Dx-tHG"/>
                 <outlet property="schoolLB" destination="PSw-2d-ANH" id="nli-4U-4XZ"/>
@@ -208,7 +221,7 @@
     <resources>
         <image name="大图" width="750" height="432"/>
         <image name="头像" width="84" height="84"/>
-        <image name="文章_女汉子" width="125" height="59"/>
+        <image name="文章_女汉子" width="168" height="81"/>
         <image name="文章_更多" width="37" height="37"/>
         <image name="文章已点赞" width="22" height="22"/>
         <image name="文章点赞" width="22" height="22"/>

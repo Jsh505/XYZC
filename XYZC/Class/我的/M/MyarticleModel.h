@@ -61,4 +61,6 @@
 @property (nonatomic, assign) int isgood;
 @property (nonatomic, assign) int userId;
 
+@property (nonatomic, copy) NSString * labelName;
+@property (nonatomic, copy) NSString * labelPicName;
 @end

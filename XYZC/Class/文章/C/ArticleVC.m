@@ -12,10 +12,12 @@
 #import "ArticleInfoVC.h"
 #import "PersonInfoVC.h"
 #import "PopoverView.h"
+#import "MJRefresh.h"
 
 @interface ArticleVC () <UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource, ArticleListCellDelegate>
 {
     int _type;
+    int _page;
 }
 
 @property (nonatomic, strong) UIButton * rightBarButton;
@@ -30,6 +32,11 @@
 @property (nonatomic, strong) NSMutableArray * dataSource1;
 @property (nonatomic, strong) NSMutableArray * dataSource2;
 
+// 上提刷新视图
+@property (nonatomic) MJRefreshFooter *footRefreshView;
+
+// 下拉刷新视图
+@property (nonatomic) MJRefreshHeader *headRefreshView;
 
 @end
 
@@ -43,6 +50,7 @@
     [self creatArticleView];
     
     _type = 1;
+    _page = 1;
     self.dataSource = [[NSMutableArray alloc] init];
     self.dataSource1 = [[NSMutableArray alloc] init];
     self.dataSource2 = [[NSMutableArray alloc] init];
@@ -60,51 +68,77 @@
     NSMutableDictionary * parametersDic = [[NSMutableDictionary alloc] init];
     [parametersDic setObject:@([UserSignData share].user.userId) forKey:@"userId"];
     [parametersDic setObject:@(_type) forKey:@"type"];
+    [parametersDic setObject:@(_page) forKey:@"page"];
     
     [PPNetworkHelper POST:@"queryArticleList.app" parameters:parametersDic hudString:@"获取中..." success:^(id responseObject)
      {
-         switch (_type)
+         if ([responseObject objectForKey:@"articleList"] > 0)
          {
-             case 1:
+             switch (_type)
              {
-                 [self.dataSource removeAllObjects];
-                 for (NSDictionary * dic in [responseObject objectForKey:@"articleList"])
+                 case 1:
                  {
-                     MyarticleModel * model = [[MyarticleModel alloc] initWithDictionary:dic];
-                     [self.dataSource addObject:model];
+                     if (_page == 1)
+                     {
+                         [self.dataSource removeAllObjects];
+                     }
+                     for (NSDictionary * dic in [responseObject objectForKey:@"articleList"])
+                     {
+                         MyarticleModel * model = [[MyarticleModel alloc] initWithDictionary:dic];
+                         [self.dataSource addObject:model];
+                     }
+                     [self.coustromTableView reloadData];
+                     [self endRefreshingWithScrollerView:self.coustromTableView];
+                     break;
                  }
-                 [self.coustromTableView reloadData];
-                 break;
-             }
-             case 2:
-             {
-                 [self.dataSource1 removeAllObjects];
-                 for (NSDictionary * dic in [responseObject objectForKey:@"articleList"])
+                 case 2:
                  {
-                     MyarticleModel * model = [[MyarticleModel alloc] initWithDictionary:dic];
-                     [self.dataSource1 addObject:model];
+                     if (_page == 1)
+                     {
+                         [self.dataSource1 removeAllObjects];
+                     }
+                     for (NSDictionary * dic in [responseObject objectForKey:@"articleList"])
+                     {
+                         MyarticleModel * model = [[MyarticleModel alloc] initWithDictionary:dic];
+                         [self.dataSource1 addObject:model];
+                     }
+                     [self.coustromTableView1 reloadData];
+                     [self endRefreshingWithScrollerView:self.coustromTableView1];
+                     break;
                  }
-                 [self.coustromTableView1 reloadData];
-                 break;
-             }
-             case 3:
-             {
-                 [self.dataSource2 removeAllObjects];
-                 for (NSDictionary * dic in [responseObject objectForKey:@"articleList"])
+                 case 3:
                  {
-                     MyarticleModel * model = [[MyarticleModel alloc] initWithDictionary:dic];
-                     [self.dataSource2 addObject:model];
+                     if (_page == 1)
+                     {
+                         [self.dataSource2 removeAllObjects];
+                     }
+                     for (NSDictionary * dic in [responseObject objectForKey:@"articleList"])
+                     {
+                         MyarticleModel * model = [[MyarticleModel alloc] initWithDictionary:dic];
+                         [self.dataSource2 addObject:model];
+                     }
+                     [self.coustromTableView2 reloadData];
+                     [self endRefreshingWithScrollerView:self.coustromTableView2];
+                     break;
                  }
-                 [self.coustromTableView2 reloadData];
-                 break;
+                 default:
+                     break;
              }
-             default:
-                 break;
          }
-         
-         
+         else
+         {
+             if (_page != 1)
+             {
+                 _page --;
+                 [MBProgressHUD showInfoMessage:@"暂无更多数据"];
+             }
+         }
      } failure:^(NSString *error)
      {
+         if (_page != 1)
+         {
+             _page --;
+         }
          [MBProgressHUD showErrorMessage:error];
      }];
     
@@ -127,7 +161,37 @@
     frame.origin.y = 0;
     [self.contentScrollview scrollRectToVisible:frame animated:YES];
     _type = (int)index + 1;
-    [self loadData];
+    _page = 1;
+    switch (_type)
+    {
+        case 1:
+        {
+            if (self.dataSource.count == 0)
+            {
+                [self loadData];
+            }
+            break;
+        }
+        case 2:
+        {
+            if (self.dataSource1.count == 0)
+            {
+                [self loadData];
+            }
+            break;
+        }
+        case 3:
+        {
+            if (self.dataSource2.count == 0)
+            {
+                [self loadData];
+            }
+            break;
+        }
+        default:
+            break;
+    }
+    
 }
 
 #pragma mark - IBActions(xib响应方法)
@@ -233,7 +297,36 @@
         NSInteger ratio = round(offSetX / SCREEN_WIDTH);
         _headerSegment.selectedSegmentIndex = ratio;
         _type = (int)ratio + 1;
-        [self loadData];
+        _page = 1;
+        switch (_type)
+        {
+            case 1:
+            {
+                if (self.dataSource.count == 0)
+                {
+                    [self loadData];
+                }
+                break;
+            }
+            case 2:
+            {
+                if (self.dataSource1.count == 0)
+                {
+                    [self loadData];
+                }
+                break;
+            }
+            case 3:
+            {
+                if (self.dataSource2.count == 0)
+                {
+                    [self loadData];
+                }
+                break;
+            }
+            default:
+                break;
+        }
     }
 }
 
@@ -293,6 +386,67 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
+#pragma mark MJRefresh下拉刷新
+///    添加下拉刷新
+- (void)addpull2RefreshWithTableView:(UIScrollView *)tableView WithIsInset:(BOOL)isInset
+{
+    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(pull2RefreshWithScrollerView:)];
+    tableView.mj_header = header;
+    _headRefreshView = tableView.mj_header;
+    [tableView.mj_header endRefreshing];
+    // 外观设置
+    // 设置文字
+    [header setTitle:@"下拉刷新..." forState:MJRefreshStateIdle];
+    [header setTitle:@"松开即刷新" forState:MJRefreshStatePulling];
+    [header setTitle:@"正在刷新..." forState:MJRefreshStateRefreshing];
+    
+    // 设置字体
+    header.stateLabel.font = [UIFont systemFontOfSize:13];
+    header.lastUpdatedTimeLabel.font = [UIFont systemFontOfSize:11];
+    // 设置颜色
+    header.stateLabel.textColor = [UIColor blackColor];
+    header.lastUpdatedTimeLabel.textColor = [UIColor grayColor];
+}
+
+///   添加上提加载
+- (void)addPush2LoadMoreWithTableView:(UITableView *)tableView WithIsInset:(BOOL)isInset
+{
+    MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(push2LoadMoreWithScrollerView:)];
+    tableView.mj_footer = footer;
+    
+    _footRefreshView = tableView.mj_footer;
+    [tableView.mj_footer endRefreshing];
+    // 设置文字
+    [footer setTitle:@"" forState:MJRefreshStateIdle];
+    [footer setTitle:@"正在加载..." forState:MJRefreshStateRefreshing];
+    [footer setTitle:@"无更多数据可供加载" forState:MJRefreshStateNoMoreData];
+    
+    // 设置字体
+    footer.stateLabel.font = [UIFont systemFontOfSize:13];
+    
+    // 设置颜色
+    footer.stateLabel.textColor = [UIColor grayColor];
+    
+}
+
+//下拉刷新
+- (void)pull2RefreshWithScrollerView:(UIScrollView *)scrollerView
+{
+    
+}
+
+//上提加载
+- (void)push2LoadMoreWithScrollerView:(UIScrollView *)scrollerView
+{
+    _page ++;
+    [self loadData];
+}
+
+- (void)endRefreshingWithScrollerView:(UIScrollView *)scrollerView
+{
+    [scrollerView.mj_header endRefreshing];
+    [scrollerView.mj_footer endRefreshing];
+}
 
 #pragma mark - Setter/Getter
 
@@ -352,9 +506,13 @@
         [_contentScrollview addSubview:self.coustromTableView];
         [_contentScrollview addSubview:self.coustromTableView1];
         [_contentScrollview addSubview:self.coustromTableView2];
+        [self addPush2LoadMoreWithTableView:self.coustromTableView WithIsInset:NO];
+        [self addPush2LoadMoreWithTableView:self.coustromTableView1 WithIsInset:NO];
+        [self addPush2LoadMoreWithTableView:self.coustromTableView2 WithIsInset:NO];
     }
     return _contentScrollview;
 }
+
 
 - (UITableView *)coustromTableView
 {

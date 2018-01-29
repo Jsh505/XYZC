@@ -13,6 +13,8 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *siginButton;
 
+@property (nonatomic, strong) HYCalendarView * calendarView;
+
 @end
 
 @implementation signVC
@@ -25,9 +27,9 @@
     self.customNavBar.title = @"签到";
     
     // demo1
-    HYCalendarView *calendarView = [[HYCalendarView alloc] init];
-    calendarView.frame = CGRectMake(10, JSH_NavbarAndStatusBarHeight, SCREEN_WIDTH-20, SCREEN_WIDTH);
-    [self.view addSubview:calendarView];
+    self.calendarView = [[HYCalendarView alloc] init];
+    self.calendarView.frame = CGRectMake(10, JSH_NavbarAndStatusBarHeight, SCREEN_WIDTH-20, SCREEN_WIDTH);
+    [self.view addSubview:self.calendarView];
     
     //设置已经签到的天数日期
     NSMutableArray* _signArray = [[NSMutableArray alloc] init];
@@ -35,21 +37,22 @@
     {
         [_signArray addObject:[NSNumber numberWithInt:[[[dic objectForKey:@"signDate"] substringFromIndex:6] intValue]]];
     }
-    calendarView.signArray = _signArray;
+    self.calendarView.signArray = _signArray;
     
-    calendarView.date = [NSDate date];
+    self.calendarView.date = [NSDate date];
     
     
     NSDateComponents *comp = [[NSCalendar currentCalendar] components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay) fromDate:[NSDate date]];
     //日期点击事件
-    __weak typeof(HYCalendarView) *weakDemo = calendarView;
-    calendarView.calendarBlock =  ^(NSInteger day, NSInteger month, NSInteger year){
+    __weak typeof(HYCalendarView) *weakDemo = self.calendarView;
+    kWeakSelf(self)
+    self.calendarView.calendarBlock =  ^(NSInteger day, NSInteger month, NSInteger year){
         if ([comp day]==day) {
             NSLog(@"%li-%li-%li", year,month,day);
             //根据自己逻辑条件 设置今日已经签到的style 没有签到不需要写
             [weakDemo setStyle_Today_Signed:weakDemo.dayButton];
             
-            [self siginButtonCilick:self.siginButton];
+            [weakself siginButtonCilick:weakself.siginButton];
         }
     };
     
@@ -58,7 +61,7 @@
         //判断当天是否签到
         if ([[dic objectForKey:@"signDate"] isEqualToString:[NSString nowDate]])
         {
-            [calendarView setStyle_Today_Signed:calendarView.dayButton];
+            [self.calendarView setStyle_Today_Signed:self.calendarView.dayButton];
             self.siginButton.selected = YES;
             self.siginButton.userInteractionEnabled = NO;
         }
@@ -86,6 +89,7 @@
     [PPNetworkHelper POST:@"addSignin.app" parameters:parametersDic hudString:@"签到中..." success:^(id responseObject)
      {
          [MBProgressHUD showInfoMessage:@"签到成功"];
+         [self.calendarView setStyle_Today_Signed:self.calendarView.dayButton];
          self.siginButton.selected = YES;
          self.siginButton.userInteractionEnabled = NO;
      } failure:^(NSString *error)

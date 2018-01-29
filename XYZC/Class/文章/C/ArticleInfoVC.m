@@ -45,11 +45,22 @@
     
     [PPNetworkHelper POST:@"commentList.app" parameters:parametersDic hudString:@"获取中..." success:^(id responseObject)
      {
-        
+         
     } failure:^(NSString *error)
     {
         [MBProgressHUD showErrorMessage:error];
     }];
+    
+    [PPNetworkHelper POST:@"queryArticleDetail.app" parameters:parametersDic hudString:nil success:^(id responseObject)
+     {
+         if ([[[responseObject objectForKey:@"articleList"] objectForKey:@"isFocus"] intValue] == 0)
+         {
+             self.headerView.guanzhuButton.selected = YES;
+         }
+     } failure:^(NSString *error)
+     {
+         [MBProgressHUD showErrorMessage:error];
+     }];
 }
 
 #pragma mark - Custom Accessors (控件响应方法)

@@ -32,7 +32,7 @@
                     <state key="normal" title="        " image="文章_返回"/>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="文章_女汉子" translatesAutoresizingMaskIntoConstraints="NO" id="K9g-57-RmS">
-                    <rect key="frame" x="55" y="109.5" width="112" height="54"/>
+                    <rect key="frame" x="55" y="109.5" width="168" height="81"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="头像" translatesAutoresizingMaskIntoConstraints="NO" id="a6p-Fm-H1f">
                     <rect key="frame" x="15" y="110" width="80" height="80"/>
@@ -57,7 +57,7 @@
                         <constraint firstAttribute="height" constant="1" id="uVH-I2-WAF"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mjh-Sx-hYt">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mjh-Sx-hYt">
                     <rect key="frame" x="300" y="167.5" width="60" height="30"/>
                     <color key="backgroundColor" red="1" green="0.83921568629999999" blue="0.035294117649999998" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -65,8 +65,12 @@
                         <constraint firstAttribute="width" constant="60" id="uVq-2n-DVY"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <state key="normal" title="关  注">
                         <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                    </state>
+                    <state key="selected" title="已关注">
+                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -266,8 +270,8 @@
     </objects>
     <resources>
         <image name="大图" width="750" height="432"/>
-        <image name="头像" width="86" height="86"/>
-        <image name="文章_女汉子" width="112" height="54"/>
+        <image name="头像" width="84" height="84"/>
+        <image name="文章_女汉子" width="168" height="81"/>
         <image name="文章_返回" width="22" height="22"/>
         <image name="文章个人性别女" width="29" height="27"/>
     </resources>

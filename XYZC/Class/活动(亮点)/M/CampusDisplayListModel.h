@@ -15,6 +15,7 @@
 @property (nonatomic, copy) NSString * campusAlias;
 @property (nonatomic, copy) NSString * campusName;
 @property (nonatomic, copy) NSString * campusSynopsis;
+@property (nonatomic, copy) NSString * campuPicture;
 @property (nonatomic, copy) NSString * video;
 
 @end

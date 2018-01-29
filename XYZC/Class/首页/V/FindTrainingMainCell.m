@@ -21,4 +21,17 @@
     // Configure the view for the selected state
 }
 
+- (void)setModel:(FindTrainModel *)model
+{
+    _model = model;
+    
+    self.address.text = model.address;
+    self.kechengTypeLB.text = model.courseType;
+    self.fuliLB.text = model.entWelfare;
+    self.startTimeLB.text = model.releaseTime;
+    self.personNumLB.text = [NSString stringWithFormat:@"%d",model.studentsNum];
+    self.typeLB.text = [NSString stringWithFormat:@"%d",model.trainingType];
+    self.priceLB.text = [NSString stringWithFormat:@"%d",model.tuition];
+}
+
 @end

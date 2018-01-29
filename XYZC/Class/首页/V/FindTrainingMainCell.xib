@@ -196,6 +196,17 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="address" destination="71u-c8-xVG" id="0N2-BC-hNu"/>
+                <outlet property="fuliLB" destination="K1p-TP-Bfn" id="fb3-ch-orj"/>
+                <outlet property="infoLB" destination="M5y-hd-h7O" id="d94-bc-5uD"/>
+                <outlet property="kechengTypeLB" destination="3XU-67-VAq" id="fu7-6N-NFx"/>
+                <outlet property="personNumLB" destination="1bf-Dx-cCQ" id="YWa-iF-Oz3"/>
+                <outlet property="priceLB" destination="S7B-pc-wis" id="rJR-eU-whW"/>
+                <outlet property="startTimeLB" destination="WUA-Qc-wlc" id="uwb-ZQ-8jx"/>
+                <outlet property="titleLB" destination="oNA-8p-Vxg" id="ZNm-Q2-g1a"/>
+                <outlet property="typeLB" destination="1sb-Zk-s2n" id="QgL-uf-Meu"/>
+            </connections>
             <point key="canvasLocation" x="-374" y="-133"/>
         </tableViewCell>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OtherFindTrainingMainCellident" rowHeight="331" id="3be-UO-lc5" customClass="FindTrainingMainCell">

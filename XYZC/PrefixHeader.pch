@@ -60,7 +60,7 @@
 
 #define Default_Person_Image [UIImage imageNamed:@"默认头像"]
 #define Default_NoData_Image [UIImage imageNamed:@"暂无数据"]
-#define Default_General_Image [UIImage imageNamed:@"暂无数据"]
+#define Default_General_Image [UIImage imageNamed:@"占位图"]
 
 //适配高度
 #define JSH_IsiPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)

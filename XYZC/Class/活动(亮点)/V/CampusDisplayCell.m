@@ -24,7 +24,7 @@
 - (void)setModel:(CampusDisplayListModel *)model
 {
     _model = model;
-    [self.headImageView jsh_sdsetImageWithURL:nil placeholderImage:Default_General_Image];
+    [self.headImageView jsh_sdsetImageWithURL:model.campuPicture placeholderImage:Default_General_Image];
     self.watchNumberLB.text = [NSString stringWithFormat:@"%d人观看",model.watchTime];
     self.titleLB.text = model.campusAlias;
     self.schoolLB.text = model.campusName;
