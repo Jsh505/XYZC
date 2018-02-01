@@ -7,9 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CampusInfoCommentModel.h"
+
+@protocol ArticleInfoCommentCellDelegate <NSObject>
+
+- (void)commentNameLBCilickWithModel:(BaseModel *)model;
+
+@end
+
 
 @interface ArticleInfoCommentCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *infoLB;
+
+@property (nonatomic, strong) CampusInfoCommentModel * model;
+@property (nonatomic, strong) id <ArticleInfoCommentCellDelegate> delegate;
 
 @end

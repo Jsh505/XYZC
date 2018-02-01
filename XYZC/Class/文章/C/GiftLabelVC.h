@@ -7,10 +7,9 @@
 //
 
 #import "BaseViewController.h"
-#import "MyarticleModel.h"
 
 @interface GiftLabelVC : BaseViewController
 
-@property (nonatomic, strong) MyarticleModel * model;
+@property (nonatomic, assign) int userId;
 
 @end

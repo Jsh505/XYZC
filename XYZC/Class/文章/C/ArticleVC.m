@@ -263,7 +263,8 @@
 {
     //访问个人
     PersonInfoVC * vc = [[PersonInfoVC alloc] init];
-    vc.model = model;
+    vc.userId = model.userId;
+    vc.customNavBar.title = model.nickname;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

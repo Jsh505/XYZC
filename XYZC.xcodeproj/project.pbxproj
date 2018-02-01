@@ -247,6 +247,13 @@
 		A896C02C2021C7F300EFA5D4 /* XHInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = A896C02B2021C7F300EFA5D4 /* XHInputView.m */; };
 		A896C0302021CBA900EFA5D4 /* ArticleInfoMoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A896C02E2021CBA900EFA5D4 /* ArticleInfoMoreCell.m */; };
 		A896C0312021CBA900EFA5D4 /* ArticleInfoMoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A896C02F2021CBA900EFA5D4 /* ArticleInfoMoreCell.xib */; };
+		A896C0342022E5D500EFA5D4 /* CampusInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A896C0332022E5D500EFA5D4 /* CampusInfoVC.m */; };
+		A896C0372022E80100EFA5D4 /* CampusInfoHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A896C0362022E80100EFA5D4 /* CampusInfoHeaderView.m */; };
+		A896C0392022E80A00EFA5D4 /* CampusInfoHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A896C0382022E80A00EFA5D4 /* CampusInfoHeaderView.xib */; };
+		A896C03C2022EBA100EFA5D4 /* CampusInfoCommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A896C03B2022EBA100EFA5D4 /* CampusInfoCommentModel.m */; };
+		A896C03F2022FA9700EFA5D4 /* AllCommentListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A896C03E2022FA9700EFA5D4 /* AllCommentListVC.m */; };
+		A896C0432022FBE200EFA5D4 /* AllCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A896C0412022FBE200EFA5D4 /* AllCommentCell.m */; };
+		A896C0442022FBE200EFA5D4 /* AllCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A896C0422022FBE200EFA5D4 /* AllCommentCell.xib */; };
 		A8BED7DE201575480071EB87 /* MyarticleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BED761201575470071EB87 /* MyarticleModel.m */; };
 		A8BED7DF201575480071EB87 /* WithdrawalsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8BED765201575470071EB87 /* WithdrawalsVC.xib */; };
 		A8BED7E0201575480071EB87 /* FeedbackVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8BED767201575470071EB87 /* FeedbackVC.xib */; };
@@ -791,6 +798,18 @@
 		A896C02D2021CBA900EFA5D4 /* ArticleInfoMoreCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArticleInfoMoreCell.h; sourceTree = "<group>"; };
 		A896C02E2021CBA900EFA5D4 /* ArticleInfoMoreCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArticleInfoMoreCell.m; sourceTree = "<group>"; };
 		A896C02F2021CBA900EFA5D4 /* ArticleInfoMoreCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleInfoMoreCell.xib; sourceTree = "<group>"; };
+		A896C0322022E5D500EFA5D4 /* CampusInfoVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CampusInfoVC.h; sourceTree = "<group>"; };
+		A896C0332022E5D500EFA5D4 /* CampusInfoVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CampusInfoVC.m; sourceTree = "<group>"; };
+		A896C0352022E80100EFA5D4 /* CampusInfoHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CampusInfoHeaderView.h; sourceTree = "<group>"; };
+		A896C0362022E80100EFA5D4 /* CampusInfoHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CampusInfoHeaderView.m; sourceTree = "<group>"; };
+		A896C0382022E80A00EFA5D4 /* CampusInfoHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CampusInfoHeaderView.xib; sourceTree = "<group>"; };
+		A896C03A2022EBA100EFA5D4 /* CampusInfoCommentModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CampusInfoCommentModel.h; sourceTree = "<group>"; };
+		A896C03B2022EBA100EFA5D4 /* CampusInfoCommentModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CampusInfoCommentModel.m; sourceTree = "<group>"; };
+		A896C03D2022FA9700EFA5D4 /* AllCommentListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AllCommentListVC.h; sourceTree = "<group>"; };
+		A896C03E2022FA9700EFA5D4 /* AllCommentListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AllCommentListVC.m; sourceTree = "<group>"; };
+		A896C0402022FBE200EFA5D4 /* AllCommentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AllCommentCell.h; sourceTree = "<group>"; };
+		A896C0412022FBE200EFA5D4 /* AllCommentCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AllCommentCell.m; sourceTree = "<group>"; };
+		A896C0422022FBE200EFA5D4 /* AllCommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllCommentCell.xib; sourceTree = "<group>"; };
 		A8BED760201575470071EB87 /* MyarticleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyarticleModel.h; sourceTree = "<group>"; };
 		A8BED761201575470071EB87 /* MyarticleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyarticleModel.m; sourceTree = "<group>"; };
 		A8BED763201575470071EB87 /* BankCardVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankCardVC.h; sourceTree = "<group>"; };
@@ -1323,6 +1342,8 @@
 			children = (
 				A8BED89820170A670071EB87 /* CampusDisplayListModel.h */,
 				A8BED89920170A670071EB87 /* CampusDisplayListModel.m */,
+				A896C03A2022EBA100EFA5D4 /* CampusInfoCommentModel.h */,
+				A896C03B2022EBA100EFA5D4 /* CampusInfoCommentModel.m */,
 			);
 			path = M;
 			sourceTree = "<group>";
@@ -1334,6 +1355,10 @@
 				A802CB93200F39C90058B25C /* HighlightsVC.m */,
 				A802CB91200F39C90058B25C /* CampusDisplayVC.h */,
 				A802CB94200F39C90058B25C /* CampusDisplayVC.m */,
+				A896C0322022E5D500EFA5D4 /* CampusInfoVC.h */,
+				A896C0332022E5D500EFA5D4 /* CampusInfoVC.m */,
+				A896C03D2022FA9700EFA5D4 /* AllCommentListVC.h */,
+				A896C03E2022FA9700EFA5D4 /* AllCommentListVC.m */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -1353,6 +1378,12 @@
 				A802CB9C200F39C90058B25C /* CampusDisplayHeaderView.h */,
 				A802CB96200F39C90058B25C /* CampusDisplayHeaderView.m */,
 				A802CB9B200F39C90058B25C /* CampusDisplayHeaderView.xib */,
+				A896C0352022E80100EFA5D4 /* CampusInfoHeaderView.h */,
+				A896C0362022E80100EFA5D4 /* CampusInfoHeaderView.m */,
+				A896C0382022E80A00EFA5D4 /* CampusInfoHeaderView.xib */,
+				A896C0402022FBE200EFA5D4 /* AllCommentCell.h */,
+				A896C0412022FBE200EFA5D4 /* AllCommentCell.m */,
+				A896C0422022FBE200EFA5D4 /* AllCommentCell.xib */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -2280,7 +2311,9 @@
 				A896C00A2021A31D00EFA5D4 /* ScreenCovHeaderView.xib in Resources */,
 				A802CCEE200F39CB0058B25C /* HomeListCell.xib in Resources */,
 				A8BED7E5201575480071EB87 /* MyArticleVC.xib in Resources */,
+				A896C0392022E80A00EFA5D4 /* CampusInfoHeaderView.xib in Resources */,
 				A8BED803201575480071EB87 /* AddBankCardVC.xib in Resources */,
+				A896C0442022FBE200EFA5D4 /* AllCommentCell.xib in Resources */,
 				A802CD10200F39CB0058B25C /* ChoseLabelCCell.xib in Resources */,
 				A896C0212021BC5600EFA5D4 /* ArticleInfoCommentCell.xib in Resources */,
 				A802CD0F200F39CB0058B25C /* ArticleListCell.xib in Resources */,
@@ -2453,6 +2486,7 @@
 				A802D064200F532A0058B25C /* MWCaptionView.m in Sources */,
 				A802CD05200F39CB0058B25C /* WriteArticleVC.m in Sources */,
 				A896C0302021CBA900EFA5D4 /* ArticleInfoMoreCell.m in Sources */,
+				A896C0432022FBE200EFA5D4 /* AllCommentCell.m in Sources */,
 				A802D09E200F532A0058B25C /* EaseRecordView.m in Sources */,
 				A802D06D200F532A0058B25C /* PSTCollectionViewFlowLayout.m in Sources */,
 				A802D03F200F532A0058B25C /* EaseEmojiEmoticons.m in Sources */,
@@ -2464,6 +2498,7 @@
 				A8BED7EC201575480071EB87 /* MyFriendVC.m in Sources */,
 				A802D070200F532A0058B25C /* PSTCollectionViewData.m in Sources */,
 				A8BED806201575480071EB87 /* AboutVC.m in Sources */,
+				A896C03C2022EBA100EFA5D4 /* CampusInfoCommentModel.m in Sources */,
 				A8BED7F9201575480071EB87 /* BindingPhoneVC.m in Sources */,
 				A802CCF2200F39CB0058B25C /* JobInfoCell.m in Sources */,
 				A802D038200F532A0058B25C /* NSDateFormatter+Category.m in Sources */,
@@ -2568,6 +2603,7 @@
 				A802D079200F532A0058B25C /* EMSDWebImageDownloader.m in Sources */,
 				A802CCE4200F39CB0058B25C /* HomeVC.m in Sources */,
 				A802CCFA200F39CB0058B25C /* HighlightsVC.m in Sources */,
+				A896C0372022E80100EFA5D4 /* CampusInfoHeaderView.m in Sources */,
 				A802D066200F532A0058B25C /* MWTapDetectingImageView.m in Sources */,
 				A802CCE7200F39CB0058B25C /* DdTestVC.m in Sources */,
 				A8BED7E7201575480071EB87 /* MyApplyVC.m in Sources */,
@@ -2633,6 +2669,7 @@
 				A896BFEC2020493500EFA5D4 /* CoustomeLabelHeaderView.m in Sources */,
 				A8BED8C82017173B0071EB87 /* UIImageView+SDSetImage.m in Sources */,
 				A8BED7EB201575480071EB87 /* AddEducationVC.m in Sources */,
+				A896C0342022E5D500EFA5D4 /* CampusInfoVC.m in Sources */,
 				A8BED812201575480071EB87 /* MyResumeEvaluateCell.m in Sources */,
 				A896C02C2021C7F300EFA5D4 /* XHInputView.m in Sources */,
 				A802D087200F532A0058B25C /* UIImage+EMMultiFormat.m in Sources */,
@@ -2642,6 +2679,7 @@
 				A896BFDE201EFA1D00EFA5D4 /* LabelModel.m in Sources */,
 				A8BED8CE2017173B0071EB87 /* UIViewController+Tool.m in Sources */,
 				A802C95F200F390B0058B25C /* AppDelegate.m in Sources */,
+				A896C03F2022FA9700EFA5D4 /* AllCommentListVC.m in Sources */,
 				A802D080200F532A0058B25C /* EMSDWebImageDecoder.m in Sources */,
 				A802D09A200F532A0058B25C /* EaseFacialView.m in Sources */,
 				A802CC86200F39CB0058B25C /* VPImageCropperViewController.m in Sources */,

@@ -20,8 +20,9 @@
                 <rect key="frame" x="0.0" y="0.0" width="322" height="88.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="头像" translatesAutoresizingMaskIntoConstraints="NO" id="Tba-H0-Bci">
+                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="头像" translatesAutoresizingMaskIntoConstraints="NO" id="Tba-H0-Bci">
                         <rect key="frame" x="15" y="15" width="36" height="36"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="Tba-H0-Bci" secondAttribute="height" id="bCC-Ny-CIc"/>
                             <constraint firstAttribute="width" constant="36" id="zbC-c1-0eW"/>
@@ -32,6 +33,9 @@
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                         </userDefinedRuntimeAttributes>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="dtO-yN-xvr" appends="YES" id="rtH-Yh-3Wg"/>
+                        </connections>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="昵称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SIh-rx-qax">
                         <rect key="frame" x="61" y="15" width="27" height="18"/>
@@ -95,6 +99,7 @@
                     <constraint firstItem="ah2-eX-pZf" firstAttribute="bottom" secondItem="Tba-H0-Bci" secondAttribute="bottom" id="xpG-X1-Bcv"/>
                 </constraints>
             </tableViewCellContentView>
+            <gestureRecognizers/>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
                 <outlet property="headerImageView" destination="Tba-H0-Bci" id="DY0-he-vp3"/>
@@ -104,6 +109,11 @@
             </connections>
             <point key="canvasLocation" x="24" y="49.5"/>
         </tableViewCell>
+        <tapGestureRecognizer id="dtO-yN-xvr">
+            <connections>
+                <action selector="headerImageViewCilick:" destination="KGk-i7-Jjw" id="XwW-p7-GeP"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="头像" width="84" height="84"/>

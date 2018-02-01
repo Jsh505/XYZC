@@ -30,8 +30,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    self.customNavBar.title = self.model.nickname;
     
     [self.view addSubview:self.coustromTableView];
     
@@ -50,10 +48,20 @@
 {
     NSMutableDictionary * parametersDic = [[NSMutableDictionary alloc] init];
     [parametersDic setObject:@([UserSignData share].user.userId) forKey:@"userId"];
-    [parametersDic setObject:@(self.model.userId) forKey:@"articleUserId"];
+    [parametersDic setObject:@(self.userId) forKey:@"articleUserId"];
     
     [PPNetworkHelper POST:@"queryUserInfoFromArticle.app" parameters:parametersDic hudString:@"获取中..." success:^(id responseObject)
      {
+         self.headerView.userNameLB.text = [[responseObject objectForKey:@"selfInfo"] objectForKey:@"nickName"];
+
+         [self.headerView.headerImageView jsh_sdsetImageWithURL:[[responseObject objectForKey:@"selfInfo"] objectForKey:@"backgroundMap"] placeholderImage:Default_General_Image];
+         [self.headerView.userHeaderImageView jsh_sdsetImageWithHeaderimg:[[responseObject objectForKey:@"selfInfo"] objectForKey:@"pictureName"]];
+
+         self.headerView.schoolLB.text = [NSString stringWithFormat:@"%@ %@",[[responseObject objectForKey:@"selfInfo"] objectForKey:@"colleges"],[[responseObject objectForKey:@"selfInfo"] objectForKey:@"grade"]];
+
+         [self.headerView.labelmageView jsh_sdsetImageWithURL:[[responseObject objectForKey:@"otherInfo"] objectForKey:@"labelPicName"] placeholderImage:[UIImage imageNamed:@"文章_女汉子"]];
+         self.headerView.labelLB.text = [[responseObject objectForKey:@"otherInfo"] objectForKey:@"labelName"];
+         
          self.headerView.fansLB.text = [NSString stringWithFormat:@"%@",[[responseObject objectForKey:@"otherInfo"] objectForKey:@"fansNumber"]];
          self.headerView.guanzhuLB.text = [NSString stringWithFormat:@"%@",[[responseObject objectForKey:@"otherInfo"] objectForKey:@"focusNumber"]];
          self.headerView.wenzhangLB.text = [NSString stringWithFormat:@"%@",[[responseObject objectForKey:@"otherInfo"] objectForKey:@"articleNumbers"]];
@@ -94,7 +102,7 @@
     //关注
     NSMutableDictionary * parametersDic = [[NSMutableDictionary alloc] init];
     [parametersDic setObject:@([UserSignData share].user.userId) forKey:@"userId"];
-    [parametersDic setObject:@(self.model.userId) forKey:@"fansFriendUserId"];
+    [parametersDic setObject:@(self.userId) forKey:@"fansFriendUserId"];
     [parametersDic setObject:@(2) forKey:@"type"];
     
     [PPNetworkHelper POST:@"addFansOrFriends.app" parameters:parametersDic hudString:@"加好友..." success:^(id responseObject)
@@ -154,7 +162,7 @@
 {
     //赠送标签
     GiftLabelVC * vc = [[GiftLabelVC alloc] init];
-    vc.model = self.model;
+    vc.userId = self.userId;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -227,7 +235,7 @@
     {
         _headerView = [ArticlPersonInfoHeaderView loadViewFromXIB];
         _headerView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH * 150 / 375 + 265);
-        _headerView.model = self.model;
+//        _headerView.model = self.model;
         _headerView.labelmageView.userInteractionEnabled = YES;
         UITapGestureRecognizer * singleRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelmageViewSingleTap)];
         singleRecognizer.numberOfTapsRequired = 1; // 单击
@@ -245,7 +253,7 @@
     if (!_choseLabelView)
     {
         _choseLabelView = [[ChoseLabelView alloc] initWithFrame:self.view.bounds];
-        _choseLabelView.userId = self.model.userId;
+        _choseLabelView.userId = self.userId;
         _choseLabelView.delegate = self;
     }
     return _choseLabelView;

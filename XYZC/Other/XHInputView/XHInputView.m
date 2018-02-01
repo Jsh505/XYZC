@@ -117,7 +117,7 @@ static CGFloat keyboardAnimationDuration = 0.5;
             CGFloat sendButtonHeight = _inputView.bounds.size.height -2*XHInputView_StyleDefault_TBSpace;
             _sendButton = [UIButton buttonWithType:UIButtonTypeCustom];
             _sendButton.frame = CGRectMake(XHInputView_ScreenW - XHInputView_StyleDefault_LRSpace - sendButtonWidth, XHInputView_StyleDefault_TBSpace,sendButtonWidth, sendButtonHeight);
-            [_sendButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+            [_sendButton setTitleColor:[UIColor mainColor] forState:UIControlStateNormal];
             [_sendButton setTitle:@"发送" forState:UIControlStateNormal];
             [_sendButton addTarget:self action:@selector(sendButtonClick:) forControlEvents:UIControlEventTouchUpInside];
             _sendButton.titleLabel.font = [UIFont systemFontOfSize:15];

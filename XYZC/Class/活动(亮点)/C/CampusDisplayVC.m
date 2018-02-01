@@ -10,6 +10,7 @@
 #import "CampusDisplayHeaderView.h"
 #import "CampusDisplayCell.h"
 #import "CampusDisplayListModel.h"
+#import "CampusInfoVC.h"
 
 @interface CampusDisplayVC ()
 
@@ -102,7 +103,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    CampusInfoVC * vc = [[CampusInfoVC alloc] init];
+    vc.model = self.dataSource[indexPath.row + 1];
+    vc.customNavBar.title = vc.model.campusName;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 

@@ -218,7 +218,7 @@
     //普通购买  赠送普通标签：labelMainType 标签大类  1   userId 被赠送标签用户id   labelId 标签Id  都不能为空
     NSMutableDictionary * parametersDic = [[NSMutableDictionary alloc] init];
     [parametersDic setObject:@(1) forKey:@"labelMainType"];
-    [parametersDic setObject:@(self.model.userId) forKey:@"userId"];
+    [parametersDic setObject:@(self.userId) forKey:@"userId"];
     [parametersDic setObject:[idString substringWithRange:NSMakeRange(1, [idString length] - 1)] forKey:@"labelId"];
     
     [PPNetworkHelper POST:@"buyLabel.app" parameters:parametersDic hudString:@"购买中..." success:^(id responseObject)
@@ -257,7 +257,7 @@
     // 赠送自定义标签 ：  labelMainType 标签大类 2  labelName标签名称 pictureName 标签图片名称 userId 被赠送标签用户id  都不能为空
     NSMutableDictionary * parametersDic = [[NSMutableDictionary alloc] init];
     [parametersDic setObject:@(2) forKey:@"labelMainType"];
-    [parametersDic setObject:@(self.model.userId) forKey:@"userId"];
+    [parametersDic setObject:@(self.userId) forKey:@"userId"];
     [parametersDic setObject:self.coustomeHeaderView.labelTextTF.text forKey:@"labelName"];
     
     [PPNetworkHelper POST:@"buyLabel.app" parameters:parametersDic hudString:@"购买中..." success:^(id responseObject)

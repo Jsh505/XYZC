@@ -1,35 +1,35 @@
 //
-//  ArticleInfoVC.m
-//  笑园之窗
+//  CampusInfoVC.m
+//  XYZC
 //
-//  Created by 贾仕海 on 2018/1/9.
+//  Created by 贾仕海 on 2018/2/1.
 //  Copyright © 2018年 xyzc. All rights reserved.
 //
 
-#import "ArticleInfoVC.h"
-#import "ArticleInfoHeaderView.h"
+#import "CampusInfoVC.h"
+#import "CampusInfoHeaderView.h"
 #import "ArticleInfoCell.h"
 #import "ArticleInfoCommentCell.h"
-#import "ArticleCommentModel.h"
+#import "CampusInfoCommentModel.h"
 #import "XHInputView.h"
 #import "ArticleInfoMoreCell.h"
+#import "PersonInfoVC.h"
+#import "AllCommentListVC.h"
 
-@interface ArticleInfoVC () <XHInputViewDelagete, ArticleInfoCellDelegate>
+@interface CampusInfoVC ()<XHInputViewDelagete, ArticleInfoCellDelegate, ArticleInfoCommentCellDelegate>
 
-@property (nonatomic, strong) ArticleInfoHeaderView * headerView;
+@property (nonatomic, strong) CampusInfoHeaderView * headerView;
 @property (nonatomic, strong) UIButton * footerButton;
 @property (nonatomic, strong) NSMutableArray * dataSource;
 
 @end
 
-@implementation ArticleInfoVC
+@implementation CampusInfoVC
 
 #pragma mark - Lifecycle(生命周期)
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    self.customNavBar.title = @"文章详情";
     
     [self.view addSubview:self.coustromTableView];
     
@@ -41,7 +41,7 @@
     
     [self.view addSubview:self.footerButton];
     self.coustromTableView.tableHeaderView = self.headerView;
-   
+    
     self.dataSource = [[NSMutableArray alloc] init];
     [self loadData];
 }
@@ -49,30 +49,25 @@
 - (void)loadData
 {
     NSMutableDictionary * parametersDic = [[NSMutableDictionary alloc] init];
-    [parametersDic setObject:@(self.model.id) forKey:@"articleId"];
+    [parametersDic setObject:@(self.model.id) forKey:@"campusArtId"];
     
-    [PPNetworkHelper POST:@"commentList.app" parameters:parametersDic hudString:@"获取中..." success:^(id responseObject)
+    [PPNetworkHelper POST:@"selectCommentByCampusArtId.app" parameters:parametersDic hudString:@"获取中..." success:^(id responseObject)
      {
-         if ([[responseObject objectForKey:@"commentList"] count] > 0)
+         if ([[responseObject objectForKey:@"campusArtCommentList"] count] > 0)
          {
              [self.dataSource removeAllObjects];
-             for (NSDictionary * dic in [responseObject objectForKey:@"commentList"])
+             for (NSDictionary * dic in [responseObject objectForKey:@"campusArtCommentList"])
              {
-                 ArticleCommentModel * model = [[ArticleCommentModel alloc] initWithDictionary:dic];
+                 CampusInfoCommentModel * model = [[CampusInfoCommentModel alloc] initWithDictionary:dic];
+                 model.secondCommentList = [[NSMutableArray alloc] init];
+                 for (NSDictionary * secondCommentList in [dic objectForKey:@"secondCommentList"])
+                 {
+                     CampusInfoCommentModel * secondModel = [[CampusInfoCommentModel alloc] initWithDictionary:secondCommentList];
+                     [model.secondCommentList addObject:secondModel];
+                 }
                  [self.dataSource addObject:model];
              }
              [self.coustromTableView reloadData];
-         }
-    } failure:^(NSString *error)
-    {
-        [MBProgressHUD showErrorMessage:error];
-    }];
-    
-    [PPNetworkHelper POST:@"queryArticleDetail.app" parameters:parametersDic hudString:nil success:^(id responseObject)
-     {
-         if ([[[responseObject objectForKey:@"articleList"] objectForKey:@"isFocus"] intValue] == 1)
-         {
-             self.headerView.guanzhuButton.selected = YES;
          }
      } failure:^(NSString *error)
      {
@@ -82,74 +77,58 @@
 
 #pragma mark - Custom Accessors (控件响应方法)
 
-- (void)guanzhuButtonCilick
-{
-    //关注
-    NSMutableDictionary * parametersDic = [[NSMutableDictionary alloc] init];
-    [parametersDic setObject:@([UserSignData share].user.userId) forKey:@"userId"];
-    [parametersDic setObject:@(self.model.userId) forKey:@"fansFriendUserId"];
-    [parametersDic setObject:@(2) forKey:@"type"];
-    
-    [PPNetworkHelper POST:@"addFansOrFriends.app" parameters:parametersDic hudString:@"加好友..." success:^(id responseObject)
-     {
-         [MBProgressHUD showInfoMessage:@"操作成功"];
-         self.headerView.guanzhuButton.selected = !self.headerView.guanzhuButton.selected;
-     } failure:^(NSString *error)
-     {
-         [MBProgressHUD showErrorMessage:error];
-     }];
-}
-
-- (void)dianzanButtonCilick
-{
-    //点赞
-    NSMutableDictionary * parametersDic = [[NSMutableDictionary alloc] init];
-    [parametersDic setObject:@([UserSignData share].user.userId) forKey:@"userId"];
-    [parametersDic setObject:@(self.model.id) forKey:@"articleId"];
-    
-    [PPNetworkHelper POST:@"goodArticle.app" parameters:parametersDic hudString:nil success:^(id responseObject)
-     {
-         self.headerView.dianzanButton.selected = !self.headerView.dianzanButton.selected;
-         [MBProgressHUD showInfoMessage:@"操作成功"];
-     } failure:^(NSString *error)
-     {
-         [MBProgressHUD showErrorMessage:error];
-     }];
-}
-
 - (void)footerButtonClicked
 {
     //评论
     [XHInputView showWithStyle:InputViewStyleDefault configurationBlock:^(XHInputView *inputView) {
         /** 请在此block中设置inputView属性 */
-        
         /** 代理 */
         inputView.delegate = self;
-        
         /** 占位符文字 */
         inputView.placeholder = @"评论:";
         /** 设置最大输入字数 */
-        inputView.maxCount = 50;
+        inputView.maxCount = 999;
         /** 输入框颜色 */
         inputView.textViewBackgroundColor = [UIColor groupTableViewBackgroundColor];
-        
         /** 更多属性设置,详见XHInputView.h文件 */
-        
     } sendBlock:^BOOL(NSString *text)
      {
-        if(text.length){
-            NSLog(@"输入的信息为:%@",text);
-            return YES;//return YES,收起键盘
-        }else{
-            NSLog(@"显示提示框-请输入要评论的的内容");
-            return NO;//return NO,不收键盘
-        }
-    }];
+         if(text.length)
+         {
+             NSMutableDictionary * parametersDic = [[NSMutableDictionary alloc] init];
+             [parametersDic setObject:@(self.model.id) forKey:@"campusArtId"];
+             [parametersDic setObject:@([UserSignData share].user.userId) forKey:@"userId"];
+             [parametersDic setObject:text forKey:@"commentContent"];
+             
+             [PPNetworkHelper POST:@"addCampusArtComment" parameters:parametersDic hudString:@"评论中..." success:^(id responseObject)
+              {
+                  [MBProgressHUD showInfoMessage:@"评论成功"];
+             } failure:^(NSString *error) {
+                 [MBProgressHUD showErrorMessage:error];
+             }];
+             return YES;//return YES,收起键盘
+         }
+         else
+         {
+             [MBProgressHUD showInfoMessage:@"评论内容不能为空"];
+             return NO;//return NO,不收键盘
+         }
+     }];
+}
+
+- (void)headerImageViewCilickWithModel:(BaseModel *)model
+{
+    //点击头像
+    CampusInfoCommentModel * newModel = (CampusInfoCommentModel *)model;
+    PersonInfoVC * vc =  [[PersonInfoVC alloc] init];
+    vc.userId = newModel.userId;
+    vc.customNavBar.title = newModel.nickName;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)commentButtonCilickWithModel:(BaseModel *)model
 {
-    ArticleCommentModel * newModel = model;
+    CampusInfoCommentModel * newModel = (CampusInfoCommentModel *)model;
     //平路别人的评论
     [XHInputView showWithStyle:InputViewStyleDefault configurationBlock:^(XHInputView *inputView) {
         /** 请在此block中设置inputView属性 */
@@ -158,9 +137,9 @@
         inputView.delegate = self;
         
         /** 占位符文字 */
-        inputView.placeholder = @"评论XX:";
+        inputView.placeholder = [NSString stringWithFormat:@"评论%@:",newModel.nickName];
         /** 设置最大输入字数 */
-        inputView.maxCount = 50;
+        inputView.maxCount = 999;
         /** 输入框颜色 */
         inputView.textViewBackgroundColor = [UIColor groupTableViewBackgroundColor];
         
@@ -168,14 +147,38 @@
         
     } sendBlock:^BOOL(NSString *text)
      {
-         if(text.length){
-             NSLog(@"输入的信息为:%@",text);
+         if(text.length)
+         {
+             NSMutableDictionary * parametersDic = [[NSMutableDictionary alloc] init];
+             [parametersDic setObject:@(self.model.id) forKey:@"campusArtId"];
+             [parametersDic setObject:@([UserSignData share].user.userId) forKey:@"userId"];
+             [parametersDic setObject:text forKey:@"commentContent"];
+             [parametersDic setObject:@(newModel.commentId) forKey:@"commentId"];
+             
+             [PPNetworkHelper POST:@"addCampusArtComment" parameters:parametersDic hudString:@"评论中..." success:^(id responseObject)
+              {
+                  [MBProgressHUD showInfoMessage:@"评论成功"];
+              } failure:^(NSString *error) {
+                  [MBProgressHUD showErrorMessage:error];
+              }];
              return YES;//return YES,收起键盘
-         }else{
-             NSLog(@"显示提示框-请输入要评论的的内容");
+         }
+         else
+         {
+             [MBProgressHUD showInfoMessage:@"评论内容不能为空"];
              return NO;//return NO,不收键盘
          }
      }];
+}
+
+- (void)commentNameLBCilickWithModel:(BaseModel *)model
+{
+    //点击评论人的昵称
+    CampusInfoCommentModel * newModel = (CampusInfoCommentModel *)model;
+    PersonInfoVC * vc =  [[PersonInfoVC alloc] init];
+    vc.userId = newModel.userId;
+    vc.customNavBar.title = newModel.nickName;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - IBActions(xib响应方法)
@@ -216,8 +219,15 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    ArticleCommentModel * model = self.dataSource[section];
-    return 1 + model.commentListArray.count + 3;
+    CampusInfoCommentModel * model = self.dataSource[section];
+    if (model.secondCommentList.count > 2)
+    {
+        return 4;
+    }
+    else
+    {
+        return 1 + model.secondCommentList.count;
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -251,7 +261,7 @@
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
         cell.delegate = self;
-        cell.model = self.dataSource[indexPath.section];
+        cell.campusInfoModel = self.dataSource[indexPath.section];
         return cell;
     }
     else if (indexPath.row == 3)
@@ -272,6 +282,9 @@
             cell = array[0];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
+        cell.delegate = self;
+        CampusInfoCommentModel * model = self.dataSource[indexPath.section];
+        cell.model = model.secondCommentList[indexPath.row - 1];
         return cell;
     }
     
@@ -282,32 +295,43 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    if (indexPath.row == 3)
+    {
+        CampusInfoCommentModel * model = self.dataSource[indexPath.section];
+        AllCommentListVC * vc = [[AllCommentListVC alloc] init];
+        vc.model = model;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
+
+//属性字符串
+- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView
+{
+    NSString *text = @"";
+    return [[NSAttributedString alloc] initWithString:text attributes:nil];
+}
+
 
 
 #pragma mark - Setter/Getter
 
-- (ArticleInfoHeaderView *)headerView
+- (CampusInfoHeaderView *)headerView
 {
     if (!_headerView)
     {
-        _headerView = [ArticleInfoHeaderView loadViewFromXIB];
+        _headerView = [CampusInfoHeaderView loadViewFromXIB];
         
         UILabel *textLabel = [[UILabel alloc] init];
         textLabel.font = [UIFont systemFontOfSize:15];
-        textLabel.text = self.model.content;
+        textLabel.text = self.model.campusSynopsis;
         textLabel.numberOfLines = 0;//根据最大行数需求来设置
         textLabel.lineBreakMode = NSLineBreakByTruncatingTail;
         CGSize maximumLabelSize = CGSizeMake(SCREEN_WIDTH - 20, 9999);//labelsize的最大值
         //关键语句
         CGSize expectSize = [textLabel sizeThatFits:maximumLabelSize];
         //别忘了把frame给回label，如果用xib加了约束的话可以只改一个约束的值
-        _headerView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH * 200 / 375 + 165 + expectSize.height);
-        
+        _headerView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH * 200 / 375 + 105 + expectSize.height);
         _headerView.model = self.model;
-        [_headerView.guanzhuButton addTarget:self action:@selector(guanzhuButtonCilick) forControlEvents:UIControlEventTouchUpInside];
-        [_headerView.dianzanButton addTarget:self action:@selector(dianzanButtonCilick) forControlEvents:UIControlEventTouchUpInside];
     }
     return _headerView;
 }

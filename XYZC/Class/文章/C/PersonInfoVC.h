@@ -11,6 +11,6 @@
 
 @interface PersonInfoVC : CoustromViewController
 
-@property (nonatomic, strong) MyarticleModel * model;
+@property (nonatomic, assign) int userId;
 
 @end

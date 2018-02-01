@@ -22,10 +22,52 @@
 }
 - (IBAction)commentButtonCil:(id)sender
 {
-    if ([self.delegate respondsToSelector:@selector(commentButtonCilick)])
+    if ([self.delegate respondsToSelector:@selector(commentButtonCilickWithModel:)])
     {
-        [self.delegate commentButtonCilick];
+        if (_model)
+        {
+            [self.delegate commentButtonCilickWithModel:_model];
+        }
+        else
+        {
+            [self.delegate commentButtonCilickWithModel:_campusInfoModel];
+        }
     }
+}
+
+- (IBAction)headerImageViewCilick:(id)sender
+{
+    if ([self.delegate respondsToSelector:@selector(headerImageViewCilickWithModel:)])
+    {
+        if (_model)
+        {
+            [self.delegate headerImageViewCilickWithModel:_model];
+        }
+        else
+        {
+            [self.delegate headerImageViewCilickWithModel:_campusInfoModel];
+        }
+    }
+}
+
+- (void)setModel:(ArticleCommentModel *)model
+{
+    _model = model;
+    
+    [self.headerImageView jsh_sdsetImageWithHeaderimg:model.headPortrait];
+    self.nameLB.text = model.nickName;
+    self.timeLB.text = model.commentTime;
+    self.infoLB.text = model.content;
+}
+
+- (void)setCampusInfoModel:(CampusInfoCommentModel *)campusInfoModel
+{
+    _campusInfoModel = campusInfoModel;
+    
+    [self.headerImageView jsh_sdsetImageWithHeaderimg:campusInfoModel.headPicture];
+    self.nameLB.text = campusInfoModel.nickName;
+    self.timeLB.text = campusInfoModel.commentTime;
+    self.infoLB.text = campusInfoModel.commentContent;
 }
 
 @end

@@ -10,6 +10,7 @@
 
 @interface CampusDisplayListModel : BaseModel
 
+@property (nonatomic, assign) int id;
 @property (nonatomic, assign) int userId;
 @property (nonatomic, assign) int watchTime;
 @property (nonatomic, copy) NSString * campusAlias;
