@@ -362,7 +362,7 @@
     CGFloat titleSpace =-image.size.width-space;
     if((int)SCREEN_HEIGHT%736 != 0)
     {
-        titleSpace =-image.size.width-4*space;
+        titleSpace =-image.size.width-4*space - 10;
     }
     
     [btn.titleLabel setContentMode:UIViewContentModeCenter];

@@ -68,7 +68,7 @@
     NSMutableDictionary * parametersDic = [[NSMutableDictionary alloc] init];
     [parametersDic setObject:@([UserSignData share].user.userId) forKey:@"userId"];
     [parametersDic setObject:@(_type) forKey:@"type"];
-    [parametersDic setObject:@(_page) forKey:@"page"];
+    [parametersDic setObject:@(_page) forKey:@"intPage"];
     
     [PPNetworkHelper POST:@"queryArticleList.app" parameters:parametersDic hudString:@"获取中..." success:^(id responseObject)
      {
@@ -118,7 +118,6 @@
                          [self.dataSource2 addObject:model];
                      }
                      [self.coustromTableView2 reloadData];
-                     [self endRefreshingWithScrollerView:self.coustromTableView2];
                      break;
                  }
                  default:
@@ -133,6 +132,7 @@
                  [MBProgressHUD showInfoMessage:@"暂无更多数据"];
              }
          }
+         [self endRefreshingWithScrollerView:self.coustromTableView2];
      } failure:^(NSString *error)
      {
          if (_page != 1)
@@ -140,6 +140,7 @@
              _page --;
          }
          [MBProgressHUD showErrorMessage:error];
+         [self endRefreshingWithScrollerView:self.coustromTableView2];
      }];
     
 }
@@ -258,10 +259,11 @@
     [popoverView showToView:button withActions:[self QQActions]];
 }
 
-- (void)pushPerson
+- (void)pushPersonWithModel:(MyarticleModel *)model
 {
     //访问个人
     PersonInfoVC * vc = [[PersonInfoVC alloc] init];
+    vc.model = model;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -275,7 +277,7 @@
     [PPNetworkHelper POST:@"goodArticle.app" parameters:parametersDic hudString:nil success:^(id responseObject)
     {
         button.selected = !button.selected;
-        
+        [MBProgressHUD showInfoMessage:@"操作成功"];
     } failure:^(NSString *error)
     {
         [MBProgressHUD showErrorMessage:error];
@@ -382,7 +384,18 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ArticleInfoVC * vc = [[ArticleInfoVC alloc] init];
-    vc.model = self.dataSource[indexPath.row];
+    if (tableView == self.coustromTableView)
+    {
+        vc.model = self.dataSource[indexPath.row];
+    }
+    else if (tableView == self.coustromTableView1)
+    {
+        vc.model = self.dataSource1[indexPath.row];
+    }
+    else
+    {
+        vc.model = self.dataSource2[indexPath.row];
+    }
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -479,7 +492,7 @@
         [_headerSegment setTintColor:[UIColor colorWithHexString:@"484848"]];
         //设置字体样式
         [_headerSegment setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:13],NSForegroundColorAttributeName:[UIColor colorWithHexString:@"484848"]} forState:UIControlStateNormal];
-        [_headerSegment setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:13],NSForegroundColorAttributeName:[UIColor whiteColor]} forState:UIControlStateSelected];
+        [_headerSegment setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:13],NSForegroundColorAttributeName:[UIColor mainColor]} forState:UIControlStateSelected];
         //添加事件
         [_headerSegment addTarget:self action:@selector(segCChanged:) forControlEvents:UIControlEventValueChanged];
     }

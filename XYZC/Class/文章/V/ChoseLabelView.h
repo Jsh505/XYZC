@@ -8,11 +8,22 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol ChoseLabelViewDelegate <NSObject>
+
+- (void)giftButtonCilick;
+
+@end
+
 @interface ChoseLabelView : UIView
 
 @property (weak, nonatomic) IBOutlet UIView *collectionBackView;
 @property (weak, nonatomic) IBOutlet UIView *masView;
 @property (weak, nonatomic) IBOutlet UIView *contentView;
+
+@property (weak, nonatomic) IBOutlet UIButton *giftButton;
+
+@property (nonatomic, strong) id <ChoseLabelViewDelegate> delegate;
+@property (nonatomic, assign) int userId;
 
 - (void)showWithView:(UIView *)view;
 - (void)canel;

@@ -22,6 +22,22 @@
     // Drawing code
     self.sendMessageButton.layer.borderWidth = 1;
     self.sendMessageButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    
+    self.labelLB.transform=CGAffineTransformMakeRotation(M_PI/4);
 }
 
+- (void)setModel:(MyarticleModel *)model
+{
+    _model = model;
+    self.userNameLB.text = model.nickname;
+    
+    [self.headerImageView jsh_sdsetImageWithURL:model.artPicture placeholderImage:Default_General_Image];
+    [self.userHeaderImageView jsh_sdsetImageWithHeaderimg:model.headPicture];
+    
+    self.schoolLB.text = [NSString stringWithFormat:@"%@ %@",model.colleges,model.grade];
+    
+    [self.labelmageView jsh_sdsetImageWithURL:model.labelPicName placeholderImage:[UIImage imageNamed:@"文章_女汉子"]];
+    self.labelLB.text = model.labelName;
+    
+}
 @end

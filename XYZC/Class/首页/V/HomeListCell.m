@@ -23,15 +23,27 @@
     // Configure the view for the selected state
 }
 
-- (void)setModel:(ArtileModel *)model
+- (void)setModel:(PositionListModel *)model
 {
     _model = model;
 //    self.headImage
-    self.titleLB.text = model.POSITION_NAME;
-    self.priceLB.text = model.SALARY;
-    self.timeLB.text = model.RELEASE_TIME;
-    self.infoLB.text = model.AREA_ID;
-    self.typeLB.text = model.TYPE;
+    self.titleLB.text = model.positionName;
+    self.priceLB.text = [NSString stringWithFormat:@"%d元/月",model.recruitsNum];
+    self.timeLB.text = model.releaseTime;
+    self.infoLB.text = model.jobContent;
+    self.typeLB.text = model.positionType;
+}
+
+- (void)setCultivateListModel:(CultivateListModel *)cultivateListModel
+{
+    _cultivateListModel = cultivateListModel;
+    
+    self.titleLB.text = cultivateListModel.trainingCourse;
+    self.priceLB.text = cultivateListModel.tuition;
+    self.timeLB.text = cultivateListModel.releaseTime;
+    self.infoLB.text = cultivateListModel.trainingCity;
+    [self.headImage jsh_sdsetImageWithURL:cultivateListModel.trainingPic placeholderImage:Default_General_Image];
+    
 }
 
 @end

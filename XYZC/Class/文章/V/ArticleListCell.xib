@@ -114,9 +114,6 @@
                             <constraint firstAttribute="width" constant="150" id="pMC-6C-7J5"/>
                             <constraint firstItem="PSw-2d-ANH" firstAttribute="leading" secondItem="l5d-MY-NeS" secondAttribute="leading" id="yVI-W2-E7Z"/>
                         </constraints>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="Yn1-M9-fkv" appends="YES" id="Xho-Io-lDP"/>
-                        </connections>
                     </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="头像" translatesAutoresizingMaskIntoConstraints="NO" id="Ute-HX-0Gl">
                         <rect key="frame" x="10" y="10" width="67" height="66"/>
@@ -131,9 +128,6 @@
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                         </userDefinedRuntimeAttributes>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="4r4-WN-IfL" appends="YES" id="ZGv-FX-jFr"/>
-                        </connections>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rfw-iu-0KQ">
                         <rect key="frame" x="295" y="0.0" width="80" height="50"/>
@@ -152,26 +146,32 @@
                         <constraints>
                             <constraint firstAttribute="width" secondItem="exq-1k-BbX" secondAttribute="height" multiplier="56:27" id="VMl-nC-pWw"/>
                         </constraints>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="IOi-NZ-Sz1" appends="YES" id="FjW-V6-bIH"/>
-                        </connections>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="女汉子" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ijv-9i-nFl">
-                        <rect key="frame" x="166" y="18.5" width="43" height="17"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <rect key="frame" x="169" y="20" width="37" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="1" green="0.83137254900000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gm9-ZO-tAJ">
+                        <rect key="frame" x="0.0" y="0.0" width="214" height="76"/>
+                        <connections>
+                            <action selector="personButtonCilick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="HVN-Oe-hIm"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="ijv-9i-nFl" firstAttribute="centerY" secondItem="exq-1k-BbX" secondAttribute="centerY" id="111-fB-j3D"/>
                     <constraint firstItem="7i7-P8-g1W" firstAttribute="top" secondItem="Ute-HX-0Gl" secondAttribute="top" id="11P-vW-AxW"/>
+                    <constraint firstItem="gm9-ZO-tAJ" firstAttribute="trailing" secondItem="exq-1k-BbX" secondAttribute="trailing" id="35Q-Ty-jkw"/>
                     <constraint firstItem="7i7-P8-g1W" firstAttribute="leading" secondItem="Ute-HX-0Gl" secondAttribute="trailing" constant="-33" id="88G-97-8BG"/>
                     <constraint firstAttribute="trailing" secondItem="a6Y-iO-WPo" secondAttribute="trailing" id="88d-qc-AKu"/>
+                    <constraint firstItem="gm9-ZO-tAJ" firstAttribute="bottom" secondItem="Ute-HX-0Gl" secondAttribute="bottom" id="8UH-tm-oMq"/>
                     <constraint firstItem="a6Y-iO-WPo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="9l6-Oo-WiS"/>
                     <constraint firstItem="7i7-P8-g1W" firstAttribute="height" secondItem="Ute-HX-0Gl" secondAttribute="height" multiplier="4:5" id="Qql-vl-zcS"/>
                     <constraint firstItem="a6Y-iO-WPo" firstAttribute="top" secondItem="Efh-rJ-OrQ" secondAttribute="bottom" id="Uin-dK-Msp"/>
                     <constraint firstItem="l5d-MY-NeS" firstAttribute="leading" secondItem="Ute-HX-0Gl" secondAttribute="trailing" constant="10" id="VNN-8s-YWJ"/>
+                    <constraint firstItem="gm9-ZO-tAJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Xfk-Uy-gxL"/>
                     <constraint firstItem="exq-1k-BbX" firstAttribute="height" secondItem="HOp-Qc-a61" secondAttribute="height" id="YtR-5y-vwn"/>
                     <constraint firstItem="Efh-rJ-OrQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="cZ3-PW-FPy"/>
                     <constraint firstItem="exq-1k-BbX" firstAttribute="trailing" secondItem="HOp-Qc-a61" secondAttribute="trailing" constant="20" id="cbW-3D-oDi"/>
@@ -183,6 +183,7 @@
                     <constraint firstAttribute="trailing" secondItem="Rfw-iu-0KQ" secondAttribute="trailing" id="sx1-TJ-UgV"/>
                     <constraint firstItem="Efh-rJ-OrQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="uv3-Vm-vQI"/>
                     <constraint firstItem="a6Y-iO-WPo" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="60:275" id="vY2-mF-Xia"/>
+                    <constraint firstItem="gm9-ZO-tAJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="wk3-4s-ShF"/>
                     <constraint firstItem="Ute-HX-0Gl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="zfI-wt-zYl"/>
                     <constraint firstAttribute="bottom" secondItem="a6Y-iO-WPo" secondAttribute="bottom" id="zql-et-QbC"/>
                 </constraints>
@@ -195,6 +196,8 @@
                 <outlet property="labelImageView" destination="exq-1k-BbX" id="dv6-8X-3ov"/>
                 <outlet property="labelLB" destination="ijv-9i-nFl" id="w6F-vm-IOC"/>
                 <outlet property="nameLB" destination="l5d-MY-NeS" id="W8b-kN-roG"/>
+                <outlet property="perSonButton" destination="gm9-ZO-tAJ" id="MpY-iW-HTg"/>
+                <outlet property="personView" destination="7i7-P8-g1W" id="2bN-rA-DYA"/>
                 <outlet property="pinglunButton" destination="PRe-TO-uJ9" id="Ire-Dx-tHG"/>
                 <outlet property="schoolLB" destination="PSw-2d-ANH" id="nli-4U-4XZ"/>
                 <outlet property="timeLB" destination="pKG-I8-HIr" id="zAo-D9-Yyu"/>
@@ -202,21 +205,6 @@
             </connections>
             <point key="canvasLocation" x="24.5" y="64.5"/>
         </tableViewCell>
-        <tapGestureRecognizer id="4r4-WN-IfL">
-            <connections>
-                <action selector="personButtonCilick:" destination="KGk-i7-Jjw" id="MAG-VR-kv5"/>
-            </connections>
-        </tapGestureRecognizer>
-        <tapGestureRecognizer id="Yn1-M9-fkv">
-            <connections>
-                <action selector="personButtonCilick:" destination="KGk-i7-Jjw" id="BbD-oD-tEc"/>
-            </connections>
-        </tapGestureRecognizer>
-        <tapGestureRecognizer id="IOi-NZ-Sz1">
-            <connections>
-                <action selector="personButtonCilick:" destination="KGk-i7-Jjw" id="c01-MG-kKb"/>
-            </connections>
-        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="大图" width="750" height="432"/>

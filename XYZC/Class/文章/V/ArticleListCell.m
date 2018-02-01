@@ -39,14 +39,38 @@
     [self.dianzanButton setTitle:[NSString stringWithFormat:@"%d",model.goodnumber] forState:UIControlStateNormal];
     [self.pinglunButton setTitle:[NSString stringWithFormat:@"%d",model.commnumber] forState:UIControlStateNormal];
     [self.backgroundImageView jsh_sdsetImageWithURL:model.artPicture placeholderImage:Default_General_Image];
-    [self.headerImageView jsh_sdsetImageWithURL:model.headPicture placeholderImage:Default_General_Image];
+    [self.headerImageView jsh_sdsetImageWithHeaderimg:model.headPicture];
     self.nameLB.text = model.name;
     self.schoolLB.text = [NSString stringWithFormat:@"%@ %@",model.colleges,model.grade];
     
     [self.labelImageView jsh_sdsetImageWithURL:model.labelPicName placeholderImage:[UIImage imageNamed:@"文章_女汉子"]];
     self.labelLB.text = model.labelName;
     self.labelLB.transform=CGAffineTransformMakeRotation(M_PI/4);
+}
+
+- (void)setPersonArticleModel:(PersonArticleModel *)personArticleModel
+{
+    _personArticleModel = personArticleModel;
     
+    self.personView.hidden = YES;
+    self.headerImageView.hidden = YES;
+    self.labelImageView.hidden = YES;
+    self.labelLB.hidden = YES;
+    self.perSonButton.hidden = YES;
+    
+    self.titleLB.text = personArticleModel.content;
+    self.timeLB.text = personArticleModel.createDate;
+    if (personArticleModel.isgood == 1)
+    {
+        self.dianzanButton.selected = YES;
+    }
+    else
+    {
+        self.dianzanButton.selected = NO;
+    }
+    [self.dianzanButton setTitle:[NSString stringWithFormat:@"%d",personArticleModel.goodnumber] forState:UIControlStateNormal];
+    [self.pinglunButton setTitle:[NSString stringWithFormat:@"%d",personArticleModel.commnumber] forState:UIControlStateNormal];
+    [self.backgroundImageView jsh_sdsetImageWithURL:personArticleModel.artPicture placeholderImage:Default_General_Image];
 }
 
 - (IBAction)moreButtonCilick:(id)sender
@@ -59,9 +83,9 @@
 
 - (IBAction)personButtonCilick:(id)sender
 {
-    if ([self.delegate respondsToSelector:@selector(pushPerson)])
+    if ([self.delegate respondsToSelector:@selector(pushPersonWithModel:)])
     {
-        [self.delegate pushPerson];
+        [self.delegate pushPersonWithModel:_model];
     }
 }
 

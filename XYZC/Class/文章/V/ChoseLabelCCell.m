@@ -15,4 +15,11 @@
     // Initialization code
 }
 
+- (void)setModel:(LabelModel *)model
+{
+    _model = model;
+    [self.labelImage jsh_sdsetImageWithURL:model.picLabelName placeholderImage:[UIImage imageNamed:@"文章标签未选"]];
+    self.labelNameLB.text = model.labelName;
+}
+
 @end

@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LabelModel.h"
 
 @interface ChoseLabelCCell : UICollectionViewCell
+
+@property (weak, nonatomic) IBOutlet UIImageView *labelImage;
+@property (weak, nonatomic) IBOutlet UILabel *labelNameLB;
+
+@property (nonatomic, strong) LabelModel * model;
 
 @end

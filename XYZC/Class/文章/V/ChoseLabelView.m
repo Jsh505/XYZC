@@ -7,10 +7,13 @@
 //
 
 #import "ChoseLabelView.h"
+#import "LabelModel.h"
+#import "ChoseLabelCCell.h"
 
 @interface ChoseLabelView () <UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (nonatomic, strong) UICollectionView * collectionView;
+@property (nonatomic, strong) NSMutableArray * dataSource;
 
 @end
 
@@ -28,8 +31,31 @@
         [self.masView addGestureRecognizer:singleRecognizer];
         
         [self.collectionBackView addSubview:self.collectionView];
+        self.dataSource = [[NSMutableArray alloc] init];
+        [self loadData];
     }
     return self;
+}
+
+- (void)loadData
+{
+    NSMutableDictionary * parametersDic = [[NSMutableDictionary alloc] init];
+    [parametersDic setObject:@(self.userId)  forKey:@"userId"];
+    
+    [PPNetworkHelper POST:@"getLabelListByUserId.app" parameters:parametersDic hudString:@"获取中..." success:^(id responseObject)
+    {
+        [self.dataSource removeAllObjects];
+        for (NSDictionary * dic in [responseObject objectForKey:@"labelList"])
+        {
+            LabelModel * model = [[LabelModel alloc] initWithDictionary:dic];
+            [self.dataSource addObject:model];
+        }
+        [self.collectionView reloadData];
+        
+    } failure:^(NSString *error)
+    {
+        
+    }];
 }
 
 - (void)showWithView:(UIView *)view
@@ -68,11 +94,15 @@
 {
     //赠送标签
     [self canel];
+    if ([self.delegate respondsToSelector:@selector(giftButtonCilick)])
+    {
+        [self.delegate giftButtonCilick];
+    }
 }
 
 //定义展示的UICollectionViewCell的个数
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 6;
+    return self.dataSource.count;
 }
 
 //定义展示的Section的个数
@@ -83,8 +113,9 @@
 //每个UICollectionView展示的内容
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ChoseLabelCCellident" forIndexPath:indexPath];
+    ChoseLabelCCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ChoseLabelCCellident" forIndexPath:indexPath];
     //
+    cell.model = self.dataSource[indexPath.row];
     return cell;
 }
 

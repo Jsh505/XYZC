@@ -157,21 +157,28 @@
     {
         case 1:
         {
-            //取消关注
-            NSMutableDictionary * parametersDic = [[NSMutableDictionary alloc] init];
-            [parametersDic setObject:@([UserSignData share].user.userId) forKey:@"userId"];
-            [parametersDic setObject:@(model.userId) forKey:@"fansFriendUserId"];
-            [parametersDic setObject:@(2) forKey:@"type"];
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"请确认是否取消关注" preferredStyle:UIAlertControllerStyleAlert];
             
-            [PPNetworkHelper POST:@"deleteFocusFriends.app" parameters:parametersDic hudString:@"加好友..." success:^(id responseObject)
-             {
-                 [MBProgressHUD showInfoMessage:@"操作成功"];
-                 [self loadData];
-             } failure:^(NSString *error)
-             {
-                 [MBProgressHUD showErrorMessage:error];
-             }];
-            
+            [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                //点击按钮的响应事件；
+                //取消关注
+                NSMutableDictionary * parametersDic = [[NSMutableDictionary alloc] init];
+                [parametersDic setObject:@([UserSignData share].user.userId) forKey:@"userId"];
+                [parametersDic setObject:@(model.userId) forKey:@"fansFriendUserId"];
+                [parametersDic setObject:@(2) forKey:@"type"];
+                
+                [PPNetworkHelper POST:@"deleteFocusFriends.app" parameters:parametersDic hudString:@"加好友..." success:^(id responseObject)
+                 {
+                     [MBProgressHUD showInfoMessage:@"操作成功"];
+                     [self loadData];
+                 } failure:^(NSString *error)
+                 {
+                     [MBProgressHUD showErrorMessage:error];
+                 }];
+            }]];
+            [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+            //弹出提示框；
+            [self presentViewController:alert animated:true completion:nil];
             break;
         }
         case 2:
@@ -275,7 +282,7 @@
         [_headerSegment setTintColor:[UIColor colorWithHexString:@"484848"]];
         //设置字体样式
         [_headerSegment setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:13],NSForegroundColorAttributeName:[UIColor colorWithHexString:@"484848"]} forState:UIControlStateNormal];
-        [_headerSegment setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:13],NSForegroundColorAttributeName:[UIColor whiteColor]} forState:UIControlStateSelected];
+        [_headerSegment setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:13],NSForegroundColorAttributeName:[UIColor mainColor]} forState:UIControlStateSelected];
         //添加事件
         [_headerSegment addTarget:self action:@selector(segCChanged:) forControlEvents:UIControlEventValueChanged];
     }

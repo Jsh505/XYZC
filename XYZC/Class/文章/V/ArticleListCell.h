@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "MyarticleModel.h"
+#import "PersonArticleModel.h"
 
 @protocol ArticleListCellDelegate <NSObject>
 
 - (void)moreButton:(UIButton *)button;
-- (void)pushPerson;
+- (void)pushPersonWithModel:(MyarticleModel *)model;
 - (void)dianzanButton:(UIButton *)button Model:(MyarticleModel *)model;
 - (void)pinglunButton:(UIButton *)button;
 
@@ -30,8 +31,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *timeLB;
 @property (weak, nonatomic) IBOutlet UIButton *dianzanButton;
 @property (weak, nonatomic) IBOutlet UIButton *pinglunButton;
+@property (weak, nonatomic) IBOutlet UIView *personView;
+@property (weak, nonatomic) IBOutlet UIButton *perSonButton;
 
 @property (nonatomic, strong) MyarticleModel * model;
+@property (nonatomic, strong) PersonArticleModel * personArticleModel;
 @property (nonatomic, strong) id <ArticleListCellDelegate> delegate;
 
 @end

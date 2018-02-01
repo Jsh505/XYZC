@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ArtileModel.h"
+#import "PositionListModel.h"
+#import "CultivateListModel.h"
 
 @interface HomeListCell : UITableViewCell
 
@@ -19,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *statusLB;
 @property (weak, nonatomic) IBOutlet UILabel *typeLB;
 
-@property (nonatomic, strong) ArtileModel * model;
+@property (nonatomic, strong) PositionListModel * model;
+@property (nonatomic, strong) CultivateListModel * cultivateListModel;
 
 @end

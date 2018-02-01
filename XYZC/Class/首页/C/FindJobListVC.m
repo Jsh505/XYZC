@@ -10,27 +10,83 @@
 #import "HomeListCell.h"
 #import "QZConditionFilterView.h"
 #import "JobInfoVC.h"
+#import "ScreenVC.h"
 
 @interface FindJobListVC ()
+{
+    int _page;
+}
 
 @property (nonatomic, strong) NSArray * selectedDataSource1Ary;
 @property (nonatomic, strong) NSArray * selectedDataSource2Ary;
 @property (nonatomic, strong) NSArray * selectedDataSource3Ary;
 @property (nonatomic, strong) QZConditionFilterView * conditionFilterView;
 
+@property (nonatomic, strong) NSMutableArray * dataSource;
+
 @end
 
 @implementation FindJobListVC
+
+#pragma mark - Lifecycle(生命周期)
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.customNavBar.title = @"找工作";
     [self creatFindJobListView];
+    
+    _page = 1;
+    self.dataSource = [[NSMutableArray alloc] init];
+    [self loadData];
 }
 
-#pragma mark - Lifecycle(生命周期)
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self.conditionFilterView dismiss];
+}
 
+- (void)loadData
+{
+    //    type  职位类型(如 销售 工程师 财务) area区域 sex 性别要求（无  男  女） workDate 上班时段 （上午  下午 晚上）welfare 福利待遇   intPage  非空 当前页数，从1开始
+    NSMutableDictionary * parametersDic = [[NSMutableDictionary alloc] init];
+    [parametersDic setObject:@(_page) forKey:@"intPage"];
+    
+    [PPNetworkHelper POST:@"positionList.app" parameters:parametersDic hudString:@"加载中..." success:^(id responseObject)
+     {
+         if ([responseObject objectForKey:@"positionList"] > 0)
+         {
+             if (_page == 1)
+             {
+                 [self.dataSource removeAllObjects];
+             }
+             for (NSDictionary * dic in [responseObject objectForKey:@"positionList"])
+             {
+                 PositionListModel * model = [[PositionListModel alloc] initWithDictionary:dic];
+                 [self.dataSource addObject:model];
+             }
+         }
+         else
+         {
+             if (_page != 1)
+             {
+                 _page --;
+                 [MBProgressHUD showInfoMessage:@"暂无更多数据"];
+             }
+         }
+         [self.coustromTableView reloadData];
+         [self endRefreshing];
+     } failure:^(NSString *error)
+     {
+         if (_page != 1)
+         {
+             _page --;
+         }
+         [MBProgressHUD showErrorMessage:error];
+         [self endRefreshing];
+     }];
+}
 
 #pragma mark - Custom Accessors (控件响应方法)
 
@@ -40,25 +96,30 @@
 
 #pragma mark - Public (.h 公共调用方法)
 
+- (void)push2LoadMoreWithScrollerView:(UIScrollView *)scrollerView
+{
+    _page ++;
+    [self loadData];
+}
 
 #pragma mark - Private (.m 私有方法)
 
 - (void)creatFindJobListView
 {
-    self.customNavBar.title = @"找工作";
     
+    [self addPush2LoadMoreWithTableView:self.coustromTableView WithIsInset:NO];
     self.coustromTableView.frame = CGRectMake(0, JSH_NavbarAndStatusBarHeight + 50, SCREEN_WIDTH, SCREEN_HEIGHT - JSH_NavbarAndStatusBarHeight - 50);
     [self.view addSubview:self.coustromTableView];
     
     // 设置初次加载显示的默认数据 即初次加载还没有选择操作之前要显示的标题数据
     self.selectedDataSource1Ary = @[@"类型"];
     self.selectedDataSource2Ary = @[@"区域"];
-    self.selectedDataSource3Ary = @[@"综合"];
+    self.selectedDataSource3Ary = @[@"综合排序"];
     
     // 传入数据源，对应三个tableView顺序
-    self.conditionFilterView.dataAry1 = @[@"1-1",@"1-2",@"1-3",@"1-4",@"1-5"];
+    self.conditionFilterView.dataAry1 = @[@"不限",@"送餐员",@"促销",@"礼仪"];
     self.conditionFilterView.dataAry2 = @[@"2-1",@"2-2",@"2-3",@"2-4",@"2-5"];
-    self.conditionFilterView.dataAry3 = @[@"3-1",@"3-2",@"3-3",@"3-4",@"3-5"];
+    self.conditionFilterView.dataAry3 = @[@"综合排序",@"最新发布",@"理我最近"];
     
     // 初次设置默认显示数据(标题)，内部会调用block 进行第一次数据加载
     [self.conditionFilterView bindChoseArrayDataSource1:_selectedDataSource1Ary DataSource2:_selectedDataSource2Ary DataSource3:_selectedDataSource3Ary];
@@ -93,7 +154,8 @@
 - (void)screenbuttonClicked
 {
     //筛选点击
-
+    ScreenVC * vc = [[ScreenVC alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 
@@ -104,7 +166,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return self.dataSource.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -120,6 +182,7 @@
         cell = array[0];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
+    cell.model = self.dataSource[indexPath.row];
     return cell;
 }
 
@@ -156,9 +219,9 @@
                                         // 不是筛选，全部赋初值（在这个工程其实是没用的，因为tableView是选中后必选的，即一旦选中就没有空的情况，但是如果可以清空筛选条件的时候就有必要 *重新* reset data）
                                         _selectedDataSource1Ary = @[@"类型"];
                                         _selectedDataSource2Ary = @[@"区域"];
-                                        _selectedDataSource3Ary = @[@"综合"];
+                                        _selectedDataSource3Ary = @[@"综合排序"];
                                     }
-                                    _conditionFilterView.delegate = self;
+//                                    _conditionFilterView.delegate = self;
                                     // 开始网络请求
                                     [self startRequest];
                                 }];

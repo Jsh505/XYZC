@@ -219,6 +219,34 @@
 		A802D0A9200F532A0058B25C /* EaseUI.podspec in Resources */ = {isa = PBXBuildFile; fileRef = A802D030200F532A0058B25C /* EaseUI.podspec */; };
 		A802D0AA200F532A0058B25C /* EaseUIResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A802D032200F532A0058B25C /* EaseUIResource.bundle */; };
 		A802D0AB200F532A0058B25C /* EaseUI.m in Sources */ = {isa = PBXBuildFile; fileRef = A802D033200F532A0058B25C /* EaseUI.m */; };
+		A896BFDB201EF66200EFA5D4 /* PersonArticleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A896BFDA201EF66200EFA5D4 /* PersonArticleModel.m */; };
+		A896BFDE201EFA1D00EFA5D4 /* LabelModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A896BFDD201EFA1D00EFA5D4 /* LabelModel.m */; };
+		A896BFE1201F079200EFA5D4 /* GiftLabelVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A896BFE0201F079200EFA5D4 /* GiftLabelVC.m */; };
+		A896BFE5201F1A1A00EFA5D4 /* GiftCCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A896BFE3201F1A1A00EFA5D4 /* GiftCCell.m */; };
+		A896BFE6201F1A1A00EFA5D4 /* GiftCCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A896BFE4201F1A1A00EFA5D4 /* GiftCCell.xib */; };
+		A896BFE9201F233C00EFA5D4 /* GiftLabelModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A896BFE8201F233C00EFA5D4 /* GiftLabelModel.m */; };
+		A896BFEC2020493500EFA5D4 /* CoustomeLabelHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A896BFEB2020493500EFA5D4 /* CoustomeLabelHeaderView.m */; };
+		A896BFEE2020494100EFA5D4 /* CoustomeLabelHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A896BFED2020494100EFA5D4 /* CoustomeLabelHeaderView.xib */; };
+		A896BFF220204E2700EFA5D4 /* GiftCoustomeCCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A896BFF020204E2700EFA5D4 /* GiftCoustomeCCell.m */; };
+		A896BFF320204E2700EFA5D4 /* GiftCoustomeCCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A896BFF120204E2700EFA5D4 /* GiftCoustomeCCell.xib */; };
+		A896BFF62020670700EFA5D4 /* PositionListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A896BFF52020670700EFA5D4 /* PositionListModel.m */; };
+		A896BFF82021872100EFA5D4 /* NullSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = A896BFF72021872000EFA5D4 /* NullSafe.m */; };
+		A896BFFD2021997D00EFA5D4 /* FindTrainingListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A896BFFC2021997D00EFA5D4 /* FindTrainingListVC.m */; };
+		A896C00020219D8600EFA5D4 /* CultivateListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A896BFFF20219D8600EFA5D4 /* CultivateListModel.m */; };
+		A896C0042021A0C200EFA5D4 /* ScreenVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A896C0022021A0C200EFA5D4 /* ScreenVC.m */; };
+		A896C0092021A31D00EFA5D4 /* ScreenCovHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A896C0072021A31D00EFA5D4 /* ScreenCovHeaderView.m */; };
+		A896C00A2021A31D00EFA5D4 /* ScreenCovHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A896C0082021A31D00EFA5D4 /* ScreenCovHeaderView.xib */; };
+		A896C00E2021A75C00EFA5D4 /* ScreenCCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A896C00C2021A75C00EFA5D4 /* ScreenCCell.m */; };
+		A896C00F2021A75C00EFA5D4 /* ScreenCCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A896C00D2021A75C00EFA5D4 /* ScreenCCell.xib */; };
+		A896C0132021B49000EFA5D4 /* ArticleInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A896C0112021B49000EFA5D4 /* ArticleInfoCell.m */; };
+		A896C0142021B49000EFA5D4 /* ArticleInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A896C0122021B49000EFA5D4 /* ArticleInfoCell.xib */; };
+		A896C0202021BC5600EFA5D4 /* ArticleInfoCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A896C01E2021BC5600EFA5D4 /* ArticleInfoCommentCell.m */; };
+		A896C0212021BC5600EFA5D4 /* ArticleInfoCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A896C01F2021BC5600EFA5D4 /* ArticleInfoCommentCell.xib */; };
+		A896C0252021BE8200EFA5D4 /* UILabel+YBAttributeTextTapAction.m in Sources */ = {isa = PBXBuildFile; fileRef = A896C0242021BE8200EFA5D4 /* UILabel+YBAttributeTextTapAction.m */; };
+		A896C0282021C12800EFA5D4 /* ArticleCommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A896C0272021C12800EFA5D4 /* ArticleCommentModel.m */; };
+		A896C02C2021C7F300EFA5D4 /* XHInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = A896C02B2021C7F300EFA5D4 /* XHInputView.m */; };
+		A896C0302021CBA900EFA5D4 /* ArticleInfoMoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A896C02E2021CBA900EFA5D4 /* ArticleInfoMoreCell.m */; };
+		A896C0312021CBA900EFA5D4 /* ArticleInfoMoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A896C02F2021CBA900EFA5D4 /* ArticleInfoMoreCell.xib */; };
 		A8BED7DE201575480071EB87 /* MyarticleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BED761201575470071EB87 /* MyarticleModel.m */; };
 		A8BED7DF201575480071EB87 /* WithdrawalsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8BED765201575470071EB87 /* WithdrawalsVC.xib */; };
 		A8BED7E0201575480071EB87 /* FeedbackVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8BED767201575470071EB87 /* FeedbackVC.xib */; };
@@ -245,7 +273,6 @@
 		A8BED7F5201575480071EB87 /* AddCertificateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BED78A201575470071EB87 /* AddCertificateVC.m */; };
 		A8BED7F6201575480071EB87 /* signVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BED78C201575470071EB87 /* signVC.m */; };
 		A8BED7F7201575480071EB87 /* MyVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8BED78D201575470071EB87 /* MyVC.storyboard */; };
-		A8BED7F8201575480071EB87 /* MessageHomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8BED78E201575470071EB87 /* MessageHomeVC.xib */; };
 		A8BED7F9201575480071EB87 /* BindingPhoneVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BED791201575470071EB87 /* BindingPhoneVC.m */; };
 		A8BED7FA201575480071EB87 /* AddBankCardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BED792201575470071EB87 /* AddBankCardVC.m */; };
 		A8BED7FB201575480071EB87 /* MyPointsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BED793201575470071EB87 /* MyPointsVC.m */; };
@@ -717,6 +744,53 @@
 		A802D030200F532A0058B25C /* EaseUI.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = EaseUI.podspec; sourceTree = "<group>"; };
 		A802D032200F532A0058B25C /* EaseUIResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = EaseUIResource.bundle; sourceTree = "<group>"; };
 		A802D033200F532A0058B25C /* EaseUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EaseUI.m; sourceTree = "<group>"; };
+		A896BFD9201EF66200EFA5D4 /* PersonArticleModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonArticleModel.h; sourceTree = "<group>"; };
+		A896BFDA201EF66200EFA5D4 /* PersonArticleModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonArticleModel.m; sourceTree = "<group>"; };
+		A896BFDC201EFA1D00EFA5D4 /* LabelModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LabelModel.h; sourceTree = "<group>"; };
+		A896BFDD201EFA1D00EFA5D4 /* LabelModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LabelModel.m; sourceTree = "<group>"; };
+		A896BFDF201F079200EFA5D4 /* GiftLabelVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiftLabelVC.h; sourceTree = "<group>"; };
+		A896BFE0201F079200EFA5D4 /* GiftLabelVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiftLabelVC.m; sourceTree = "<group>"; };
+		A896BFE2201F1A1A00EFA5D4 /* GiftCCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiftCCell.h; sourceTree = "<group>"; };
+		A896BFE3201F1A1A00EFA5D4 /* GiftCCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiftCCell.m; sourceTree = "<group>"; };
+		A896BFE4201F1A1A00EFA5D4 /* GiftCCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GiftCCell.xib; sourceTree = "<group>"; };
+		A896BFE7201F233C00EFA5D4 /* GiftLabelModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiftLabelModel.h; sourceTree = "<group>"; };
+		A896BFE8201F233C00EFA5D4 /* GiftLabelModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiftLabelModel.m; sourceTree = "<group>"; };
+		A896BFEA2020493500EFA5D4 /* CoustomeLabelHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoustomeLabelHeaderView.h; sourceTree = "<group>"; };
+		A896BFEB2020493500EFA5D4 /* CoustomeLabelHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoustomeLabelHeaderView.m; sourceTree = "<group>"; };
+		A896BFED2020494100EFA5D4 /* CoustomeLabelHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoustomeLabelHeaderView.xib; sourceTree = "<group>"; };
+		A896BFEF20204E2700EFA5D4 /* GiftCoustomeCCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiftCoustomeCCell.h; sourceTree = "<group>"; };
+		A896BFF020204E2700EFA5D4 /* GiftCoustomeCCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiftCoustomeCCell.m; sourceTree = "<group>"; };
+		A896BFF120204E2700EFA5D4 /* GiftCoustomeCCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GiftCoustomeCCell.xib; sourceTree = "<group>"; };
+		A896BFF42020670700EFA5D4 /* PositionListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PositionListModel.h; sourceTree = "<group>"; };
+		A896BFF52020670700EFA5D4 /* PositionListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PositionListModel.m; sourceTree = "<group>"; };
+		A896BFF72021872000EFA5D4 /* NullSafe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NullSafe.m; sourceTree = "<group>"; };
+		A896BFFB2021997D00EFA5D4 /* FindTrainingListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FindTrainingListVC.h; sourceTree = "<group>"; };
+		A896BFFC2021997D00EFA5D4 /* FindTrainingListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FindTrainingListVC.m; sourceTree = "<group>"; };
+		A896BFFE20219D8600EFA5D4 /* CultivateListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CultivateListModel.h; sourceTree = "<group>"; };
+		A896BFFF20219D8600EFA5D4 /* CultivateListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CultivateListModel.m; sourceTree = "<group>"; };
+		A896C0012021A0C200EFA5D4 /* ScreenVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScreenVC.h; sourceTree = "<group>"; };
+		A896C0022021A0C200EFA5D4 /* ScreenVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScreenVC.m; sourceTree = "<group>"; };
+		A896C0062021A31D00EFA5D4 /* ScreenCovHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScreenCovHeaderView.h; sourceTree = "<group>"; };
+		A896C0072021A31D00EFA5D4 /* ScreenCovHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScreenCovHeaderView.m; sourceTree = "<group>"; };
+		A896C0082021A31D00EFA5D4 /* ScreenCovHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScreenCovHeaderView.xib; sourceTree = "<group>"; };
+		A896C00B2021A75C00EFA5D4 /* ScreenCCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScreenCCell.h; sourceTree = "<group>"; };
+		A896C00C2021A75C00EFA5D4 /* ScreenCCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScreenCCell.m; sourceTree = "<group>"; };
+		A896C00D2021A75C00EFA5D4 /* ScreenCCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScreenCCell.xib; sourceTree = "<group>"; };
+		A896C0102021B49000EFA5D4 /* ArticleInfoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArticleInfoCell.h; sourceTree = "<group>"; };
+		A896C0112021B49000EFA5D4 /* ArticleInfoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArticleInfoCell.m; sourceTree = "<group>"; };
+		A896C0122021B49000EFA5D4 /* ArticleInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleInfoCell.xib; sourceTree = "<group>"; };
+		A896C01D2021BC5600EFA5D4 /* ArticleInfoCommentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArticleInfoCommentCell.h; sourceTree = "<group>"; };
+		A896C01E2021BC5600EFA5D4 /* ArticleInfoCommentCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArticleInfoCommentCell.m; sourceTree = "<group>"; };
+		A896C01F2021BC5600EFA5D4 /* ArticleInfoCommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleInfoCommentCell.xib; sourceTree = "<group>"; };
+		A896C0232021BE8200EFA5D4 /* UILabel+YBAttributeTextTapAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+YBAttributeTextTapAction.h"; sourceTree = "<group>"; };
+		A896C0242021BE8200EFA5D4 /* UILabel+YBAttributeTextTapAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+YBAttributeTextTapAction.m"; sourceTree = "<group>"; };
+		A896C0262021C12800EFA5D4 /* ArticleCommentModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArticleCommentModel.h; sourceTree = "<group>"; };
+		A896C0272021C12800EFA5D4 /* ArticleCommentModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArticleCommentModel.m; sourceTree = "<group>"; };
+		A896C02A2021C7F300EFA5D4 /* XHInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHInputView.h; sourceTree = "<group>"; };
+		A896C02B2021C7F300EFA5D4 /* XHInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHInputView.m; sourceTree = "<group>"; };
+		A896C02D2021CBA900EFA5D4 /* ArticleInfoMoreCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArticleInfoMoreCell.h; sourceTree = "<group>"; };
+		A896C02E2021CBA900EFA5D4 /* ArticleInfoMoreCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArticleInfoMoreCell.m; sourceTree = "<group>"; };
+		A896C02F2021CBA900EFA5D4 /* ArticleInfoMoreCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleInfoMoreCell.xib; sourceTree = "<group>"; };
 		A8BED760201575470071EB87 /* MyarticleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyarticleModel.h; sourceTree = "<group>"; };
 		A8BED761201575470071EB87 /* MyarticleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyarticleModel.m; sourceTree = "<group>"; };
 		A8BED763201575470071EB87 /* BankCardVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankCardVC.h; sourceTree = "<group>"; };
@@ -761,7 +835,6 @@
 		A8BED78B201575470071EB87 /* FeedbackVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackVC.h; sourceTree = "<group>"; };
 		A8BED78C201575470071EB87 /* signVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = signVC.m; sourceTree = "<group>"; };
 		A8BED78D201575470071EB87 /* MyVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyVC.storyboard; sourceTree = "<group>"; };
-		A8BED78E201575470071EB87 /* MessageHomeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageHomeVC.xib; sourceTree = "<group>"; };
 		A8BED78F201575470071EB87 /* CapitalRecordVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CapitalRecordVC.h; sourceTree = "<group>"; };
 		A8BED790201575470071EB87 /* OnlyTestFileVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnlyTestFileVC.h; sourceTree = "<group>"; };
 		A8BED791201575470071EB87 /* BindingPhoneVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BindingPhoneVC.m; sourceTree = "<group>"; };
@@ -979,6 +1052,8 @@
 		A802C974200F39C80058B25C /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				A896C0292021C7F300EFA5D4 /* XHInputView */,
+				A896C0222021BE8200EFA5D4 /* YBAttributeTextTapAction */,
 				A802CF0D200F53290058B25C /* EaseUI */,
 				A802C975200F39C80058B25C /* QZConditionFilterView */,
 				A802C983200F39C80058B25C /* TLCityPicker */,
@@ -998,13 +1073,13 @@
 			children = (
 				A802C976200F39C80058B25C /* QZSortCell.h */,
 				A802C977200F39C80058B25C /* QZFilterDataTableView.h */,
+				A802C980200F39C80058B25C /* QZFilterDataTableView.m */,
 				A802C978200F39C80058B25C /* images */,
 				A802C97D200F39C80058B25C /* UIView+Extension.h */,
-				A802C97E200F39C80058B25C /* QZConditionFilterView.m */,
 				A802C97F200F39C80058B25C /* QZSortCell.m */,
-				A802C980200F39C80058B25C /* QZFilterDataTableView.m */,
-				A802C981200F39C80058B25C /* UIView+Extension.m */,
 				A802C982200F39C80058B25C /* QZConditionFilterView.h */,
+				A802C97E200F39C80058B25C /* QZConditionFilterView.m */,
+				A802C981200F39C80058B25C /* UIView+Extension.m */,
 			);
 			path = QZConditionFilterView;
 			sourceTree = "<group>";
@@ -1151,10 +1226,12 @@
 		A802CB5F200F39C90058B25C /* M */ = {
 			isa = PBXGroup;
 			children = (
-				A802CB61200F39C90058B25C /* ArtileModel.h */,
-				A802CB60200F39C90058B25C /* ArtileModel.m */,
 				A8BED8D0201979660071EB87 /* FindTrainModel.h */,
 				A8BED8D1201979660071EB87 /* FindTrainModel.m */,
+				A896BFF42020670700EFA5D4 /* PositionListModel.h */,
+				A896BFF52020670700EFA5D4 /* PositionListModel.m */,
+				A896BFFE20219D8600EFA5D4 /* CultivateListModel.h */,
+				A896BFFF20219D8600EFA5D4 /* CultivateListModel.m */,
 			);
 			path = M;
 			sourceTree = "<group>";
@@ -1170,12 +1247,16 @@
 				A802CB6A200F39C90058B25C /* SearchRuesltVC.m */,
 				A802CB6C200F39C90058B25C /* FindJobListVC.h */,
 				A802CB64200F39C90058B25C /* FindJobListVC.m */,
+				A896BFFB2021997D00EFA5D4 /* FindTrainingListVC.h */,
+				A896BFFC2021997D00EFA5D4 /* FindTrainingListVC.m */,
 				A802CB70200F39C90058B25C /* FindTrainingVC.h */,
 				A802CB68200F39C90058B25C /* FindTrainingVC.m */,
 				A802CB6D200F39C90058B25C /* JobInfoVC.h */,
 				A802CB63200F39C90058B25C /* JobInfoVC.m */,
 				A802CB67200F39C90058B25C /* DdTestVC.h */,
 				A802CB6E200F39C90058B25C /* DdTestVC.m */,
+				A896C0012021A0C200EFA5D4 /* ScreenVC.h */,
+				A896C0022021A0C200EFA5D4 /* ScreenVC.m */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -1204,6 +1285,12 @@
 				A802CB84200F39C90058B25C /* HomeTypeChoseCell.h */,
 				A802CB79200F39C90058B25C /* HomeTypeChoseCell.m */,
 				A802CB7F200F39C90058B25C /* HomeTypeChoseCell.xib */,
+				A896C0062021A31D00EFA5D4 /* ScreenCovHeaderView.h */,
+				A896C0072021A31D00EFA5D4 /* ScreenCovHeaderView.m */,
+				A896C0082021A31D00EFA5D4 /* ScreenCovHeaderView.xib */,
+				A896C00B2021A75C00EFA5D4 /* ScreenCCell.h */,
+				A896C00C2021A75C00EFA5D4 /* ScreenCCell.m */,
+				A896C00D2021A75C00EFA5D4 /* ScreenCCell.xib */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -1283,6 +1370,14 @@
 		A802CBA3200F39C90058B25C /* M */ = {
 			isa = PBXGroup;
 			children = (
+				A896BFD9201EF66200EFA5D4 /* PersonArticleModel.h */,
+				A896BFDA201EF66200EFA5D4 /* PersonArticleModel.m */,
+				A896C0262021C12800EFA5D4 /* ArticleCommentModel.h */,
+				A896C0272021C12800EFA5D4 /* ArticleCommentModel.m */,
+				A896BFDC201EFA1D00EFA5D4 /* LabelModel.h */,
+				A896BFDD201EFA1D00EFA5D4 /* LabelModel.m */,
+				A896BFE7201F233C00EFA5D4 /* GiftLabelModel.h */,
+				A896BFE8201F233C00EFA5D4 /* GiftLabelModel.m */,
 			);
 			path = M;
 			sourceTree = "<group>";
@@ -1292,13 +1387,15 @@
 			children = (
 				A802CBAA200F39C90058B25C /* ArticleVC.h */,
 				A802CBAE200F39C90058B25C /* ArticleVC.m */,
-				A802CBAD200F39C90058B25C /* ArticleInfoVC.h */,
-				A802CBA5200F39C90058B25C /* ArticleInfoVC.m */,
 				A802CBAB200F39C90058B25C /* WriteArticleVC.h */,
 				A802CBA6200F39C90058B25C /* WriteArticleVC.m */,
 				A802CBA9200F39C90058B25C /* WriteArticleVC.xib */,
+				A802CBAD200F39C90058B25C /* ArticleInfoVC.h */,
+				A802CBA5200F39C90058B25C /* ArticleInfoVC.m */,
 				A802CBAF200F39C90058B25C /* PersonInfoVC.h */,
 				A802CBA8200F39C90058B25C /* PersonInfoVC.m */,
+				A896BFDF201F079200EFA5D4 /* GiftLabelVC.h */,
+				A896BFE0201F079200EFA5D4 /* GiftLabelVC.m */,
 				A802CBAC200F39C90058B25C /* PersonsFansListVC.h */,
 				A802CBA7200F39C90058B25C /* PersonsFansListVC.m */,
 			);
@@ -1311,18 +1408,36 @@
 				A802CBB8200F39C90058B25C /* ArticleListCell.h */,
 				A802CBB1200F39C90058B25C /* ArticleListCell.m */,
 				A802CBB9200F39C90058B25C /* ArticleListCell.xib */,
-				A802CBB7200F39C90058B25C /* ArticlPersonInfoHeaderView.h */,
-				A802CBBD200F39C90058B25C /* ArticlPersonInfoHeaderView.m */,
-				A802CBBB200F39C90058B25C /* ArticlPersonInfoHeaderView.xib */,
 				A802CBB3200F39C90058B25C /* ChoseLabelView.h */,
 				A802CBBC200F39C90058B25C /* ChoseLabelView.m */,
 				A802CBB5200F39C90058B25C /* ChoseLabelView.xib */,
 				A802CBBE200F39C90058B25C /* ArticleInfoHeaderView.h */,
 				A802CBB6200F39C90058B25C /* ArticleInfoHeaderView.m */,
 				A802CBB2200F39C90058B25C /* ArticleInfoHeaderView.xib */,
-				A802CBBA200F39C90058B25C /* ChoseLabelCCell.xib */,
-				A802CBB4200F39C90058B25C /* ChoseLabelCCell.m */,
+				A896C0102021B49000EFA5D4 /* ArticleInfoCell.h */,
+				A896C0112021B49000EFA5D4 /* ArticleInfoCell.m */,
+				A896C0122021B49000EFA5D4 /* ArticleInfoCell.xib */,
+				A896C01D2021BC5600EFA5D4 /* ArticleInfoCommentCell.h */,
+				A896C01E2021BC5600EFA5D4 /* ArticleInfoCommentCell.m */,
+				A896C01F2021BC5600EFA5D4 /* ArticleInfoCommentCell.xib */,
+				A896C02D2021CBA900EFA5D4 /* ArticleInfoMoreCell.h */,
+				A896C02E2021CBA900EFA5D4 /* ArticleInfoMoreCell.m */,
+				A896C02F2021CBA900EFA5D4 /* ArticleInfoMoreCell.xib */,
+				A802CBB7200F39C90058B25C /* ArticlPersonInfoHeaderView.h */,
+				A802CBBD200F39C90058B25C /* ArticlPersonInfoHeaderView.m */,
+				A802CBBB200F39C90058B25C /* ArticlPersonInfoHeaderView.xib */,
 				A802CBBF200F39C90058B25C /* ChoseLabelCCell.h */,
+				A802CBB4200F39C90058B25C /* ChoseLabelCCell.m */,
+				A802CBBA200F39C90058B25C /* ChoseLabelCCell.xib */,
+				A896BFE2201F1A1A00EFA5D4 /* GiftCCell.h */,
+				A896BFE3201F1A1A00EFA5D4 /* GiftCCell.m */,
+				A896BFE4201F1A1A00EFA5D4 /* GiftCCell.xib */,
+				A896BFEA2020493500EFA5D4 /* CoustomeLabelHeaderView.h */,
+				A896BFEB2020493500EFA5D4 /* CoustomeLabelHeaderView.m */,
+				A896BFED2020494100EFA5D4 /* CoustomeLabelHeaderView.xib */,
+				A896BFEF20204E2700EFA5D4 /* GiftCoustomeCCell.h */,
+				A896BFF020204E2700EFA5D4 /* GiftCoustomeCCell.m */,
+				A896BFF120204E2700EFA5D4 /* GiftCoustomeCCell.xib */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -1850,6 +1965,24 @@
 			path = resources;
 			sourceTree = "<group>";
 		};
+		A896C0222021BE8200EFA5D4 /* YBAttributeTextTapAction */ = {
+			isa = PBXGroup;
+			children = (
+				A896C0232021BE8200EFA5D4 /* UILabel+YBAttributeTextTapAction.h */,
+				A896C0242021BE8200EFA5D4 /* UILabel+YBAttributeTextTapAction.m */,
+			);
+			path = YBAttributeTextTapAction;
+			sourceTree = "<group>";
+		};
+		A896C0292021C7F300EFA5D4 /* XHInputView */ = {
+			isa = PBXGroup;
+			children = (
+				A896C02A2021C7F300EFA5D4 /* XHInputView.h */,
+				A896C02B2021C7F300EFA5D4 /* XHInputView.m */,
+			);
+			path = XHInputView;
+			sourceTree = "<group>";
+		};
 		A8BED75E201575470071EB87 /* 我的 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1863,6 +1996,8 @@
 		A8BED75F201575470071EB87 /* M */ = {
 			isa = PBXGroup;
 			children = (
+				A802CB61200F39C90058B25C /* ArtileModel.h */,
+				A802CB60200F39C90058B25C /* ArtileModel.m */,
 				A8BED760201575470071EB87 /* MyarticleModel.h */,
 				A8BED761201575470071EB87 /* MyarticleModel.m */,
 				A8BED8952015BCCE0071EB87 /* FansModel.h */,
@@ -1886,7 +2021,6 @@
 				A8BED768201575470071EB87 /* BindingPhoneVC.xib */,
 				A8BED772201575470071EB87 /* MessageHomeVC.h */,
 				A8BED79A201575470071EB87 /* MessageHomeVC.m */,
-				A8BED78E201575470071EB87 /* MessageHomeVC.xib */,
 				A8BED7A1201575470071EB87 /* MyResumeVC.h */,
 				A8BED77C201575470071EB87 /* MyResumeVC.m */,
 				A8BED790201575470071EB87 /* OnlyTestFileVC.h */,
@@ -2016,6 +2150,7 @@
 		A8BED89B2017173B0071EB87 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				A896BFF72021872000EFA5D4 /* NullSafe.m */,
 				A8BED89C2017173B0071EB87 /* NSArray+Tool.h */,
 				A8BED89D2017173B0071EB87 /* UIButton+countDown.m */,
 				A8BED89E2017173B0071EB87 /* UIColor+Tool.h */,
@@ -2142,10 +2277,12 @@
 				A8BED82A201575480071EB87 /* MyResumeAddInfoAndPhotoCell.xib in Resources */,
 				A802CCFD200F39CB0058B25C /* CampusDisplayCell.xib in Resources */,
 				A8BED7E0201575480071EB87 /* FeedbackVC.xib in Resources */,
+				A896C00A2021A31D00EFA5D4 /* ScreenCovHeaderView.xib in Resources */,
 				A802CCEE200F39CB0058B25C /* HomeListCell.xib in Resources */,
 				A8BED7E5201575480071EB87 /* MyArticleVC.xib in Resources */,
 				A8BED803201575480071EB87 /* AddBankCardVC.xib in Resources */,
 				A802CD10200F39CB0058B25C /* ChoseLabelCCell.xib in Resources */,
+				A896C0212021BC5600EFA5D4 /* ArticleInfoCommentCell.xib in Resources */,
 				A802CD0F200F39CB0058B25C /* ArticleListCell.xib in Resources */,
 				A8BED7F2201575480071EB87 /* RemindSetVC.xib in Resources */,
 				A802CCF9200F39CB0058B25C /* LoginVC.xib in Resources */,
@@ -2154,6 +2291,8 @@
 				A802C96A200F390B0058B25C /* LaunchScreen.storyboard in Resources */,
 				A8BED7EF201575480071EB87 /* SetVC.xib in Resources */,
 				A8BED813201575480071EB87 /* MyResumeHeaderCell.xib in Resources */,
+				A896BFE6201F1A1A00EFA5D4 /* GiftCCell.xib in Resources */,
+				A896C00F2021A75C00EFA5D4 /* ScreenCCell.xib in Resources */,
 				A8BED822201575480071EB87 /* FollowCell.xib in Resources */,
 				A802CD11200F39CB0058B25C /* ArticlPersonInfoHeaderView.xib in Resources */,
 				A802CBFF200F39CB0058B25C /* PR_filter_choice@3x.png in Resources */,
@@ -2163,6 +2302,7 @@
 				A8BED80C201575480071EB87 /* MyResumeEvaluateCell.xib in Resources */,
 				A8BED81C201575480071EB87 /* MyResumeEducationCell.xib in Resources */,
 				A802CCEA200F39CB0058B25C /* FindTrainingInfoCell.xib in Resources */,
+				A896C0312021CBA900EFA5D4 /* ArticleInfoMoreCell.xib in Resources */,
 				A8BED81A201575480071EB87 /* MyPointsHeaderView.xib in Resources */,
 				A802CCF3200F39CB0058B25C /* JobInfoCell.xib in Resources */,
 				A8BED7EA201575480071EB87 /* EditEvaluateVC.xib in Resources */,
@@ -2175,9 +2315,11 @@
 				A8BED828201575480071EB87 /* MyResumeAddTFCell.xib in Resources */,
 				A8BED820201575480071EB87 /* MyResumeAddNormlCell.xib in Resources */,
 				A8BED7EE201575480071EB87 /* PersonalInformationTVC.storyboard in Resources */,
+				A896C0142021B49000EFA5D4 /* ArticleInfoCell.xib in Resources */,
 				A8BED809201575480071EB87 /* BindingSuccessVC.xib in Resources */,
 				A802CBFC200F39CB0058B25C /* PR_filter_choice@2x.png in Resources */,
 				A8BED82B201575480071EB87 /* MyResumeCertificateCell.xib in Resources */,
+				A896BFF320204E2700EFA5D4 /* GiftCoustomeCCell.xib in Resources */,
 				A8BED824201575480071EB87 /* MessageNotifCommentCell.xib in Resources */,
 				A8BED7E1201575480071EB87 /* BindingPhoneVC.xib in Resources */,
 				A802CC8B200F39CB0058B25C /* Address.plist in Resources */,
@@ -2185,10 +2327,10 @@
 				A8BED829201575480071EB87 /* BankCardCell.xib in Resources */,
 				A802C967200F390B0058B25C /* Assets.xcassets in Resources */,
 				A802C965200F390B0058B25C /* Main.storyboard in Resources */,
+				A896BFEE2020494100EFA5D4 /* CoustomeLabelHeaderView.xib in Resources */,
 				A802CD0D200F39CB0058B25C /* ChoseLabelView.xib in Resources */,
 				A802CCFF200F39CB0058B25C /* CampusDisplayHeaderView.xib in Resources */,
 				A802CCEF200F39CB0058B25C /* FindTrainingTimeCell.xib in Resources */,
-				A8BED7F8201575480071EB87 /* MessageHomeVC.xib in Resources */,
 				A802CCF8200F39CB0058B25C /* RegisterVC.xib in Resources */,
 				A802CD08200F39CB0058B25C /* WriteArticleVC.xib in Resources */,
 			);
@@ -2298,16 +2440,19 @@
 				A8BED7F3201575480071EB87 /* SetVC.m in Sources */,
 				A8BED825201575480071EB87 /* CapitalRecordCell.m in Sources */,
 				A802CCF7200F39CB0058B25C /* RegisterVC.m in Sources */,
+				A896BFE9201F233C00EFA5D4 /* GiftLabelModel.m in Sources */,
 				A802CD2E200F39CB0058B25C /* FL_Button.m in Sources */,
 				A8BED7FA201575480071EB87 /* AddBankCardVC.m in Sources */,
 				A8BED81D201575480071EB87 /* MyResumeAddInfoTFCell.m in Sources */,
 				A802CC09200F39CB0058B25C /* TLCityHeaderView.m in Sources */,
+				A896C00E2021A75C00EFA5D4 /* ScreenCCell.m in Sources */,
 				A8BED7E6201575480071EB87 /* CapitalRecordVC.m in Sources */,
 				A8BED808201575480071EB87 /* BindingSuccessVC.m in Sources */,
 				A802CD2B200F39CB0058B25C /* UserModel.m in Sources */,
 				A802D037200F532A0058B25C /* UIViewController+DismissKeyboard.m in Sources */,
 				A802D064200F532A0058B25C /* MWCaptionView.m in Sources */,
 				A802CD05200F39CB0058B25C /* WriteArticleVC.m in Sources */,
+				A896C0302021CBA900EFA5D4 /* ArticleInfoMoreCell.m in Sources */,
 				A802D09E200F532A0058B25C /* EaseRecordView.m in Sources */,
 				A802D06D200F532A0058B25C /* PSTCollectionViewFlowLayout.m in Sources */,
 				A802D03F200F532A0058B25C /* EaseEmojiEmoticons.m in Sources */,
@@ -2353,7 +2498,9 @@
 				A802CC0B200F39CB0058B25C /* HYCalendarTool.m in Sources */,
 				A8BED7ED201575480071EB87 /* MyResumeVC.m in Sources */,
 				A802D03A200F532A0058B25C /* EaseMessageReadManager.m in Sources */,
+				A896BFF62020670700EFA5D4 /* PositionListModel.m in Sources */,
 				A8BED7FF201575480071EB87 /* MessageHomeVC.m in Sources */,
+				A896C0202021BC5600EFA5D4 /* ArticleInfoCommentCell.m in Sources */,
 				A8BED81B201575480071EB87 /* MessageNotifCommentCell.m in Sources */,
 				A802CC06200F39CB0058B25C /* TLCityGroupCell.m in Sources */,
 				A8BED8CF2017173B0071EB87 /* UIButton+SDSetImage.m in Sources */,
@@ -2365,7 +2512,9 @@
 				A802CC91200F39CB0058B25C /* MBProgressHUD+JDragon.m in Sources */,
 				A802D0AB200F532A0058B25C /* EaseUI.m in Sources */,
 				A802D092200F532A0058B25C /* EaseUserCell.m in Sources */,
+				A896C00020219D8600EFA5D4 /* CultivateListModel.m in Sources */,
 				A802D083200F532A0058B25C /* UIImage+EMWebP.m in Sources */,
+				A896C0132021B49000EFA5D4 /* ArticleInfoCell.m in Sources */,
 				A802CD0E200F39CB0058B25C /* ArticleInfoHeaderView.m in Sources */,
 				A802D096200F532A0058B25C /* EaseMessageCell.m in Sources */,
 				A802D07D200F532A0058B25C /* MKAnnotationView+EMWebCache.m in Sources */,
@@ -2373,6 +2522,7 @@
 				A802D090200F532A0058B25C /* EaseMessageViewController.m in Sources */,
 				A802D068200F532A0058B25C /* MWTapDetectingView.m in Sources */,
 				A802D08E200F532A0058B25C /* EaseUsersListViewController.m in Sources */,
+				A896BFF82021872100EFA5D4 /* NullSafe.m in Sources */,
 				A802D06E200F532A0058B25C /* PSTCollectionViewCell.m in Sources */,
 				A802D040200F532A0058B25C /* EaseEmotionManager.m in Sources */,
 				A802D072200F532A0058B25C /* PSTCollectionViewUpdateItem.m in Sources */,
@@ -2396,6 +2546,7 @@
 				A802D09D200F532A0058B25C /* EaseChatToolbar.m in Sources */,
 				A8BED89A20170A670071EB87 /* CampusDisplayListModel.m in Sources */,
 				A802D09C200F532A0058B25C /* EaseTextView.m in Sources */,
+				A896C0092021A31D00EFA5D4 /* ScreenCovHeaderView.m in Sources */,
 				A8BED8C02017173B0071EB87 /* UIView+Tool.m in Sources */,
 				A802CD0C200F39CB0058B25C /* ChoseLabelCCell.m in Sources */,
 				A802D042200F532A0058B25C /* EaseConversationModel.m in Sources */,
@@ -2410,6 +2561,7 @@
 				A8BED7F0201575480071EB87 /* PassWordSetVC.m in Sources */,
 				A802CC0D200F39CB0058B25C /* BaseView.m in Sources */,
 				A802CCE8200F39CB0058B25C /* DoTestCCell.m in Sources */,
+				A896C0282021C12800EFA5D4 /* ArticleCommentModel.m in Sources */,
 				A802C96D200F390B0058B25C /* main.m in Sources */,
 				A802D059200F532A0058B25C /* wav.mm in Sources */,
 				A802D0A7200F532A0058B25C /* EaseBubbleView+Gif.m in Sources */,
@@ -2425,28 +2577,34 @@
 				A802D03B200F532A0058B25C /* EaseConvertToCommonEmoticonsHelper.m in Sources */,
 				A802CD12200F39CB0058B25C /* ChoseLabelView.m in Sources */,
 				A802D03D200F532A0058B25C /* EaseEmoji.m in Sources */,
+				A896C0042021A0C200EFA5D4 /* ScreenVC.m in Sources */,
 				A8BED802201575480071EB87 /* BindingBankCardVC.m in Sources */,
 				A802D082200F532A0058B25C /* EMSDWebImageManager.m in Sources */,
 				A802D08D200F532A0058B25C /* EaseConversationListViewController.m in Sources */,
 				A802CCF5200F39CB0058B25C /* FindTrainingInfoCell.m in Sources */,
 				A802D07E200F532A0058B25C /* UIView+EMWebCacheOperation.m in Sources */,
 				A802D067200F532A0058B25C /* MWPhoto.m in Sources */,
+				A896BFF220204E2700EFA5D4 /* GiftCoustomeCCell.m in Sources */,
 				A8BED827201575480071EB87 /* MessageCell.m in Sources */,
 				A8BED815201575480071EB87 /* MyResumeAddInfoAndPhotoCell.m in Sources */,
 				A802D071200F532A0058B25C /* NSIndexPath+PSTCollectionViewAdditions.m in Sources */,
 				A802CCE9200F39CB0058B25C /* HomeListCell.m in Sources */,
 				A802CD09200F39CB0058B25C /* ArticleVC.m in Sources */,
 				A8BED7FD201575480071EB87 /* EditEvaluateVC.m in Sources */,
+				A896BFE5201F1A1A00EFA5D4 /* GiftCCell.m in Sources */,
 				A802CCFB200F39CB0058B25C /* CampusDisplayVC.m in Sources */,
 				A802D0A4200F532A0058B25C /* EaseBubbleView+Video.m in Sources */,
 				A802D034200F532A0058B25C /* UIViewController+HUD.m in Sources */,
 				A802D093200F532A0058B25C /* EaseConversationCell.m in Sources */,
 				A802D0A3200F532A0058B25C /* EaseBubbleView.m in Sources */,
 				A802D06B200F532A0058B25C /* DACircularProgressView.m in Sources */,
+				A896BFDB201EF66200EFA5D4 /* PersonArticleModel.m in Sources */,
 				A802CC0C200F39CB0058B25C /* BRStringPickerView.m in Sources */,
+				A896BFE1201F079200EFA5D4 /* GiftLabelVC.m in Sources */,
 				A802CC87200F39CB0058B25C /* LDImagePicker.m in Sources */,
 				A802CC07200F39CB0058B25C /* TLCityPickerController.m in Sources */,
 				A802CCFC200F39CB0058B25C /* CampusDisplayHeaderView.m in Sources */,
+				A896BFFD2021997D00EFA5D4 /* FindTrainingListVC.m in Sources */,
 				A802CCE5200F39CB0058B25C /* SearchRuesltVC.m in Sources */,
 				A8BED819201575480071EB87 /* MyPointsHeaderView.m in Sources */,
 				A802D088200F532A0058B25C /* UIImageView+EMHighlightedWebCache.m in Sources */,
@@ -2459,6 +2617,7 @@
 				A802D060200F532A0058B25C /* EMAudioRecorderUtil.m in Sources */,
 				A8BED804201575480071EB87 /* PersonalInformationTVC.m in Sources */,
 				A802D076200F532A0058B25C /* PSTGridLayoutRow.m in Sources */,
+				A896C0252021BE8200EFA5D4 /* UILabel+YBAttributeTextTapAction.m in Sources */,
 				A8BED805201575480071EB87 /* MyVC.m in Sources */,
 				A802D036200F532A0058B25C /* NSString+Valid.m in Sources */,
 				A802D0A8200F532A0058B25C /* EaseSDKHelper.m in Sources */,
@@ -2471,13 +2630,16 @@
 				A802D069200F532A0058B25C /* MWGridViewController.m in Sources */,
 				A802CD28200F39CB0058B25C /* UserSignData.m in Sources */,
 				A8BED7F5201575480071EB87 /* AddCertificateVC.m in Sources */,
+				A896BFEC2020493500EFA5D4 /* CoustomeLabelHeaderView.m in Sources */,
 				A8BED8C82017173B0071EB87 /* UIImageView+SDSetImage.m in Sources */,
 				A8BED7EB201575480071EB87 /* AddEducationVC.m in Sources */,
 				A8BED812201575480071EB87 /* MyResumeEvaluateCell.m in Sources */,
+				A896C02C2021C7F300EFA5D4 /* XHInputView.m in Sources */,
 				A802D087200F532A0058B25C /* UIImage+EMMultiFormat.m in Sources */,
 				A802CD2C200F39CB0058B25C /* PPNetworkHelper.m in Sources */,
 				A802D098200F532A0058B25C /* EaseChatBarMoreView.m in Sources */,
 				A8BED8BF2017173B0071EB87 /* UIButton+countDown.m in Sources */,
+				A896BFDE201EFA1D00EFA5D4 /* LabelModel.m in Sources */,
 				A8BED8CE2017173B0071EB87 /* UIViewController+Tool.m in Sources */,
 				A802C95F200F390B0058B25C /* AppDelegate.m in Sources */,
 				A802D080200F532A0058B25C /* EMSDWebImageDecoder.m in Sources */,

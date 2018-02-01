@@ -74,7 +74,7 @@
 //测试环境
 #define APIEHEAD @"http://118.190.205.196/sw/"  //网络请求头
 #define IMAGEHEAD @"http://118.190.205.196/swpicture/"  //图片头
-#define VIDEOHEAD @"http://118.190.205.196/swvideo/“
+#define VIDEOHEAD @"http://118.190.205.196/swvideo/" //视频头
 //正式环境
 //#define APIEHEAD @"http://icd.langyadt.com/api.php/"  //网络请求头
 //#define IMAGEHEAD @"http://icd.langyadt.com/"  //图片头

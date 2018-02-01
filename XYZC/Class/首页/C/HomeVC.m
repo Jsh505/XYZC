@@ -18,12 +18,13 @@
 #import "HomeListCell.h"
 #import "DdTestVC.h"
 #import "FindJobListVC.h"
-#import "FindTrainingVC.h"
+#import "FindTrainingListVC.h"
 #import "JobInfoVC.h"
+#import "PositionListModel.h"
 
 @interface HomeVC () <PYSearchViewControllerDelegate, TLCityPickerDelegate, SDCycleScrollViewDelegate, HomeTypeChoseCellDelegate, QZConditionFilterViewDelegate>
 {
-    
+    int _page;
 }
 
 @property (nonatomic, strong) FL_Button * leftBarButton;
@@ -41,6 +42,7 @@
 
 @property (nonatomic, strong) NSMutableArray * photoArray;
 @property (nonatomic, strong) NSMutableArray * textArray;
+@property (nonatomic, strong) NSMutableArray * dataSource;
 
 @end
 
@@ -58,10 +60,14 @@
     self.photoArray = [[NSMutableArray alloc] init];
     self.textArray = [[NSMutableArray alloc] init];
     
-     [self loadData];
+     [self loadScrollData];
+    
+    _page = 1;
+    self.dataSource = [[NSMutableArray alloc] init];
+    [self loadData];
 }
 
-- (void)loadData
+- (void)loadScrollData
 {
     //轮播图
     [PPNetworkHelper POST:@"pictureList.app" parameters:nil hudString:nil responseCache:^(id responseCache)
@@ -121,6 +127,53 @@
     }];
 }
 
+- (void)loadData
+{
+//    type  职位类型(如 销售 工程师 财务) area区域 sex 性别要求（无  男  女） workDate 上班时段 （上午  下午 晚上）welfare 福利待遇   intPage  非空 当前页数，从1开始
+    NSMutableDictionary * parametersDic = [[NSMutableDictionary alloc] init];
+    [parametersDic setObject:@(_page) forKey:@"intPage"];
+    
+    [PPNetworkHelper POST:@"positionList.app" parameters:parametersDic hudString:@"加载中..." success:^(id responseObject)
+    {
+        if ([responseObject objectForKey:@"positionList"] > 0)
+        {
+            if (_page == 1)
+            {
+                [self.dataSource removeAllObjects];
+            }
+            for (NSDictionary * dic in [responseObject objectForKey:@"positionList"])
+            {
+                PositionListModel * model = [[PositionListModel alloc] initWithDictionary:dic];
+                [self.dataSource addObject:model];
+            }
+        }
+        else
+        {
+            if (_page != 1)
+            {
+                _page --;
+                [MBProgressHUD showInfoMessage:@"暂无更多数据"];
+            }
+        }
+        [self.coustromTableView reloadData];
+        [self endRefreshing];
+    } failure:^(NSString *error)
+    {
+        if (_page != 1)
+        {
+            _page --;
+        }
+        [MBProgressHUD showErrorMessage:error];
+        [self endRefreshing];
+    }];
+}
+
+- (void)push2LoadMoreWithScrollerView:(UIScrollView *)scrollerView
+{
+    _page ++;
+    [self loadData];
+}
+
 #pragma mark - Custom Accessors (控件响应方法)
 
 - (void)leftBarButtonClicked
@@ -166,22 +219,19 @@
 {
     //签到
     [self.conditionFilterView dismiss];
-    
-//    EaseMessageViewController *chatController = [[EaseMessageViewController alloc] initWithConversationChatter:@"8001" conversationType:EMConversationTypeChat];
-//    [self.navigationController pushViewController:vc animated:YES];
-    
-//    NSMutableDictionary * parametersDic = [[NSMutableDictionary alloc] init];
-//    [parametersDic setObject:@([UserSignData share].user.userId) forKey:@"userId"];
-//    [parametersDic setObject:[NSString nowDate] forKey:@"signDate"];
-//
-//    [PPNetworkHelper POST:@"addSignin.app" parameters:parametersDic hudString:@"签到中..." success:^(id responseObject)
-//    {
-//        [MBProgressHUD showInfoMessage:@"签到成功"];
-//
-//    } failure:^(NSString *error)
-//    {
-//        [MBProgressHUD showErrorMessage:error];
-//    }];
+
+    NSMutableDictionary * parametersDic = [[NSMutableDictionary alloc] init];
+    [parametersDic setObject:@([UserSignData share].user.userId) forKey:@"userId"];
+    [parametersDic setObject:[NSString nowDate] forKey:@"signDate"];
+
+    [PPNetworkHelper POST:@"addSignin.app" parameters:parametersDic hudString:@"签到中..." success:^(id responseObject)
+    {
+        [MBProgressHUD showInfoMessage:@"签到成功"];
+
+    } failure:^(NSString *error)
+    {
+        [MBProgressHUD showErrorMessage:error];
+    }];
 }
 
 #pragma mark - IBActions(xib响应方法)
@@ -196,6 +246,7 @@
 {
     [self.view addSubview:self.coustromTableView];
     
+    [self addPush2LoadMoreWithTableView:self.coustromTableView WithIsInset:NO];
     self.coustromTableView.sd_layout
     .topSpaceToView(self.customNavBar, 0)
     .heightIs(SCREEN_HEIGHT - JSH_NavbarAndStatusBarHeight - JSH_TabBarHeight)
@@ -231,9 +282,9 @@
     self.selectedDataSource3Ary = @[@"综合"];
     
     // 传入数据源，对应三个tableView顺序
-    self.conditionFilterView.dataAry1 = @[@"1-1",@"1-2",@"1-3",@"1-4",@"1-5"];
-    self.conditionFilterView.dataAry2 = @[@"2-1",@"2-2",@"2-3",@"2-4",@"2-5"];
-    self.conditionFilterView.dataAry3 = @[@"3-1",@"3-2",@"3-3",@"3-4",@"3-5"];
+    self.conditionFilterView.dataAry1 = @[];
+    self.conditionFilterView.dataAry2 = @[];
+    self.conditionFilterView.dataAry3 = @[];
     
     // 初次设置默认显示数据(标题)，内部会调用block 进行第一次数据加载
     [self.conditionFilterView bindChoseArrayDataSource1:_selectedDataSource1Ary DataSource2:_selectedDataSource2Ary DataSource3:_selectedDataSource3Ary];
@@ -276,17 +327,16 @@
         case findPeiXunButton:
         {
             //找培训
-            FindTrainingVC * vc = [[FindTrainingVC alloc] init];
-            vc.type = 1;
+            FindTrainingListVC * vc = [[FindTrainingListVC alloc] init];
             [self.navigationController pushViewController:vc animated:YES];
             break;
         }
         case tishengButton:
         {
             //提升
-            FindTrainingVC * vc = [[FindTrainingVC alloc] init];
-            vc.type = 2;
-            [self.navigationController pushViewController:vc animated:YES];
+//            FindTrainingVC * vc = [[FindTrainingVC alloc] init];
+//            vc.type = 2;
+//            [self.navigationController pushViewController:vc animated:YES];
             break;
         }
         default:
@@ -297,14 +347,16 @@
 - (void)typeButtonCilick
 {
     //筛选点击
-    [self.coustromTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+//    [self.coustromTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    
 }
 
 - (void)screenbuttonClicked
 {
     //筛选点击
-    [self.coustromTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1] atScrollPosition:UITableViewScrollPositionTop animated:YES];
-    
+//    [self.coustromTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    FindJobListVC * vc = [[FindJobListVC alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 #pragma mark - QZConditionFilterViewDelegate
 
@@ -331,7 +383,7 @@
 {
     NSLog(@"---点击了第%ld张图片", (long)index);
     
-    [self.navigationController pushViewController:[NSClassFromString(@"DemoVCWithXib") new] animated:YES];
+
 }
 
 #pragma mark - PYSearchViewControllerDelegate
@@ -393,6 +445,12 @@
         [button addTarget:self action:@selector(screenbuttonClicked) forControlEvents:UIControlEventTouchUpInside];
         [lineView addSubview:button];
         
+        UIButton * cleanButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        cleanButton.frame = CGRectMake(0, 0, SCREEN_WIDTH, 50);
+        cleanButton.backgroundColor = [UIColor clearColor];
+        [cleanButton addTarget:self action:@selector(screenbuttonClicked) forControlEvents:UIControlEventTouchUpInside];
+        [lineView addSubview:cleanButton];
+        
         return lineView;
     }
     
@@ -406,7 +464,7 @@
     }
     else
     {
-        return 8;
+        return self.dataSource.count;
     }
 }
 
@@ -443,6 +501,7 @@
             cell = array[0];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
+        cell.model = self.dataSource[indexPath.row];
         return cell;
     }
     

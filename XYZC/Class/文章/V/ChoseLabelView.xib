@@ -94,6 +94,7 @@
             <connections>
                 <outlet property="collectionBackView" destination="Pkp-dC-NUV" id="9hX-3h-ybr"/>
                 <outlet property="contentView" destination="vuY-qV-Aau" id="bXd-vg-FtI"/>
+                <outlet property="giftButton" destination="TEl-k0-MdB" id="OVY-yD-Zq3"/>
                 <outlet property="masView" destination="F7n-F6-HYe" id="wN2-Yu-CaC"/>
             </connections>
             <point key="canvasLocation" x="25.5" y="51.5"/>

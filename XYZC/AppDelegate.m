@@ -51,7 +51,35 @@
     {
         [[EMClient sharedClient].options setIsAutoLogin:YES];
     }
+    
+    [self loadCaceData];
     return YES;
+}
+
+- (void)loadCaceData
+{
+    //获取本地数据  筛选
+//    [PPNetworkHelper POST:@"positionList.app" parameters:nil hudString:nil responseCache:^(id responseCache)
+//     {
+//
+//    } success:^(id responseObject)
+//    {
+//
+//    } failure:^(NSString *error)
+//    {
+//
+//    }];
+    
+    //地区列表 areaList.app
+    [PPNetworkHelper POST:@"areaList.app" parameters:nil hudString:nil responseCache:^(id responseCache)
+     {
+        
+    } success:^(id responseObject)
+     {
+         
+     } failure:^(NSString *error)
+     {
+     }];
 }
 
 - (void)goLogin
