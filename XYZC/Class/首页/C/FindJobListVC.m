@@ -190,7 +190,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    PositionListModel * model = self.dataSource[indexPath.row];
     JobInfoVC * vc = [[JobInfoVC alloc] init];
+    vc.id = model.id;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

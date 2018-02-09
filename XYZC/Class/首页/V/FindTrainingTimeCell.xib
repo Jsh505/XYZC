@@ -73,9 +73,6 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
-                <outlet property="addressLB" destination="z7B-s2-mmt" id="XB3-RN-lNh"/>
-                <outlet property="numberLB" destination="VrK-Nn-QFZ" id="ASN-tG-Gyn"/>
-                <outlet property="phoneLB" destination="nzx-ob-nL1" id="g0r-Eu-bkf"/>
                 <outlet property="shangkeStartLB" destination="arT-Zk-q7i" id="J8c-d8-uOj"/>
                 <outlet property="shangkeStartTimeLB" destination="Ska-Ri-aCy" id="WGw-KE-iPk"/>
             </connections>
@@ -249,6 +246,11 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="8hW-BY-vdH"/>
+            <connections>
+                <outlet property="addressLB" destination="z7B-s2-mmt" id="mW3-gX-qEN"/>
+                <outlet property="numberLB" destination="VrK-Nn-QFZ" id="x8U-wF-rG3"/>
+                <outlet property="phoneLB" destination="nzx-ob-nL1" id="1n2-a5-bC9"/>
+            </connections>
             <point key="canvasLocation" x="-98" y="178"/>
         </tableViewCell>
     </objects>

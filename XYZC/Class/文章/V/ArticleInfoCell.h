@@ -7,13 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ArticleCommentModel.h"
 #import "CampusInfoCommentModel.h"
 
 @protocol ArticleInfoCellDelegate <NSObject>
 
-- (void)commentButtonCilickWithModel:(BaseModel *)model;
-- (void)headerImageViewCilickWithModel:(BaseModel *)model;
+- (void)commentButtonCilickWithModel:(CampusInfoCommentModel *)model;
+- (void)headerImageViewCilickWithModel:(CampusInfoCommentModel *)model;
 
 @end
 
@@ -25,6 +24,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *infoLB;
 
 @property (nonatomic, strong) id <ArticleInfoCellDelegate> delegate;
-@property (nonatomic, strong) ArticleCommentModel * model;
+
 @property (nonatomic, strong) CampusInfoCommentModel * campusInfoModel;
 @end

@@ -11,6 +11,8 @@
 
 @interface AllCommentListVC : CoustromViewController
 
+@property (nonatomic, assign) int articleId;
+@property (nonatomic, assign) int type;
 @property (nonatomic, strong) CampusInfoCommentModel * model;
 
 @end

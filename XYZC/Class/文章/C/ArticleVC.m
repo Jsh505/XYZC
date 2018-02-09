@@ -278,7 +278,14 @@
     [PPNetworkHelper POST:@"goodArticle.app" parameters:parametersDic hudString:nil success:^(id responseObject)
     {
         button.selected = !button.selected;
-        [MBProgressHUD showInfoMessage:@"操作成功"];
+        if (button.selected)
+        {
+            [button setTitle:[NSString stringWithFormat:@"%d",[button.titleLabel.text intValue] + 1] forState:UIControlStateNormal];
+        }
+        else
+        {
+            [button setTitle:[NSString stringWithFormat:@"%d",[button.titleLabel.text intValue] - 1] forState:UIControlStateNormal];
+        }
     } failure:^(NSString *error)
     {
         [MBProgressHUD showErrorMessage:error];

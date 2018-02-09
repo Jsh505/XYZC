@@ -60,17 +60,22 @@
          if(text.length)
          {
              NSMutableDictionary * parametersDic = [[NSMutableDictionary alloc] init];
-             [parametersDic setObject:@(self.model.id) forKey:@"campusArtId"];
+             [parametersDic setObject:@(self.articleId) forKey:@"articleId"];
              [parametersDic setObject:@([UserSignData share].user.userId) forKey:@"userId"];
              [parametersDic setObject:text forKey:@"commentContent"];
-             [parametersDic setObject:@(self.model.commentId) forKey:@"commentId"];
+             [parametersDic setObject:@(self.model.id) forKey:@"commentId"];
+             [parametersDic setObject:@(self.type) forKey:@"type"];
              
-             [PPNetworkHelper POST:@"addCampusArtComment" parameters:parametersDic hudString:@"评论中..." success:^(id responseObject)
+             [PPNetworkHelper POST:@"addComment.app" parameters:parametersDic hudString:@"评论中..." success:^(id responseObject)
               {
                   [MBProgressHUD showInfoMessage:@"评论成功"];
+                  //发送消息
+                  [[NSNotificationCenter defaultCenter]postNotification:[NSNotification notificationWithName:@"campusRefush" object:nil userInfo:nil]];
+                  [self.navigationController popViewControllerAnimated:YES];
               } failure:^(NSString *error) {
                   [MBProgressHUD showErrorMessage:error];
               }];
+             
              return YES;//return YES,收起键盘
          }
          else

@@ -10,6 +10,6 @@
 
 @interface FindTrainingVC : BaseViewController
 
-@property (nonatomic, assign) int type;
+@property (nonatomic, assign) int id;
 
 @end

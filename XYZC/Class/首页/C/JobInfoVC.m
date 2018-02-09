@@ -12,6 +12,7 @@
 #import "FindTrainingInfoCell.h"
 #import "JobInfoCell.h"
 #import "PopoverView.h"
+#import "PositionListModel.h"
 
 @interface JobInfoVC () <UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource>
 
@@ -21,6 +22,10 @@
 @property (nonatomic, strong) UITableView * coustromTableView;
 @property (nonatomic, strong) UIView * footerView;
 @property (nonatomic, strong) UITableView * rightCoustromTableView;
+
+@property (nonatomic, strong) UIButton * phoneButton;
+
+@property (nonatomic, strong) PositionListModel * dataModel;
 
 @end
 
@@ -56,6 +61,33 @@
     .heightIs(SCREEN_HEIGHT - JSH_NavbarAndStatusBarHeight);
     
     self.coustromTableView.tableFooterView = self.footerView;
+    
+    [self loadData];
+}
+
+- (void)loadData
+{
+    NSMutableDictionary * parametersDic = [[NSMutableDictionary alloc] init];
+    [parametersDic setObject:@(self.id) forKey:@"id"];
+    [parametersDic setObject:@([UserSignData share].user.userId) forKey:@"userId"];
+    
+    [PPNetworkHelper POST:@"positionById.app" parameters:parametersDic hudString:@"加载中..." success:^(id responseObject)
+     {
+         self.dataModel = [[PositionListModel alloc] initWithDictionary:[responseObject objectForKey:@"position"]];
+         if (self.dataModel.isDelivery == 1)
+         {
+             self.phoneButton.selected = YES;
+         }
+         else
+         {
+             self.phoneButton.selected = NO;
+         }
+         [self.coustromTableView reloadData];
+         [self.rightCoustromTableView reloadData];
+     } failure:^(NSString *error)
+     {
+         [MBProgressHUD showErrorMessage:error];
+     }];
 }
 
 #pragma mark - Custom Accessors (控件响应方法)
@@ -77,6 +109,17 @@
 - (void)phoneButtonClicked
 {
     //简历投递
+    NSMutableDictionary * parametersDic = [[NSMutableDictionary alloc] init];
+    [parametersDic setObject:@(self.id) forKey:@"positionId"];
+    [parametersDic setObject:@([UserSignData share].user.userId) forKey:@"userId"];
+    
+    [PPNetworkHelper POST:@"positionDelivery.app" parameters:parametersDic hudString:@"加载中..." success:^(id responseObject)
+     {
+         self.phoneButton.selected = !self.phoneButton.selected;
+     } failure:^(NSString *error)
+     {
+         [MBProgressHUD showErrorMessage:error];
+     }];
 }
 
 #pragma mark - IBActions(xib响应方法)
@@ -181,16 +224,19 @@
                 cell = array[1];
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
             }
+            cell.positionListModel = self.dataModel;
             return cell;
         }
         else if (indexPath.row == 1)
         {
-            FindTrainingTimeCell *cell = [tableView dequeueReusableCellWithIdentifier:@"OtherFindTrainingTimeCellident"];
+            FindTrainingTimeCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FindTrainingTimeCellident"];
             if (!cell) {
                 NSArray *array = [[NSBundle mainBundle]loadNibNamed:@"FindTrainingTimeCell" owner:nil options:nil];
-                cell = array[1];
+                cell = array[0];
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
             }
+            cell.shangkeStartTimeLB.text = self.dataModel.workDate;
+            cell.shangkeStartLB.text = [NSString stringWithFormat:@"%@ 午休：%@",self.dataModel.workTime,self.dataModel.siestaTime];
             return cell;
         }
         else
@@ -203,13 +249,13 @@
             }
             if (indexPath.row == 2)
             {
-                cell.tyoeLB.text = @"培训内容";
-                cell.infoLB.text = @"这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容内容这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容内容这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容";
+                cell.tyoeLB.text = @"工作内容";
+                cell.infoLB.text = self.dataModel.jobContent;
             }
             else
             {
                 cell.tyoeLB.text = @"师资力量";
-                cell.infoLB.text = @"这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容内容这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容内容这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容这是详细这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容内容这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容内容这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容这是详细内容";
+                cell.infoLB.text = @"这是详细";
             }
             return cell;
         }
@@ -224,6 +270,8 @@
                 cell = array[0];
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
             }
+            cell.titleLB.text = self.dataModel.companyName;
+            cell.infoLB.text = self.dataModel.companyInfo;
             return cell;
         }
         else
@@ -234,6 +282,8 @@
                 cell = array[2];
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
             }
+            cell.addressLB.text = self.dataModel.address;
+            cell.phoneLB.text = self.dataModel.phone;
             return cell;
         }
     }
@@ -342,15 +392,16 @@
         [onlineButton addTarget:self action:@selector(onlineButtonClicked) forControlEvents:UIControlEventTouchUpInside];
         [_footerView addSubview:onlineButton];
         
-        UIButton * phoneButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        phoneButton.frame = CGRectMake((SCREEN_WIDTH - 45) * 0.4 + 30, 8, (SCREEN_WIDTH - 45) * 0.6, 44);
-        [phoneButton setTitle:@"投递简历" forState: UIControlStateNormal];
-        phoneButton.titleLabel.font = [UIFont systemFontOfSize:15];
-        [phoneButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        phoneButton.backgroundColor = [UIColor colorWithHexString:@"16BF3E"];
-        phoneButton.layer.cornerRadius = 3;
-        [phoneButton addTarget:self action:@selector(phoneButtonClicked) forControlEvents:UIControlEventTouchUpInside];
-        [_footerView addSubview:phoneButton];
+        self.phoneButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        self.phoneButton.frame = CGRectMake((SCREEN_WIDTH - 45) * 0.4 + 30, 8, (SCREEN_WIDTH - 45) * 0.6, 44);
+        [self.phoneButton setTitle:@"投递简历" forState: UIControlStateNormal];
+        [self.phoneButton setTitle:@"已投递" forState: UIControlStateSelected];
+        self.phoneButton.titleLabel.font = [UIFont systemFontOfSize:15];
+        [self.phoneButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        self.phoneButton.backgroundColor = [UIColor colorWithHexString:@"16BF3E"];
+        self.phoneButton.layer.cornerRadius = 3;
+        [self.phoneButton addTarget:self action:@selector(phoneButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+        [_footerView addSubview:self.phoneButton];
         
     }
     return _footerView;

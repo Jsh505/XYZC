@@ -28,4 +28,14 @@
     self.infoLB.text = model.campusSynopsis;
 }
 
+- (void)setEntArtListModel:(EntArtListModel *)entArtListModel
+{
+    //campusAlias 学校别名;campusName 名称;campusSynopsis 学校简介;watchTime 查看学校次数
+    _entArtListModel = entArtListModel;
+    [self.headerImageView jsh_sdsetImageWithURL:entArtListModel.entPicture placeholderImage:Default_General_Image];
+    self.watchNumberLB.text = [NSString stringWithFormat:@"%d人观看",entArtListModel.watchTime];
+    self.titleLB.text = [NSString stringWithFormat:@"%@——%@",entArtListModel.entAlias,entArtListModel.entName];
+    self.infoLB.text = entArtListModel.entSynopsis;
+}
+
 @end

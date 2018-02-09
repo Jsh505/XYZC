@@ -19,4 +19,7 @@
 @property (nonatomic, copy) NSString * campuPicture;
 @property (nonatomic, copy) NSString * video;
 
+@property (nonatomic, assign) int isgood;
+@property (nonatomic, assign) int goodnumber;
+
 @end

@@ -48,9 +48,22 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mbO-rJ-Dhf">
+                    <rect key="frame" x="0.0" y="252" width="60" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="SAv-ix-FAq"/>
+                        <constraint firstAttribute="width" constant="60" id="rrM-MS-TtM"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <state key="normal" title="123" image="文章点赞">
+                        <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <state key="selected" image="文章已点赞"/>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="mbO-rJ-Dhf" firstAttribute="centerY" secondItem="3d3-F9-thS" secondAttribute="centerY" id="5IS-5P-glO"/>
                 <constraint firstAttribute="trailing" secondItem="wGZ-rg-zB1" secondAttribute="trailing" constant="10" id="5Uh-4F-8fg"/>
                 <constraint firstItem="wGZ-rg-zB1" firstAttribute="top" secondItem="wDw-lJ-iHV" secondAttribute="bottom" constant="18" id="6Cd-PA-4Xa"/>
                 <constraint firstItem="Wcx-KT-xFj" firstAttribute="trailing" secondItem="wDw-lJ-iHV" secondAttribute="trailing" id="9LX-V5-fHL"/>
@@ -64,10 +77,12 @@
                 <constraint firstItem="Dnl-Iu-Gg6" firstAttribute="top" secondItem="bnH-jC-xjj" secondAttribute="bottom" constant="10" id="ggh-CX-A6p"/>
                 <constraint firstItem="bnH-jC-xjj" firstAttribute="top" secondItem="3d3-F9-thS" secondAttribute="bottom" constant="10" id="ldf-KL-uSB"/>
                 <constraint firstItem="bnH-jC-xjj" firstAttribute="leading" secondItem="pbZ-UB-dN9" secondAttribute="leading" id="pfZ-oI-feI"/>
+                <constraint firstItem="mbO-rJ-Dhf" firstAttribute="leading" secondItem="pbZ-UB-dN9" secondAttribute="leading" id="s8a-lX-NcC"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="Wcx-KT-xFj"/>
             <connections>
+                <outlet property="dianzanButton" destination="mbO-rJ-Dhf" id="niF-3g-BwO"/>
                 <outlet property="headerImageView" destination="wDw-lJ-iHV" id="OjW-iq-sbX"/>
                 <outlet property="infoLB" destination="wGZ-rg-zB1" id="aLB-ta-jgs"/>
                 <outlet property="timeLB" destination="3d3-F9-thS" id="qbe-up-9TD"/>
@@ -77,5 +92,7 @@
     </objects>
     <resources>
         <image name="大图" width="750" height="432"/>
+        <image name="文章已点赞" width="22" height="22"/>
+        <image name="文章点赞" width="22" height="22"/>
     </resources>
 </document>

@@ -35,6 +35,7 @@
     }
     self.edutioneLB.text = [NSString stringWithFormat:@"%@ %@",model.colleges,model.grade];
     self.infoLB.text = model.content;
+    [self.dianzanButton setTitle:[NSString stringWithFormat:@"%d",model.goodnumber] forState:UIControlStateNormal];
     if (model.isgood == 1)
     {
         self.dianzanButton.selected = YES;

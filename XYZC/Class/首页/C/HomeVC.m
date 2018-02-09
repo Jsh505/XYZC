@@ -334,9 +334,7 @@
         case tishengButton:
         {
             //提升
-//            FindTrainingVC * vc = [[FindTrainingVC alloc] init];
-//            vc.type = 2;
-//            [self.navigationController pushViewController:vc animated:YES];
+            
             break;
         }
         default:
@@ -511,7 +509,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    PositionListModel * model = self.dataSource[indexPath.row];
     JobInfoVC * vc = [[JobInfoVC alloc] init];
+    vc.id = model.id;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

@@ -16,5 +16,8 @@
 @property (nonatomic, copy) NSString * trainingCourse;
 @property (nonatomic, copy) NSString * trainingPic;
 @property (nonatomic, copy) NSString * tuition;
+@property (nonatomic, assign) int topDays;
+@property (nonatomic, assign) int isTop;
+@property (nonatomic, assign) int click;
 
 @end

@@ -108,8 +108,8 @@
     self.phoneTF.text = @"13080808285";
     self.passWordTF.text = @"123456";
     
-//    self.phoneTF.text = @"18980623464";
-//    self.passWordTF.text = @"123123";
+    self.phoneTF.text = @"18980623464";
+    self.passWordTF.text = @"123123";
     
     self.customNavBar.title = @"登录";
     

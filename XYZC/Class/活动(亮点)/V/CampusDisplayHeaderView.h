@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CampusDisplayListModel.h"
+#import "EntArtListModel.h"
 
 @interface CampusDisplayHeaderView : UIView
 
@@ -17,5 +18,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *infoLB;
 
 @property (nonatomic, strong) CampusDisplayListModel * model;
+@property (nonatomic, strong) EntArtListModel * entArtListModel;
 
 @end

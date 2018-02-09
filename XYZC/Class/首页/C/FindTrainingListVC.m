@@ -10,6 +10,7 @@
 #import "HomeListCell.h"
 #import "QZConditionFilterView.h"
 #import "CultivateListModel.h"
+#import "FindTrainingVC.h"
 
 @interface FindTrainingListVC ()
 {
@@ -186,7 +187,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    CultivateListModel * model = self.dataSource[indexPath.row];
+    FindTrainingVC * vc = [[FindTrainingVC alloc] init];
+    vc.id = model.id;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 

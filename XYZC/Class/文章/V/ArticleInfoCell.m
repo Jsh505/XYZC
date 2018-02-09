@@ -24,14 +24,7 @@
 {
     if ([self.delegate respondsToSelector:@selector(commentButtonCilickWithModel:)])
     {
-        if (_model)
-        {
-            [self.delegate commentButtonCilickWithModel:_model];
-        }
-        else
-        {
-            [self.delegate commentButtonCilickWithModel:_campusInfoModel];
-        }
+        [self.delegate commentButtonCilickWithModel:_campusInfoModel];
     }
 }
 
@@ -39,25 +32,8 @@
 {
     if ([self.delegate respondsToSelector:@selector(headerImageViewCilickWithModel:)])
     {
-        if (_model)
-        {
-            [self.delegate headerImageViewCilickWithModel:_model];
-        }
-        else
-        {
-            [self.delegate headerImageViewCilickWithModel:_campusInfoModel];
-        }
+        [self.delegate headerImageViewCilickWithModel:_campusInfoModel];
     }
-}
-
-- (void)setModel:(ArticleCommentModel *)model
-{
-    _model = model;
-    
-    [self.headerImageView jsh_sdsetImageWithHeaderimg:model.headPortrait];
-    self.nameLB.text = model.nickName;
-    self.timeLB.text = model.commentTime;
-    self.infoLB.text = model.content;
 }
 
 - (void)setCampusInfoModel:(CampusInfoCommentModel *)campusInfoModel

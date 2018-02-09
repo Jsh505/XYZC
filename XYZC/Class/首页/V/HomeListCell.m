@@ -43,6 +43,14 @@
     self.timeLB.text = cultivateListModel.releaseTime;
     self.infoLB.text = cultivateListModel.trainingCity;
     [self.headImage jsh_sdsetImageWithURL:cultivateListModel.trainingPic placeholderImage:Default_General_Image];
+    if (cultivateListModel.isTop == 1)
+    {
+        self.statusLB.hidden = NO;
+    }
+    else
+    {
+        self.statusLB.hidden = YES;
+    }
     
 }
 

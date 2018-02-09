@@ -34,4 +34,19 @@
     self.priceLB.text = [NSString stringWithFormat:@"%d",model.tuition];
 }
 
+- (void)setPositionListModel:(PositionListModel *)positionListModel
+{
+    _positionListModel = positionListModel;
+    
+    self.titleLB_job.text = positionListModel.positionName;
+    self.infoLB_job.text = positionListModel.address;
+    self.priceLB_job.text = positionListModel.salary;
+    self.startTimeLB_job.text = [NSString stringWithFormat:@"%@",positionListModel.releaseTime];
+    self.fuliLB_job.text = positionListModel.welfare;
+    self.typeLB_job.text = positionListModel.type;
+    self.personNumLB_job.text = [NSString stringWithFormat:@"%d人",positionListModel.recruitsNum];
+    self.xingbieLB_job.text = positionListModel.gender;
+    self.address_job.text = positionListModel.address;
+}
+
 @end

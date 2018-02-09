@@ -10,6 +10,7 @@
 #import "HighlightsTitleCell.h"
 #import "HighlightsListCell.h"
 #import "CampusDisplayVC.h"
+#import "EnterpriseListVC.h"
 
 @interface HighlightsVC ()
 
@@ -111,8 +112,16 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CampusDisplayVC * vc = [[CampusDisplayVC alloc] init];
-    [self.navigationController pushViewController:vc animated:YES];
+    if (indexPath.row == 2)
+    {
+        EnterpriseListVC * vc = [[EnterpriseListVC alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else
+    {
+        CampusDisplayVC * vc = [[CampusDisplayVC alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 

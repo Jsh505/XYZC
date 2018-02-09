@@ -65,9 +65,9 @@
 - (void)loadData
 {
     NSMutableDictionary * parametersDic = [[NSMutableDictionary alloc] init];
-    [parametersDic setObject:@(self.type) forKey:@"type"];
+    [parametersDic setObject:@(self.id) forKey:@"id"];
     
-    [PPNetworkHelper POST:@"cultivateListByType.app" parameters:parametersDic hudString:@"加载中..." success:^(id responseObject)
+    [PPNetworkHelper POST:@"cultivateById.app" parameters:parametersDic hudString:@"加载中..." success:^(id responseObject)
     {
         self.dataModel = [[FindTrainModel alloc] initWithDictionary:[responseObject objectForKey:@"cultivateList"][0]];
         [self.coustromTableView reloadData];

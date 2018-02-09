@@ -393,6 +393,17 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="BXX-4r-Rt7"/>
+            <connections>
+                <outlet property="address_job" destination="dSc-It-Lkg" id="Yl5-2X-opF"/>
+                <outlet property="fuliLB_job" destination="VSk-ex-huy" id="A7k-Md-ZzQ"/>
+                <outlet property="infoLB_job" destination="9TQ-QX-9CY" id="Vif-5f-3HK"/>
+                <outlet property="personNumLB_job" destination="5Xs-L7-VVZ" id="SGU-JG-9rN"/>
+                <outlet property="priceLB_job" destination="BZH-O9-aeh" id="P6e-0P-uya"/>
+                <outlet property="startTimeLB_job" destination="z2g-kC-4R3" id="Qbz-aA-Nnf"/>
+                <outlet property="titleLB_job" destination="lYX-QB-N38" id="9Qk-CB-Z3f"/>
+                <outlet property="typeLB_job" destination="u7W-5o-ZlC" id="oy5-Zo-GP2"/>
+                <outlet property="xingbieLB_job" destination="AcB-bC-90b" id="pYZ-CP-TJa"/>
+            </connections>
             <point key="canvasLocation" x="-375" y="249"/>
         </tableViewCell>
     </objects>

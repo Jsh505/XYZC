@@ -1,12 +1,12 @@
 //
-//  CampusInfoVC.m
+//  EnterpriseInfoVC.m
 //  XYZC
 //
-//  Created by 贾仕海 on 2018/2/1.
+//  Created by 贾仕海 on 2018/2/2.
 //  Copyright © 2018年 xyzc. All rights reserved.
 //
 
-#import "CampusInfoVC.h"
+#import "EnterpriseInfoVC.h"
 #import "CampusInfoHeaderView.h"
 #import "ArticleInfoCell.h"
 #import "ArticleInfoCommentCell.h"
@@ -16,16 +16,16 @@
 #import "PersonInfoVC.h"
 #import "AllCommentListVC.h"
 
-@interface CampusInfoVC ()<XHInputViewDelagete, ArticleInfoCellDelegate, ArticleInfoCommentCellDelegate>
+@interface EnterpriseInfoVC () <XHInputViewDelagete, ArticleInfoCellDelegate, ArticleInfoCommentCellDelegate>
 
 @property (nonatomic, strong) CampusInfoHeaderView * headerView;
 @property (nonatomic, strong) UIButton * footerButton;
 @property (nonatomic, strong) NSMutableArray * dataSource;
-@property (nonatomic, strong) CampusDisplayListModel * campusDisplayListModel;
+@property (nonatomic, strong) EntArtListModel * entArtListModel;
 
 @end
 
-@implementation CampusInfoVC
+@implementation EnterpriseInfoVC
 
 #pragma mark - Lifecycle(生命周期)
 
@@ -56,7 +56,7 @@
 {
     NSMutableDictionary * parametersDic = [[NSMutableDictionary alloc] init];
     [parametersDic setObject:@(self.model.id) forKey:@"articleId"];
-    [parametersDic setObject:@(2) forKey:@"type"];
+    [parametersDic setObject:@(3) forKey:@"type"];
     
     [PPNetworkHelper POST:@"selectCommentByArticleId.app" parameters:parametersDic hudString:@"获取中..." success:^(id responseObject)
      {
@@ -88,10 +88,10 @@
     [parametersDic setObject:@(self.model.id) forKey:@"id"];
     [parametersDic setObject:@([UserSignData share].user.userId) forKey:@"userId"];
     
-    [PPNetworkHelper POST:@"campusById.app" parameters:parametersDic hudString:@"获取中..." success:^(id responseObject)
+    [PPNetworkHelper POST:@"entArtById.app" parameters:parametersDic hudString:@"获取中..." success:^(id responseObject)
      {
-         self.campusDisplayListModel = [[CampusDisplayListModel alloc] initWithDictionary:[responseObject objectForKey:@"campus"]];
-         self.headerView.model = self.campusDisplayListModel;
+         self.entArtListModel = [[EntArtListModel alloc] initWithDictionary:[responseObject objectForKey:@"entArt"][0]];
+         self.headerView.entArtListModel = self.entArtListModel;
          self.coustromTableView.tableHeaderView = self.headerView;
          
      } failure:^(NSString *error)
@@ -110,20 +110,20 @@
     [parametersDic setObject:@([UserSignData share].user.userId) forKey:@"userId"];
     
     [PPNetworkHelper POST:@"goodEntArt.app" parameters:parametersDic hudString:@"操作中..." success:^(id responseObject)
-     {
-         self.headerView.dianzanButton.selected = !self.headerView.dianzanButton.selected;
-         if (self.headerView.dianzanButton.selected)
-         {
-             [self.headerView.dianzanButton setTitle:[NSString stringWithFormat:@"%d",[self.headerView.dianzanButton.titleLabel.text intValue] + 1] forState:UIControlStateNormal];
-         }
-         else
-         {
-             [self.headerView.dianzanButton setTitle:[NSString stringWithFormat:@"%d",[self.headerView.dianzanButton.titleLabel.text intValue] - 1] forState:UIControlStateNormal];
-         }
-     } failure:^(NSString *error)
-     {
-         [MBProgressHUD showErrorMessage:error];
-     }];
+    {
+        self.headerView.dianzanButton.selected = !self.headerView.dianzanButton.selected;
+        if (self.headerView.dianzanButton.selected)
+        {
+            [self.headerView.dianzanButton setTitle:[NSString stringWithFormat:@"%d",[self.headerView.dianzanButton.titleLabel.text intValue] + 1] forState:UIControlStateNormal];
+        }
+        else
+        {
+            [self.headerView.dianzanButton setTitle:[NSString stringWithFormat:@"%d",[self.headerView.dianzanButton.titleLabel.text intValue] - 1] forState:UIControlStateNormal];
+        }
+    } failure:^(NSString *error)
+    {
+        [MBProgressHUD showErrorMessage:error];
+    }];
 }
 
 - (void)footerButtonClicked
@@ -148,15 +148,15 @@
              [parametersDic setObject:@(self.model.id) forKey:@"articleId"];
              [parametersDic setObject:@([UserSignData share].user.userId) forKey:@"userId"];
              [parametersDic setObject:text forKey:@"commentContent"];
-             [parametersDic setObject:@(2) forKey:@"type"];
+             [parametersDic setObject:@(3) forKey:@"type"];
              
              [PPNetworkHelper POST:@"addComment.app" parameters:parametersDic hudString:@"评论中..." success:^(id responseObject)
               {
                   [MBProgressHUD showInfoMessage:@"评论成功"];
                   [self loadData];
-             } failure:^(NSString *error) {
-                 [MBProgressHUD showErrorMessage:error];
-             }];
+              } failure:^(NSString *error) {
+                  [MBProgressHUD showErrorMessage:error];
+              }];
              return YES;//return YES,收起键盘
          }
          else
@@ -205,7 +205,7 @@
              [parametersDic setObject:@([UserSignData share].user.userId) forKey:@"userId"];
              [parametersDic setObject:text forKey:@"commentContent"];
              [parametersDic setObject:@(newModel.id) forKey:@"commentId"];
-             [parametersDic setObject:@(2) forKey:@"type"];
+             [parametersDic setObject:@(3) forKey:@"type"];
              
              [PPNetworkHelper POST:@"addComment.app" parameters:parametersDic hudString:@"评论中..." success:^(id responseObject)
               {
@@ -353,8 +353,8 @@
         CampusInfoCommentModel * model = self.dataSource[indexPath.section];
         AllCommentListVC * vc = [[AllCommentListVC alloc] init];
         vc.model = model;
-        vc.type = 2;
         vc.articleId = self.model.id;
+        vc.type = 3;
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
@@ -378,7 +378,7 @@
         
         UILabel *textLabel = [[UILabel alloc] init];
         textLabel.font = [UIFont systemFontOfSize:15];
-        textLabel.text = self.model.campusSynopsis;
+        textLabel.text = self.model.entSynopsis;
         textLabel.numberOfLines = 0;//根据最大行数需求来设置
         textLabel.lineBreakMode = NSLineBreakByTruncatingTail;
         CGSize maximumLabelSize = CGSizeMake(SCREEN_WIDTH - 20, 9999);//labelsize的最大值
@@ -386,7 +386,7 @@
         CGSize expectSize = [textLabel sizeThatFits:maximumLabelSize];
         //别忘了把frame给回label，如果用xib加了约束的话可以只改一个约束的值
         _headerView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH * 200 / 375 + 105 + expectSize.height);
-//        _headerView.model = self.model;
+//        _headerView.entArtListModel = self.model;
         [_headerView.dianzanButton addTarget:self action:@selector(dianzanButtonCilick) forControlEvents:UIControlEventTouchUpInside];
     }
     return _headerView;

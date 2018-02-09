@@ -25,6 +25,35 @@
     [self.headerImageView jsh_sdsetImageWithURL:model.campuPicture placeholderImage:Default_General_Image];
     self.infoLB.text = model.campusSynopsis;
     self.timeLB.text = [NSString stringWithFormat:@"%d人观看",model.watchTime];
+    
+    [self.dianzanButton setTitle:[NSString stringWithFormat:@"%d",model.goodnumber] forState:UIControlStateNormal];
+    if (model.isgood == 0)
+    {
+        self.dianzanButton.selected = NO;
+    }
+    else
+    {
+        self.dianzanButton.selected = YES;
+    }
+}
+
+- (void)setEntArtListModel:(EntArtListModel *)entArtListModel
+{
+    _entArtListModel = entArtListModel;
+    
+    [self.headerImageView jsh_sdsetImageWithURL:entArtListModel.entPicture placeholderImage:Default_General_Image];
+    self.infoLB.text = entArtListModel.entSynopsis;
+    self.timeLB.text = [NSString stringWithFormat:@"%d人观看",entArtListModel.watchTime];
+    
+    [self.dianzanButton setTitle:[NSString stringWithFormat:@"%d",entArtListModel.goodnumber] forState:UIControlStateNormal];
+    if (entArtListModel.isgood == 0)
+    {
+        self.dianzanButton.selected = NO;
+    }
+    else
+    {
+        self.dianzanButton.selected = YES;
+    }
 }
 
 @end

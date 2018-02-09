@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CampusDisplayListModel.h"
+#import "EntArtListModel.h"
 
 @interface CampusDisplayCell : UITableViewCell
 
@@ -18,6 +19,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *watchNumberLB;
 
 @property (nonatomic, strong) CampusDisplayListModel * model;
-
+@property (nonatomic, strong) EntArtListModel * entArtListModel;
 
 @end

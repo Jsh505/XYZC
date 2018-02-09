@@ -10,4 +10,6 @@
 
 @interface JobInfoVC : BaseViewController
 
+@property (nonatomic, assign) int id;
+
 @end
