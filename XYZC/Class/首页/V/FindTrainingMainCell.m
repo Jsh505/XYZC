@@ -25,13 +25,16 @@
 {
     _model = model;
     
-    self.address.text = model.address;
-    self.kechengTypeLB.text = model.courseType;
-    self.fuliLB.text = model.entWelfare;
-    self.startTimeLB.text = model.releaseTime;
-    self.personNumLB.text = [NSString stringWithFormat:@"%d",model.studentsNum];
-    self.typeLB.text = [NSString stringWithFormat:@"%d",model.trainingType];
+    self.titleLB.text = model.trainingCourse;
+    self.infoLB.text = model.trainingContent;
     self.priceLB.text = [NSString stringWithFormat:@"%d",model.tuition];
+    self.startTimeLB.text = model.releaseTime;
+    self.fuliLB.text = model.entWelfare;
+    self.typeLB.text = [NSString stringWithFormat:@"%d",model.trainingType];
+    self.personNumLB.text = [NSString stringWithFormat:@"%d",model.studentsNum];
+    self.kechengTypeLB.text = model.courseType;
+    self.address.text = model.address;
+   
 }
 
 - (void)setPositionListModel:(PositionListModel *)positionListModel

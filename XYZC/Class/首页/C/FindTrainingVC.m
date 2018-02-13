@@ -13,7 +13,7 @@
 #import "JobInfoCell.h"
 #import "PopoverView.h"
 #import "FindTrainModel.h"
-
+#import "CompanyModel.h"
 
 @interface FindTrainingVC () <UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource>
 
@@ -24,6 +24,7 @@
 @property (nonatomic, strong) UIView * footerView;
 @property (nonatomic, strong) UITableView * rightCoustromTableView;
 @property (nonatomic, strong) FindTrainModel * dataModel;
+@property (nonatomic, strong) CompanyModel * companyModel;
 
 @end
 
@@ -69,8 +70,11 @@
     
     [PPNetworkHelper POST:@"cultivateById.app" parameters:parametersDic hudString:@"加载中..." success:^(id responseObject)
     {
-        self.dataModel = [[FindTrainModel alloc] initWithDictionary:[responseObject objectForKey:@"cultivateList"][0]];
+        self.dataModel = [[FindTrainModel alloc] initWithDictionary:[[responseObject objectForKey:@"cultivateAndCompany"] objectForKey:@"cultivate"]];
+        self.companyModel = [[CompanyModel alloc] initWithDictionary:[[responseObject objectForKey:@"cultivateAndCompany"] objectForKey:@"company"]];
+        
         [self.coustromTableView reloadData];
+        [self.rightCoustromTableView reloadData];
     } failure:^(NSString *error)
     {
         [MBProgressHUD showErrorMessage:error];
@@ -247,8 +251,8 @@
                 cell = array[0];
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
             }
-            cell.titleLB.text = self.dataModel.companyName;
-            cell.infoLB.text = self.dataModel.companyInfo;
+            cell.titleLB.text = self.companyModel.companyName;
+            cell.infoLB.text = self.companyModel.companyInfo;
             return cell;
         }
         else
@@ -259,7 +263,8 @@
                 cell = array[2];
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
             }
-            cell.phoneLB.text = self.dataModel.phone;
+            cell.addressLB.text = self.companyModel.address;
+            cell.phoneLB.text = self.companyModel.phone;
             return cell;
         }
     }

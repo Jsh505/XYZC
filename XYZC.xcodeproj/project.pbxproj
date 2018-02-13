@@ -219,6 +219,7 @@
 		A802D0A9200F532A0058B25C /* EaseUI.podspec in Resources */ = {isa = PBXBuildFile; fileRef = A802D030200F532A0058B25C /* EaseUI.podspec */; };
 		A802D0AA200F532A0058B25C /* EaseUIResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A802D032200F532A0058B25C /* EaseUIResource.bundle */; };
 		A802D0AB200F532A0058B25C /* EaseUI.m in Sources */ = {isa = PBXBuildFile; fileRef = A802D033200F532A0058B25C /* EaseUI.m */; };
+		A850DFF9202ED09200AE46A1 /* CompanyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A850DFF8202ED09200AE46A1 /* CompanyModel.m */; };
 		A896BFDB201EF66200EFA5D4 /* PersonArticleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A896BFDA201EF66200EFA5D4 /* PersonArticleModel.m */; };
 		A896BFDE201EFA1D00EFA5D4 /* LabelModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A896BFDD201EFA1D00EFA5D4 /* LabelModel.m */; };
 		A896BFE1201F079200EFA5D4 /* GiftLabelVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A896BFE0201F079200EFA5D4 /* GiftLabelVC.m */; };
@@ -753,6 +754,8 @@
 		A802D030200F532A0058B25C /* EaseUI.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = EaseUI.podspec; sourceTree = "<group>"; };
 		A802D032200F532A0058B25C /* EaseUIResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = EaseUIResource.bundle; sourceTree = "<group>"; };
 		A802D033200F532A0058B25C /* EaseUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EaseUI.m; sourceTree = "<group>"; };
+		A850DFF7202ED09200AE46A1 /* CompanyModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CompanyModel.h; sourceTree = "<group>"; };
+		A850DFF8202ED09200AE46A1 /* CompanyModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CompanyModel.m; sourceTree = "<group>"; };
 		A896BFD9201EF66200EFA5D4 /* PersonArticleModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonArticleModel.h; sourceTree = "<group>"; };
 		A896BFDA201EF66200EFA5D4 /* PersonArticleModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonArticleModel.m; sourceTree = "<group>"; };
 		A896BFDC201EFA1D00EFA5D4 /* LabelModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LabelModel.h; sourceTree = "<group>"; };
@@ -1253,6 +1256,8 @@
 			children = (
 				A8BED8D0201979660071EB87 /* FindTrainModel.h */,
 				A8BED8D1201979660071EB87 /* FindTrainModel.m */,
+				A850DFF7202ED09200AE46A1 /* CompanyModel.h */,
+				A850DFF8202ED09200AE46A1 /* CompanyModel.m */,
 				A896BFF42020670700EFA5D4 /* PositionListModel.h */,
 				A896BFF52020670700EFA5D4 /* PositionListModel.m */,
 				A896BFFE20219D8600EFA5D4 /* CultivateListModel.h */,
@@ -2625,6 +2630,7 @@
 				A802CD12200F39CB0058B25C /* ChoseLabelView.m in Sources */,
 				A802D03D200F532A0058B25C /* EaseEmoji.m in Sources */,
 				A896C0042021A0C200EFA5D4 /* ScreenVC.m in Sources */,
+				A850DFF9202ED09200AE46A1 /* CompanyModel.m in Sources */,
 				A8BED802201575480071EB87 /* BindingBankCardVC.m in Sources */,
 				A802D082200F532A0058B25C /* EMSDWebImageManager.m in Sources */,
 				A802D08D200F532A0058B25C /* EaseConversationListViewController.m in Sources */,
