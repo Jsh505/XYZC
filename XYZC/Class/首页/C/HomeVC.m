@@ -570,7 +570,7 @@
 {
     if (!_headerView)
     {
-        _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH * 200 / 375)];
+        _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH * 00 / 375)];
         [_headerView addSubview:self.cycleScrollView];
         [_headerView addSubview:self.cycleScrollTextView];
     }
