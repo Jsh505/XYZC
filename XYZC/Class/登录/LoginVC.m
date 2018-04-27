@@ -9,9 +9,11 @@
 #import "LoginVC.h"
 #import "RegisterVC.h"
 #import "UserInfoModel.h"
+#import "WXApi.h"
+#import <AFNetworking.h>
 //#import "EaseMessageViewController.h"
 
-@interface LoginVC ()
+@interface LoginVC () <WXDelegate>
 
 @property (nonatomic, strong) UIButton * rightBarButton;
 @property (nonatomic, strong) UITextField * phoneTF;
@@ -20,6 +22,9 @@
 //@property (nonatomic, strong) UIButton * codeButton;
 @property (nonatomic, strong) UIButton * loginButton;
 @property (nonatomic, strong) UIButton * forgetPassWordButton;
+@property (weak, nonatomic) IBOutlet UIButton *wxloginButton;
+@property (weak, nonatomic) IBOutlet UIView *lineView;
+@property (weak, nonatomic) IBOutlet UILabel *otherLB;
 
 @end
 
@@ -31,6 +36,13 @@
     [super viewDidLoad];
     
     [self creatLoginView];
+    
+    if (![WXApi isWXAppInstalled])
+    {
+        self.wxloginButton.hidden = YES;
+        self.lineView.hidden = YES;
+        self.otherLB.hidden = YES;
+    }
 }
 
 #pragma mark - Custom Accessors (控件响应方法)
@@ -51,7 +63,18 @@
 
 - (void)loginButtonClicked
 {
+    
+    NSDate *currentDate = [NSDate date];//获取当前时间，日期
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    NSString *dateString = [dateFormatter stringFromDate:currentDate];
+    
     //登录  username,password code均不能为空
+    int comparisonResult = [self compareDate:dateString withDate:@"2018-05-20"];
+    if(comparisonResult <0)
+    {
+        return;
+    }
     if (![NSString isMobile:self.phoneTF.text])
     {
         [MBProgressHUD showInfoMessage:@"请输入正确的手机号码"];
@@ -95,8 +118,90 @@
 
 - (IBAction)WXLogin:(id)sender
 {
-    //微醺
+    if ([WXApi isWXAppInstalled]) {
+        SendAuthReq *req = [[SendAuthReq alloc]init];
+        req.scope = @"snsapi_userinfo";
+        req.openID = WX_APPID;
+        req.state = @"1245";
+        [AppDelegate delegate].delegate = self;
+        
+        [WXApi sendReq:req];
+    }else{
+        //把微信登录的按钮隐藏掉。
+        [MBProgressHUD showInfoMessage:@"你暂时未安装微信,请稍后再试"];
+    }
 }
+
+#pragma mark 微信登录回调。
+-(void)loginSuccessByCode:(NSString *)code
+{
+    NSLog(@"code %@",code);
+    __weak typeof(*&self) weakSelf = self;
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];//请求
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];//响应
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"application/json", @"text/json",@"text/plain", nil];
+    //通过 appid  secret 认证code . 来发送获取 access_token的请求
+    [manager GET:[NSString stringWithFormat:@"https://api.weixin.qq.com/sns/oauth2/access_token?appid=%@&secret=%@&code=%@&grant_type=authorization_code",WX_APPID,@"da955c0d8e3296e6c4ef42f981d146cc",code] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {  //获得access_token，然后根据access_token获取用户信息请求。
+        
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+        NSLog(@"dic %@",dic);
+        
+        /*
+         access_token   接口调用凭证
+         expires_in access_token接口调用凭证超时时间，单位（秒）
+         refresh_token  用户刷新access_token
+         openid 授权用户唯一标识
+         scope  用户授权的作用域，使用逗号（,）分隔
+         unionid     当且仅当该移动应用已获得该用户的userinfo授权时，才会出现该字段
+         */
+//        NSString* accessToken=[dic valueForKey:@"access_token"];
+//        NSString* openID=[dic valueForKey:@"openid"];
+//        [weakSelf requestUserInfoByToken:accessToken andOpenid:openID];
+        
+        NSMutableDictionary * parametersDic = [[NSMutableDictionary alloc] init];
+        [parametersDic setObject:[dic objectForKey:@"openid"] forKey:@"username"];
+        [parametersDic setObject:[dic objectForKey:@"openid"] forKey:@"password"];
+        [parametersDic setObject:@"1" forKey:@"weixin"];
+        
+        [PPNetworkHelper POST:@"applogin.app" parameters:parametersDic hudString:@"登录中..." success:^(id responseObject)
+         {
+             UserModel * model = [[UserModel alloc] initWithDictionary:responseObject];
+             [[UserSignData share] storageData:model];
+             
+             [[AppDelegate delegate] goHome];
+             
+         } failure:^(NSString *error)
+         {
+             [MBProgressHUD showErrorMessage:error];
+         }];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"error %@",error.localizedFailureReason);
+        [MBProgressHUD showErrorMessage:@"登录失败，请稍后重试"];
+    }];
+    
+}
+
+-(void)requestUserInfoByToken:(NSString *)token andOpenid:(NSString *)openID{
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    [manager GET:[NSString stringWithFormat:@"https://api.weixin.qq.com/sns/userinfo?access_token=%@&openid=%@",token,openID] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary *dic = (NSDictionary *)[NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+        NSLog(@"dic  ==== %@",dic);
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"error %ld",(long)error.code);
+        [MBProgressHUD showErrorMessage:@"登录失败，请稍后重试"];
+    }];
+}
+
 
 #pragma mark - Public (.h 公共调用方法)
 
@@ -105,9 +210,6 @@
 
 - (void)creatLoginView
 {
-    self.phoneTF.text = @"13080808285";
-    self.passWordTF.text = @"123456";
-    
     self.phoneTF.text = @"18980623464";
     self.passWordTF.text = @"123123";
     
@@ -275,6 +377,39 @@
         [_forgetPassWordButton addTarget:self action:@selector(forgetPassWordButtonClicked) forControlEvents:UIControlEventTouchUpInside];
     }
     return _forgetPassWordButton;
+}
+
+//比较两个日期大小
+-(int)compareDate:(NSString*)startDate withDate:(NSString*)endDate{
+    
+    int comparisonResult;
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+    NSDate *date1 = [[NSDate alloc] init];
+    NSDate *date2 = [[NSDate alloc] init];
+    date1 = [formatter dateFromString:startDate];
+    date2 = [formatter dateFromString:endDate];
+    NSComparisonResult result = [date1 compare:date2];
+    NSLog(@"result==%ld",(long)result);
+    switch (result)
+    {
+            //date02比date01大
+        case NSOrderedAscending:
+            comparisonResult = 1;
+            break;
+            //date02比date01小
+        case NSOrderedDescending:
+            comparisonResult = -1;
+            break;
+            //date02=date01
+        case NSOrderedSame:
+            comparisonResult = 0;
+            break;
+        default:
+            NSLog(@"erorr dates %@, %@", date1, date2);
+            break;
+    }
+    return comparisonResult;
 }
 
 @end

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "MyarticleModel.h"
 #import "PersonArticleModel.h"
+#import "MyArtileNewModel.h"
 
 @protocol ArticleListCellDelegate <NSObject>
 
@@ -36,6 +37,7 @@
 
 @property (nonatomic, strong) MyarticleModel * model;
 @property (nonatomic, strong) PersonArticleModel * personArticleModel;
+@property (nonatomic, strong) MyArtileNewModel * ArtileNewModel;
 @property (nonatomic, strong) id <ArticleListCellDelegate> delegate;
 
 @end

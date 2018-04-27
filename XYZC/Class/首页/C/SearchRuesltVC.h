@@ -6,8 +6,10 @@
 //  Copyright © 2017年 xyzc. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "CoustromViewController.h"
 
-@interface SearchRuesltVC : BaseViewController
+@interface SearchRuesltVC : CoustromViewController
+
+@property (nonatomic, copy) NSString *searchText;
 
 @end

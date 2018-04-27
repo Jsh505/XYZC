@@ -10,6 +10,9 @@
 
 @interface AboutVC ()
 
+@property (weak, nonatomic) IBOutlet UIImageView *headerImage;
+@property (weak, nonatomic) IBOutlet UILabel *leavelLB;
+
 @end
 
 @implementation AboutVC
@@ -17,9 +20,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.customNavBar.title = @"关于“笑”园之窗";
+    self.customNavBar.title = @"关于笑园之星";
     
+    self.headerImage.layer.cornerRadius = 5;
+    self.headerImage.layer.masksToBounds = YES;
+    self.leavelLB.layer.cornerRadius = 5;
+    self.leavelLB.layer.masksToBounds = YES;
     self.view.backgroundColor = [UIColor colorWithHexString:@"F4F5F6"];
+}
+- (IBAction)phoneButton:(id)sender
+{
+    NSString *callPhone = [NSString stringWithFormat:@"telprompt://%@", @"400-166-3466"];
+    if (@available(iOS 10.0, *)) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:callPhone] options:@{} completionHandler:nil];
+    } else {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:callPhone]];
+    }
+}
+- (IBAction)emailButton:(id)sender
+{
+    
 }
 
 - (void)didReceiveMemoryWarning {

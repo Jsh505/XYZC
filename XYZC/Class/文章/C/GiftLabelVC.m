@@ -13,6 +13,7 @@
 #import "CoustomeLabelHeaderView.h"
 #import "GiftCoustomeCCell.h"
 #import "LabelModel.h"
+#import "WXApi.h"
 
 @interface GiftLabelVC () <UIScrollViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource>
 {
@@ -50,6 +51,14 @@
 @property (nonatomic, strong) UILabel * coustomePriceLB;
 @property (nonatomic, strong) UIButton * coustomeCommitButton;
 
+@property (nonatomic, strong) NSArray * coustomeLabelImageArray;
+@property (nonatomic, strong) NSMutableArray * coustomeLabelIsSeletedArray;
+@property (nonatomic, copy) NSString * coustomeLabelSeletedId;
+
+//支付订单
+@property (nonatomic, copy) NSString * prepay_id;
+@property (nonatomic, copy) NSString * nonce_str;
+
 @end
 
 @implementation GiftLabelVC
@@ -85,8 +94,35 @@
     self.firl = [[NSMutableArray alloc] init];
     _type = 0;
     
+    self.coustomeLabelImageArray = @[@"0标签",@"1标签",@"2标签",@"3标签",@"4标签",@"5标签",@"6标签",@"7标签",@"8标签",@"9标签",@"10标签",@"11标签",@"12标签",@"13标签",@"14标签",@"15标签",@"16标签",@"17标签",@"18标签",@"19标签"];
+    self.coustomeLabelIsSeletedArray = [[NSMutableArray alloc] init];
+    for (id i in self.coustomeLabelImageArray)
+    {
+        [self.coustomeLabelIsSeletedArray addObject:@"0"];
+    }
+    
     [self loadData];
 }
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    //获取通知中心单例对象
+    NSNotificationCenter * center = [NSNotificationCenter defaultCenter];
+    //添加当前类对象为一个观察者，name和object设置为nil，表示接收一切通知
+    [center addObserver:self selector:@selector(notice:) name:@"ORDER_PAY_NOTIFICATION" object:nil];
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+    //    [self.webView reload];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    //获取通知中心单例对象
+    NSNotificationCenter * center = [NSNotificationCenter defaultCenter];
+    [center removeObserver:self name:@"ORDER_PAY_NOTIFICATION" object:nil];
+}
+
 
 - (void)loadData
 {
@@ -214,7 +250,7 @@
     {
         idString = [idString stringByAppendingString:[NSString stringWithFormat:@",%d",model.id]];
     }
-
+    
     //普通购买  赠送普通标签：labelMainType 标签大类  1   userId 被赠送标签用户id   labelId 标签Id  都不能为空
     NSMutableDictionary * parametersDic = [[NSMutableDictionary alloc] init];
     [parametersDic setObject:@(1) forKey:@"labelMainType"];
@@ -223,12 +259,74 @@
     
     [PPNetworkHelper POST:@"buyLabel.app" parameters:parametersDic hudString:@"购买中..." success:^(id responseObject)
      {
-        [MBProgressHUD showInfoMessage:@"购买成功"];
-         [self.navigationController popViewControllerAnimated:YES];
+         //调用微信支付
+         self.prepay_id = [[responseObject objectForKey:@"wxPayResult"] objectForKey:@"prepayId"];
+         self.nonce_str = [[responseObject objectForKey:@"wxPayResult"] objectForKey:@"nonceStr"];
+         [self weixinPay];
     } failure:^(NSString *error)
     {
         [MBProgressHUD showErrorMessage:error];
     }];
+}
+
+- (void)weixinPay
+{
+    //    //立即支付
+    if (![WXApi isWXAppInstalled])
+    {
+        //检查用户是否安装微信
+        [MBProgressHUD showTipMessageInView:@"检查是否安装微信"];
+        return;
+    }
+    
+    //当前时间戳
+//    NSDate* dat = [NSDate dateWithTimeIntervalSinceNow:0];
+//    NSTimeInterval a=[dat timeIntervalSince1970]*1000;
+//    NSString *timeString = [NSString stringWithFormat:@"%f", a];//转为字符型
+    
+    PayReq *request = [[PayReq alloc] init];
+    request.openID = WX_APPID;
+    request.partnerId = @"1499260112";    //商户号
+    request.prepayId= self.prepay_id;   //订单号
+    request.package = @"Sign=WXPay";
+    request.nonceStr= self.nonce_str;  //随机字符串
+//    request.timeStamp = (uint32_t)timeString;
+    // 将当前时间转化成时间戳
+    NSDate *datenow = [NSDate date];
+    NSString *timeSp = [NSString stringWithFormat:@"%ld", (long)[datenow timeIntervalSince1970]];
+    UInt32 timeStamp =[timeSp intValue];
+    request.timeStamp= timeStamp;
+    // 签名加密
+    request.sign = [NSString createMD5SingForPay:request.openID
+                                   partnerid:request.partnerId
+                                    prepayid:request.prepayId
+                                     package:request.package
+                                    noncestr:request.nonceStr
+                                   timestamp:request.timeStamp];
+    // 调用微信
+    [WXApi sendReq:request];
+}
+
+
+- (void)notice:(NSNotification *)notice
+{
+    switch ([notice.object intValue])
+    {
+        case WXSuccess:
+        {
+            [MBProgressHUD showInfoMessage:@"购买成功"];
+            [self.navigationController popViewControllerAnimated:YES];
+            break;
+        }
+        case WXErrCodeUserCancel:
+        {
+            [MBProgressHUD showTipMessageInView:@"已取消支付"];
+            break;
+        }
+        default:
+            [MBProgressHUD showTipMessageInView:@"购买失败"];
+            break;
+    }
 }
 
 - (void)coustomeHeaderViewSureButtonCilick
@@ -249,9 +347,9 @@
 
 - (void)coustomeCommitButtonClicked
 {
-    if (self.coustomeHeaderView.labelTextTF.text.length == 0)
+    if (self.coustomeHeaderView.labelTextTF.text.length == 0 || self.coustomeHeaderView.labelTextTF.text.length > 5 || [NSString is_NulllWithObject:self.coustomeLabelSeletedId])
     {
-        [MBProgressHUD showInfoMessage:@"还未选择一款标签"];
+        [MBProgressHUD showInfoMessage:@"请确认购买标签是否正确"];
         return;
     }
     // 赠送自定义标签 ：  labelMainType 标签大类 2  labelName标签名称 pictureName 标签图片名称 userId 被赠送标签用户id  都不能为空
@@ -259,11 +357,14 @@
     [parametersDic setObject:@(2) forKey:@"labelMainType"];
     [parametersDic setObject:@(self.userId) forKey:@"userId"];
     [parametersDic setObject:self.coustomeHeaderView.labelTextTF.text forKey:@"labelName"];
+    [parametersDic setObject:self.coustomeLabelSeletedId forKey:@"pictureName"];
     
     [PPNetworkHelper POST:@"buyLabel.app" parameters:parametersDic hudString:@"购买中..." success:^(id responseObject)
      {
-         [MBProgressHUD showInfoMessage:@"购买成功"];
-         [self.navigationController popViewControllerAnimated:YES];
+         //调用微信支付
+         self.prepay_id = [[responseObject objectForKey:@"wxPayResult"] objectForKey:@"prepayId"];
+         self.nonce_str = [[responseObject objectForKey:@"wxPayResult"] objectForKey:@"nonceStr"];
+         [self weixinPay];
      } failure:^(NSString *error)
      {
          [MBProgressHUD showErrorMessage:error];
@@ -306,7 +407,7 @@
     }
     else
     {
-        return 1;
+        return 20;
     }
 }
 
@@ -321,6 +422,8 @@
     if (collectionView == self.coustomeCollectionView)
     {
         GiftCoustomeCCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GiftCoustomeCCellident" forIndexPath:indexPath];
+        cell.labelImageView.image = [UIImage imageNamed:self.coustomeLabelImageArray[indexPath.row]];
+        cell.isSeleted = self.coustomeLabelIsSeletedArray[indexPath.row];
         return cell;
     }
     else
@@ -346,6 +449,14 @@
     if (collectionView == self.coustomeCollectionView)
     {
         //选择自定义标签
+        self.coustomeLabelSeletedId = [NSString stringWithFormat:@"%ld",indexPath.row];
+        [self.coustomeLabelIsSeletedArray removeAllObjects];
+        for (id i in self.coustomeLabelImageArray)
+        {
+            [self.coustomeLabelIsSeletedArray addObject:@"0"];
+        }
+        [self.coustomeLabelIsSeletedArray setObject:@"1" atIndexedSubscript:indexPath.row];
+        [self.coustomeCollectionView reloadData];
     }
     else
     {
@@ -495,7 +606,7 @@
 
     if (collectionView == self.coustomeCollectionView)
     {
-        return CGSizeMake (SCREEN_WIDTH / 2 , SCREEN_WIDTH / 2);
+        return CGSizeMake (SCREEN_WIDTH / 2 , SCREEN_WIDTH / 2 * 333 / 1250 + 15);
     }
     else
     {
@@ -749,7 +860,7 @@
     if (!_coustomePriceLB)
     {
         _coustomePriceLB = [[UILabel alloc] initWithFrame:CGRectMake(10, SCREEN_HEIGHT - JSH_NavbarAndStatusBarHeight - JSH_SafeBottomMargin - 54, (SCREEN_WIDTH - 20) / 3, 44)];
-        _coustomePriceLB.text = @"¥ 99";
+        _coustomePriceLB.text = @"¥ 9.9";
         _coustomePriceLB.textAlignment = NSTextAlignmentCenter;
         _coustomePriceLB.textColor = [UIColor mainColor];
         _coustomePriceLB.font = [UIFont systemFontOfSize:18];

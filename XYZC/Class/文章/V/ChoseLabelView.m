@@ -137,7 +137,7 @@
     
     CGFloat weight = CGRectGetWidth(self.collectionBackView.bounds);
 //    CGFloat hight = CGRectGetHeight(self.collectionBackView.bounds);
-    return CGSizeMake (weight / 2 , 45);
+    return CGSizeMake (weight / 2 , weight / 2 * 333 / 1250);
 }
 
 //定义每个UICollectionView 的边距

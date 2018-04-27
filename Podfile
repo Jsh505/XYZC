@@ -27,5 +27,9 @@ pod 'TTTAttributedLabel'
 pod 'YUSegment', '~> 1.0.1'
 #环信
 pod 'HyphenateLite'
+#引导页
+pod 'KSGuaidView'
+#浏览器
+pod 'RxWebViewController', '~> 0.0.2'
 
 end

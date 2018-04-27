@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -57,13 +57,13 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="详细内容详细内容详细内容详细内容详细内容详细内容" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pvl-2G-7Y9">
-                        <rect key="frame" x="167" y="57" width="216" height="46"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="详细内容详细内容详细内容详细内容详细内容详细内容" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pvl-2G-7Y9">
+                        <rect key="frame" x="167" y="57" width="216" height="62.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21312人阅读" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="768-1L-9EE">
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21312人阅读" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="768-1L-9EE">
                         <rect key="frame" x="167" y="108" width="75.5" height="16"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="16" id="FcM-up-HRy"/>
@@ -82,10 +82,10 @@
                     <constraint firstItem="pvl-2G-7Y9" firstAttribute="top" secondItem="xbU-3I-1TY" secondAttribute="bottom" constant="5" id="LBM-2L-zoK"/>
                     <constraint firstItem="pvl-2G-7Y9" firstAttribute="width" secondItem="AMc-BA-PAB" secondAttribute="width" id="M3f-1E-Qzv"/>
                     <constraint firstItem="xbU-3I-1TY" firstAttribute="top" secondItem="AMc-BA-PAB" secondAttribute="bottom" constant="5" id="NYL-dd-Zub"/>
-                    <constraint firstItem="768-1L-9EE" firstAttribute="top" secondItem="pvl-2G-7Y9" secondAttribute="bottom" constant="5" id="OQl-C6-4c0"/>
                     <constraint firstItem="768-1L-9EE" firstAttribute="bottom" secondItem="cO8-42-aZp" secondAttribute="bottom" id="aGX-qq-dDt"/>
                     <constraint firstItem="cO8-42-aZp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="cnp-2A-cC6"/>
                     <constraint firstItem="768-1L-9EE" firstAttribute="leading" secondItem="pvl-2G-7Y9" secondAttribute="leading" id="jjc-ie-kIJ"/>
+                    <constraint firstItem="pvl-2G-7Y9" firstAttribute="bottom" secondItem="cO8-42-aZp" secondAttribute="bottom" constant="-5" id="nC6-Br-fao"/>
                     <constraint firstItem="AMc-BA-PAB" firstAttribute="top" secondItem="cO8-42-aZp" secondAttribute="top" id="ovd-ds-2b5"/>
                     <constraint firstAttribute="trailing" secondItem="AMc-BA-PAB" secondAttribute="trailing" constant="10" id="qAY-hk-aIu"/>
                     <constraint firstItem="yCe-NE-GBU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="rJi-ZB-vHH"/>

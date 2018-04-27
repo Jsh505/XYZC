@@ -63,4 +63,5 @@
 
 @property (nonatomic, copy) NSString * labelName;
 @property (nonatomic, copy) NSString * labelPicName;
+
 @end

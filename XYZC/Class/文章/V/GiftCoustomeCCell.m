@@ -19,4 +19,20 @@
     self.lineView.layer.borderColor = [UIColor mainColor].CGColor;
 }
 
+- (void)setIsSeleted:(NSString *)isSeleted
+{
+    if ([isSeleted isEqualToString:@"1"])
+    {
+        self.labelLB.transform=CGAffineTransformMakeRotation(M_PI/4);
+        self.lineView.layer.borderWidth = 2;
+        self.lineView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    }
+    else
+    {
+        self.labelLB.transform=CGAffineTransformMakeRotation(M_PI/4);
+        self.lineView.layer.borderWidth = 2;
+        self.lineView.layer.borderColor = [UIColor mainColor].CGColor;
+    }
+}
+
 @end

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -13,11 +13,11 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES">
             <BuildableReference
-               BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '6E68DB9955E1DCC48A19265718E2034C'
-               BlueprintName = 'YUSegment'
-               ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libYUSegment.a'>
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "86D37FA6B16EB5D285B871D1A34234B7"
+               BlueprintName = "YUSegment"
+               ReferencedContainer = "container:Pods.xcodeproj"
+               BuildableName = "libYUSegment.a">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

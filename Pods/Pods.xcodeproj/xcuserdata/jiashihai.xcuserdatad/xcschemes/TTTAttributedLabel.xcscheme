@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -13,11 +13,11 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES">
             <BuildableReference
-               BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'BEB3CBAEF442EAC34898E2A93138A180'
-               BlueprintName = 'TTTAttributedLabel'
-               ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libTTTAttributedLabel.a'>
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "8DE12E9B459A7F0BAEF8B39F70A9A1BF"
+               BlueprintName = "TTTAttributedLabel"
+               ReferencedContainer = "container:Pods.xcodeproj"
+               BuildableName = "libTTTAttributedLabel.a">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

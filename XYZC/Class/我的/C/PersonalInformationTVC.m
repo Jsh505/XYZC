@@ -11,9 +11,9 @@
 #import "LDImagePicker.h"
 #import "BindingPhoneVC.h"
 #import "OnlyTestFileVC.h"
-#import "LZCityPickerController.h"
+#import "GYZChooseCityController.h"
 
-@interface PersonalInformationTVC () <LDImagePickerDelegate>
+@interface PersonalInformationTVC () <GYZChooseCityDelegate>
 {
     NSString * _headeImage;
 }
@@ -290,12 +290,14 @@
     else if (sec == 0 && row == 3)
     {
         //城市选择
-        [LZCityPickerController showPickerInViewController:self selectBlock:^(NSString *address, NSString *province, NSString *city, NSString *area) {
-            
-            // 选择结果回调
-            self.cityLB.text = [NSString stringWithFormat:@"%@%@%@",province,city,area];
-            NSLog(@"%@--%@--%@--%@",address,province,city,area);
-            
+        GYZChooseCityController *cityPickerVC = [[GYZChooseCityController alloc] init];
+        [cityPickerVC setDelegate:self];
+        
+        //    cityPickerVC.locationCityID = @"1400010000";
+        //    cityPickerVC.commonCitys = [[NSMutableArray alloc] initWithArray: @[@"1400010000", @"100010000"]];        // 最近访问城市，如果不设置，将自动管理
+        //    cityPickerVC.hotCitys = @[@"100010000", @"200010000", @"300210000", @"600010000", @"300110000"];
+        
+        [self presentViewController:[[UINavigationController alloc] initWithRootViewController:cityPickerVC] animated:YES completion:^{
         }];
     }
     else if (sec == 0 && row == 4)
@@ -312,6 +314,21 @@
     
 }
 
+#pragma mark - GYZCityPickerDelegate
+- (void) cityPickerController:(GYZChooseCityController *)chooseCityController didSelectCity:(GYZCity *)city
+{
+    self.cityLB.text = city.cityName;
+    [chooseCityController dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+}
+
+- (void) cityPickerControllerDidCancel:(GYZChooseCityController *)chooseCityController
+{
+    [chooseCityController dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+}
 
 #pragma mark - Setter/Getter
 

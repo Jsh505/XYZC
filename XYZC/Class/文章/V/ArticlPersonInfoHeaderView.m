@@ -23,20 +23,27 @@
     self.sendMessageButton.layer.borderWidth = 1;
     self.sendMessageButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
     
-    self.labelLB.transform=CGAffineTransformMakeRotation(M_PI/4);
+//    self.labelLB.transform=CGAffineTransformMakeRotation(M_PI/4);
 }
 
 - (void)setModel:(MyarticleModel *)model
 {
     _model = model;
-    self.userNameLB.text = model.nickname;
+    self.userNameLB.text = model.name;
     
     [self.headerImageView jsh_sdsetImageWithURL:model.artPicture placeholderImage:Default_General_Image];
     [self.userHeaderImageView jsh_sdsetImageWithHeaderimg:model.headPicture];
     
     self.schoolLB.text = [NSString stringWithFormat:@"%@ %@",model.colleges,model.grade];
     
-    [self.labelmageView jsh_sdsetImageWithURL:model.labelPicName placeholderImage:[UIImage imageNamed:@"文章_女汉子"]];
+    if ([NSString is_NulllWithObject:model.labelPicName])
+    {
+        self.labelmageView.image = [UIImage imageNamed:@"0标签"];
+    }
+    else
+    {
+        self.labelmageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@标签",model.labelPicName]];
+    }
     self.labelLB.text = model.labelName;
     
 }

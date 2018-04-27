@@ -14,4 +14,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelLB;
 @property (weak, nonatomic) IBOutlet UIView *lineView;
 
+@property (nonatomic, copy) NSString * isSeleted;
+
 @end

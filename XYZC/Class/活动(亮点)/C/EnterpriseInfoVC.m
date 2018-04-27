@@ -267,78 +267,108 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return self.dataSource.count;
+    return self.dataSource.count + 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    CampusInfoCommentModel * model = self.dataSource[section];
-    if (model.secondCommentList.count > 2)
+    if (section == 0)
     {
-        return 4;
+        return 1;
     }
     else
     {
-        return 1 + model.secondCommentList.count;
+        CampusInfoCommentModel * model = self.dataSource[section - 1];
+        if (model.secondCommentList.count > 2)
+        {
+            return 4;
+        }
+        else
+        {
+            return 1 + model.secondCommentList.count;
+        }
     }
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 0)
+    if (indexPath.section == 0)
     {
-        tableView.rowHeight = UITableViewAutomaticDimension;
-        tableView.estimatedRowHeight = 90;
-        return tableView.rowHeight;
-    }
-    else if (indexPath.row == 3)
-    {
-        return 30;
+        return 0.01;
     }
     else
     {
-        tableView.rowHeight = UITableViewAutomaticDimension;
-        tableView.estimatedRowHeight = 20;
-        return tableView.rowHeight;
+        if (indexPath.row == 0)
+        {
+            tableView.rowHeight = UITableViewAutomaticDimension;
+            tableView.estimatedRowHeight = 90;
+            return tableView.rowHeight;
+        }
+        else if (indexPath.row == 3)
+        {
+            return 30;
+        }
+        else
+        {
+            tableView.rowHeight = UITableViewAutomaticDimension;
+            tableView.estimatedRowHeight = 20;
+            return tableView.rowHeight;
+        }
     }
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 0)
+    if (indexPath.section == 0)
     {
-        ArticleInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ArticleInfoCellident"];
-        if (!cell) {
-            NSArray *array = [[NSBundle mainBundle]loadNibNamed:@"ArticleInfoCell" owner:nil options:nil];
-            cell = array[0];
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        static NSString * CellIdentifier = @"CellIdentifier";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (cell == nil)
+        {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         }
-        cell.delegate = self;
-        cell.campusInfoModel = self.dataSource[indexPath.section];
-        return cell;
-    }
-    else if (indexPath.row == 3)
-    {
-        ArticleInfoMoreCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ArticleInfoMoreCellident"];
-        if (!cell) {
-            NSArray *array = [[NSBundle mainBundle]loadNibNamed:@"ArticleInfoMoreCell" owner:nil options:nil];
-            cell = array[0];
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        }
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
     else
     {
-        ArticleInfoCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ArticleInfoCommentCellident"];
-        if (!cell) {
-            NSArray *array = [[NSBundle mainBundle]loadNibNamed:@"ArticleInfoCommentCell" owner:nil options:nil];
-            cell = array[0];
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        if (indexPath.row == 0)
+        {
+            ArticleInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ArticleInfoCellident"];
+            if (!cell) {
+                NSArray *array = [[NSBundle mainBundle]loadNibNamed:@"ArticleInfoCell" owner:nil options:nil];
+                cell = array[0];
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            }
+            cell.delegate = self;
+            cell.campusInfoModel = self.dataSource[indexPath.section - 1];
+            return cell;
         }
-        CampusInfoCommentModel * model = self.dataSource[indexPath.section];
-        cell.delegate = self;
-        cell.model = model.secondCommentList[indexPath.row - 1];
-        return cell;
+        else if (indexPath.row == 3)
+        {
+            ArticleInfoMoreCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ArticleInfoMoreCellident"];
+            if (!cell) {
+                NSArray *array = [[NSBundle mainBundle]loadNibNamed:@"ArticleInfoMoreCell" owner:nil options:nil];
+                cell = array[0];
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            }
+            return cell;
+        }
+        else
+        {
+            ArticleInfoCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ArticleInfoCommentCellident"];
+            if (!cell) {
+                NSArray *array = [[NSBundle mainBundle]loadNibNamed:@"ArticleInfoCommentCell" owner:nil options:nil];
+                cell = array[0];
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            }
+            CampusInfoCommentModel * model = self.dataSource[indexPath.section - 1];
+            cell.delegate = self;
+            cell.model = model.secondCommentList[indexPath.row - 1];
+            return cell;
+        }
     }
     
     
@@ -350,7 +380,7 @@
 {
     if (indexPath.row == 3)
     {
-        CampusInfoCommentModel * model = self.dataSource[indexPath.section];
+        CampusInfoCommentModel * model = self.dataSource[indexPath.section - 1];
         AllCommentListVC * vc = [[AllCommentListVC alloc] init];
         vc.model = model;
         vc.articleId = self.model.id;

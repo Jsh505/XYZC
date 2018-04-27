@@ -43,8 +43,8 @@
 -(void)creatHighlightsView
 {
     self.customNavBar.title = @"亮点";
-    
     [self.view addSubview:self.coustromTableView];
+    self.coustromTableView.backgroundColor =[UIColor backgroudColor];
     
     self.coustromTableView.sd_layout
     .topSpaceToView(self.customNavBar, 0)
@@ -67,11 +67,11 @@
 {
     if (indexPath.row == 0)
     {
-        return SCREEN_WIDTH * 120 / 600;
+        return SCREEN_WIDTH * 30 / 98;
     }
     else
     {
-        return SCREEN_WIDTH * 350 / 600;
+        return SCREEN_WIDTH * 1080 / 2228;
     }
 }
 

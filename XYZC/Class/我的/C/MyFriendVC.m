@@ -203,7 +203,7 @@
         case 3:
         {
             //聊天
-            EaseMessageViewController *chatController = [[EaseMessageViewController alloc] initWithConversationChatter:@"13080808285" conversationType:EMConversationTypeChat];
+            EaseMessageViewController *chatController = [[EaseMessageViewController alloc] initWithConversationChatter:model.phone conversationType:EMConversationTypeChat];
             [self.navigationController pushViewController:chatController animated:YES];
             break;
         }

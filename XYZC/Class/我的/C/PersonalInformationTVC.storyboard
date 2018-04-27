@@ -228,51 +228,12 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="44" id="k9Q-s5-ves">
-                                        <rect key="frame" x="0.0" y="256" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="k9Q-s5-ves" id="6v3-53-TYe">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="身高" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tNU-K6-ffA">
-                                                    <rect key="frame" x="20" y="12.5" width="31" height="18"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5aK-bE-2f8">
-                                                    <rect key="frame" x="336.5" y="14" width="18.5" height="16"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入身高" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M1k-3z-8vP">
-                                                    <rect key="frame" x="71" y="0.0" width="260.5" height="43.5"/>
-                                                    <viewLayoutGuide key="safeArea" id="cKa-Fa-upE"/>
-                                                    <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="5aK-bE-2f8" secondAttribute="trailing" constant="20" id="1wM-YW-gvg"/>
-                                                <constraint firstItem="M1k-3z-8vP" firstAttribute="leading" secondItem="tNU-K6-ffA" secondAttribute="trailing" constant="20" id="56r-xN-qG7"/>
-                                                <constraint firstItem="tNU-K6-ffA" firstAttribute="centerY" secondItem="6v3-53-TYe" secondAttribute="centerY" id="mhv-Sv-K1c"/>
-                                                <constraint firstItem="M1k-3z-8vP" firstAttribute="height" secondItem="6v3-53-TYe" secondAttribute="height" id="p0S-JF-1Dc"/>
-                                                <constraint firstItem="tNU-K6-ffA" firstAttribute="leading" secondItem="6v3-53-TYe" secondAttribute="leading" constant="20" id="pVN-zJ-fHC"/>
-                                                <constraint firstItem="5aK-bE-2f8" firstAttribute="leading" secondItem="M1k-3z-8vP" secondAttribute="trailing" constant="5" id="tMx-pJ-7YX"/>
-                                                <constraint firstItem="M1k-3z-8vP" firstAttribute="centerY" secondItem="6v3-53-TYe" secondAttribute="centerY" id="vza-gJ-117"/>
-                                                <constraint firstItem="5aK-bE-2f8" firstAttribute="centerY" secondItem="6v3-53-TYe" secondAttribute="centerY" id="xdj-MJ-1tV"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="" id="zEG-55-QeD">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="181" id="Yqq-RM-N9p">
-                                        <rect key="frame" x="0.0" y="300" width="375" height="181"/>
+                                        <rect key="frame" x="0.0" y="256" width="375" height="181"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Yqq-RM-N9p" id="Muz-Sp-rn6">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="180.5"/>
@@ -307,7 +268,7 @@
                             <tableViewSection headerTitle="" id="RiN-iS-TgJ">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="44" id="OJp-kM-36f">
-                                        <rect key="frame" x="0.0" y="481" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="437" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OJp-kM-36f" id="u4w-EN-yaw">
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
@@ -335,7 +296,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="44" id="h3h-aV-D8a">
-                                        <rect key="frame" x="0.0" y="525" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="481" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="h3h-aV-D8a" id="n1h-fc-pcI">
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
@@ -368,7 +329,7 @@
                                         </constraints>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="44" id="vb8-Bu-308">
-                                        <rect key="frame" x="0.0" y="569" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="525" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vb8-Bu-308" id="jcq-YH-wbC">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -420,7 +381,6 @@
                         <outlet property="emailTF" destination="akS-Gq-aZu" id="Udb-1Q-qrI"/>
                         <outlet property="girlButton" destination="SGs-He-KLG" id="agW-Wu-vs5"/>
                         <outlet property="headerImage" destination="rHd-qS-v2H" id="OaF-7v-s7f"/>
-                        <outlet property="heightTF" destination="M1k-3z-8vP" id="jqs-WV-Jw3"/>
                         <outlet property="nickName" destination="Jia-u1-Kh3" id="eDL-Dj-cXm"/>
                         <outlet property="phoneLB" destination="HIu-c4-RWm" id="1TB-1r-BQC"/>
                         <outlet property="textView" destination="RYI-4W-XPc" id="8Qr-4q-vz3"/>

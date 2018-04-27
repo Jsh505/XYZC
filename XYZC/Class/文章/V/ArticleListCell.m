@@ -43,7 +43,14 @@
     self.nameLB.text = model.name;
     self.schoolLB.text = [NSString stringWithFormat:@"%@ %@",model.colleges,model.grade];
     
-    [self.labelImageView jsh_sdsetImageWithURL:model.labelPicName placeholderImage:[UIImage imageNamed:@"文章_女汉子"]];
+    if ([NSString is_NulllWithObject:model.labelPicName])
+    {
+        self.labelImageView.image = [UIImage imageNamed:@"0标签"];
+    }
+    else
+    {
+        self.labelImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@标签",model.labelPicName]];
+    }
     self.labelLB.text = model.labelName;
     self.labelLB.transform=CGAffineTransformMakeRotation(M_PI/4);
 }
@@ -71,6 +78,23 @@
     [self.dianzanButton setTitle:[NSString stringWithFormat:@"%d",personArticleModel.goodnumber] forState:UIControlStateNormal];
     [self.pinglunButton setTitle:[NSString stringWithFormat:@"%d",personArticleModel.commnumber] forState:UIControlStateNormal];
     [self.backgroundImageView jsh_sdsetImageWithURL:personArticleModel.artPicture placeholderImage:Default_General_Image];
+}
+
+- (void)setArtileNewModel:(MyArtileNewModel *)ArtileNewModel
+{
+    _ArtileNewModel = ArtileNewModel;
+    
+    self.personView.hidden = YES;
+    self.headerImageView.hidden = YES;
+    self.labelImageView.hidden = YES;
+    self.labelLB.hidden = YES;
+    self.perSonButton.hidden = YES;
+    self.dianzanButton.hidden = YES;
+    self.pinglunButton.hidden = YES;
+    
+    self.titleLB.text = ArtileNewModel.content;
+    self.timeLB.text = ArtileNewModel.createDate;
+    [self.backgroundImageView jsh_sdsetImageWithURL:ArtileNewModel.pictureName placeholderImage:Default_General_Image];
 }
 
 - (IBAction)moreButtonCilick:(id)sender

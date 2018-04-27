@@ -95,7 +95,7 @@
 
 //定义展示的UICollectionViewCell的个数
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 6;
+    return 0;
 }
 
 //定义展示的Section的个数

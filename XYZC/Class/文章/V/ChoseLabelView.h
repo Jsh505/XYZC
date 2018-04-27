@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIView *collectionBackView;
 @property (weak, nonatomic) IBOutlet UIView *masView;
 @property (weak, nonatomic) IBOutlet UIView *contentView;
+@property (weak, nonatomic) IBOutlet UILabel *titleLB;
 
 @property (weak, nonatomic) IBOutlet UIButton *giftButton;
 

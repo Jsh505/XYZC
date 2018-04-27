@@ -14,8 +14,12 @@
 #import "FindTrainModel.h"
 #import "PopoverView.h"
 #import "GiftLabelVC.h"
+#import "MyarticleModel.h"
 
 @interface PersonInfoVC () <ArticleListCellDelegate, ChoseLabelViewDelegate>
+{
+    NSString * _phone;
+}
 
 @property (nonatomic, strong) ArticlPersonInfoHeaderView * headerView;
 @property (nonatomic, strong) ChoseLabelView * choseLabelView;
@@ -52,14 +56,25 @@
     
     [PPNetworkHelper POST:@"queryUserInfoFromArticle.app" parameters:parametersDic hudString:@"获取中..." success:^(id responseObject)
      {
-         self.headerView.userNameLB.text = [[responseObject objectForKey:@"selfInfo"] objectForKey:@"nickName"];
+//         MyarticleModel * model = [[MyarticleModel alloc] initWithDictionary:[responseObject objectForKey:@"selfInfo"]];
+//         self.headerView.model = model;
+         _phone = [NSString stringWithFormat:@"%@",[[responseObject objectForKey:@"selfInfo"] objectForKey:@"phone"]];
+         self.headerView.userNameLB.text = [[responseObject objectForKey:@"selfInfo"] objectForKey:@"name"];
 
-         [self.headerView.headerImageView jsh_sdsetImageWithURL:[[responseObject objectForKey:@"selfInfo"] objectForKey:@"backgroundMap"] placeholderImage:Default_General_Image];
+//         [self.headerView.headerImageView jsh_sdsetImageWithURL:[[responseObject objectForKey:@"selfInfo"] objectForKey:@"backgroundMap"] placeholderImage:Default_General_Image];
          [self.headerView.userHeaderImageView jsh_sdsetImageWithHeaderimg:[[responseObject objectForKey:@"selfInfo"] objectForKey:@"pictureName"]];
 
          self.headerView.schoolLB.text = [NSString stringWithFormat:@"%@ %@",[[responseObject objectForKey:@"selfInfo"] objectForKey:@"colleges"],[[responseObject objectForKey:@"selfInfo"] objectForKey:@"grade"]];
 
-         [self.headerView.labelmageView jsh_sdsetImageWithURL:[[responseObject objectForKey:@"otherInfo"] objectForKey:@"labelPicName"] placeholderImage:[UIImage imageNamed:@"文章_女汉子"]];
+         if ([NSString is_NulllWithObject:[[responseObject objectForKey:@"otherInfo"] objectForKey:@"labelPicName"]])
+         {
+             self.headerView.labelmageView.image = [UIImage imageNamed:@"0标签"];
+         }
+         else
+         {
+             self.headerView.labelmageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@标签",[[responseObject objectForKey:@"otherInfo"] objectForKey:@"labelPicName"]]];
+         }
+         
          self.headerView.labelLB.text = [[responseObject objectForKey:@"otherInfo"] objectForKey:@"labelName"];
          
          self.headerView.fansLB.text = [NSString stringWithFormat:@"%@",[[responseObject objectForKey:@"otherInfo"] objectForKey:@"fansNumber"]];
@@ -96,6 +111,13 @@
 }
 
 #pragma mark - Custom Accessors (控件响应方法)
+
+- (void)sendMessageButtonCilick
+{
+    //消息
+    EaseMessageViewController *chatController = [[EaseMessageViewController alloc] initWithConversationChatter:_phone conversationType:EMConversationTypeChat];
+    [self.navigationController pushViewController:chatController animated:YES];
+}
 
 - (void)guanzhuButtonCilick
 {
@@ -235,14 +257,14 @@
     {
         _headerView = [ArticlPersonInfoHeaderView loadViewFromXIB];
         _headerView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH * 150 / 375 + 265);
-//        _headerView.model = self.model;
         _headerView.labelmageView.userInteractionEnabled = YES;
         UITapGestureRecognizer * singleRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelmageViewSingleTap)];
         singleRecognizer.numberOfTapsRequired = 1; // 单击
         [_headerView.labelmageView addGestureRecognizer:singleRecognizer];
         
+        [_headerView.sendMessageButton addTarget:self action:@selector(sendMessageButtonCilick) forControlEvents:UIControlEventTouchUpInside];
         [_headerView.guanzhuButton addTarget:self action:@selector(guanzhuButtonCilick) forControlEvents:UIControlEventTouchUpInside];
-        [_headerView.fansButton addTarget:self action:@selector(fansButtonCilick) forControlEvents:UIControlEventTouchUpInside];
+//        [_headerView.fansButton addTarget:self action:@selector(fansButtonCilick) forControlEvents:UIControlEventTouchUpInside];
         
     }
     return _headerView;
@@ -255,6 +277,7 @@
         _choseLabelView = [[ChoseLabelView alloc] initWithFrame:self.view.bounds];
         _choseLabelView.userId = self.userId;
         _choseLabelView.delegate = self;
+        _choseLabelView.titleLB.text = [NSString stringWithFormat:@"%@的标签",self.customNavBar.title];
     }
     return _choseLabelView;
 }

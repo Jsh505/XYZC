@@ -95,11 +95,23 @@
 - (void)onlineButtonClicked
 {
     //在线咨询
+    NSString *callPhone = [NSString stringWithFormat:@"telprompt://%@", self.companyModel.phone];
+    if (@available(iOS 10.0, *)) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:callPhone] options:@{} completionHandler:nil];
+    } else {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:callPhone]];
+    }
 }
 
 - (void)phoneButtonClicked
 {
     //电话咨询
+    NSString *callPhone = [NSString stringWithFormat:@"telprompt://%@", self.companyModel.phone];
+    if (@available(iOS 10.0, *)) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:callPhone] options:@{} completionHandler:nil];
+    } else {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:callPhone]];
+    }
 }
 
 #pragma mark - IBActions(xib响应方法)

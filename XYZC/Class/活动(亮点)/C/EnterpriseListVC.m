@@ -49,7 +49,7 @@
 - (void)loadData
 {
     NSMutableDictionary * parametersDic = [[NSMutableDictionary alloc] init];
-    [parametersDic setObject:@(_page) forKey:@"intpage"];
+    [parametersDic setObject:@(_page) forKey:@"intPage"];
     
     [PPNetworkHelper POST:@"entArtList.app" parameters:parametersDic hudString:@"加载中..." success:^(id responseObject)
      {
@@ -95,6 +95,14 @@
 
 
 #pragma mark - Custom Accessors (控件响应方法)
+
+- (void)headerViewSingleTap
+{
+    EnterpriseInfoVC * vc = [[EnterpriseInfoVC alloc] init];
+    vc.model = self.dataSource[0];
+    vc.customNavBar.title = vc.model.entName;
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 
 #pragma mark - IBActions(xib响应方法)
@@ -153,6 +161,9 @@
     {
         _headerView = [CampusDisplayHeaderView loadViewFromXIB];
         _headerView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH * 210 / 375);
+        UITapGestureRecognizer * singleRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(headerViewSingleTap)];
+        singleRecognizer.numberOfTapsRequired = 1; // 单击
+        [_headerView addGestureRecognizer:singleRecognizer];
     }
     return _headerView;
 }

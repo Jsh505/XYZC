@@ -10,7 +10,6 @@
 #import "FL_Button.h"
 #import "PYSearch.h"
 #import "SearchRuesltVC.h"
-#import "TLCityPickerController.h"
 #import "BaseNavigationController.h"
 #import "SDCycleScrollView.h"
 #import "HomeTypeChoseCell.h"
@@ -21,8 +20,10 @@
 #import "FindTrainingListVC.h"
 #import "JobInfoVC.h"
 #import "PositionListModel.h"
+#import "GYZChooseCityController.h"
+#import "WKWebViewController.h"
 
-@interface HomeVC () <PYSearchViewControllerDelegate, TLCityPickerDelegate, SDCycleScrollViewDelegate, HomeTypeChoseCellDelegate, QZConditionFilterViewDelegate>
+@interface HomeVC () <PYSearchViewControllerDelegate, GYZChooseCityDelegate, SDCycleScrollViewDelegate, HomeTypeChoseCellDelegate, QZConditionFilterViewDelegate>
 {
     int _page;
 }
@@ -43,6 +44,8 @@
 @property (nonatomic, strong) NSMutableArray * photoArray;
 @property (nonatomic, strong) NSMutableArray * textArray;
 @property (nonatomic, strong) NSMutableArray * dataSource;
+
+@property (nonatomic, copy) NSString * jobContent;
 
 @end
 
@@ -132,6 +135,10 @@
 //    type  职位类型(如 销售 工程师 财务) area区域 sex 性别要求（无  男  女） workDate 上班时段 （上午  下午 晚上）welfare 福利待遇   intPage  非空 当前页数，从1开始
     NSMutableDictionary * parametersDic = [[NSMutableDictionary alloc] init];
     [parametersDic setObject:@(_page) forKey:@"intPage"];
+    if (self.jobContent)
+    {
+        [parametersDic setObject:self.jobContent forKey:@"jobContent"];
+    }
     
     [PPNetworkHelper POST:@"positionList.app" parameters:parametersDic hudString:@"加载中..." success:^(id responseObject)
     {
@@ -174,22 +181,53 @@
     [self loadData];
 }
 
+- (void)pull2RefreshWithScrollerView:(UIScrollView *)scrollerView
+{
+    _page = 1;
+    self.jobContent = nil;
+    [self loadData];
+}
+
 #pragma mark - Custom Accessors (控件响应方法)
 
 - (void)leftBarButtonClicked
 {
-    
-    
-    [self.conditionFilterView dismiss];
-    TLCityPickerController *cityPickerVC = [[TLCityPickerController alloc] init];
+    GYZChooseCityController *cityPickerVC = [[GYZChooseCityController alloc] init];
     [cityPickerVC setDelegate:self];
     
-    cityPickerVC.loactionCityName = self.cityName;
+    //    cityPickerVC.locationCityID = @"1400010000";
     //    cityPickerVC.commonCitys = [[NSMutableArray alloc] initWithArray: @[@"1400010000", @"100010000"]];        // 最近访问城市，如果不设置，将自动管理
-    cityPickerVC.hotCitys = @[@"100010000", @"200010000", @"300210000", @"600010000", @"300110000"];
+    //    cityPickerVC.hotCitys = @[@"100010000", @"200010000", @"300210000", @"600010000", @"300110000"];
     
-    [self presentViewController:[[BaseNavigationController alloc] initWithRootViewController:cityPickerVC] animated:YES completion:^{
+    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:cityPickerVC] animated:YES completion:^{
+    }];
+}
 
+#pragma mark - GYZCityPickerDelegate
+- (void) cityPickerController:(GYZChooseCityController *)chooseCityController didSelectCity:(GYZCity *)city
+{
+    NSMutableDictionary * parametersDic = [[NSMutableDictionary alloc] init];
+    [parametersDic setObject:@([UserSignData share].user.userId) forKey:@"userId"];
+    [parametersDic setObject:city.cityName forKey:@"city"];
+    
+    [PPNetworkHelper POST:@"updateUserCity.app" parameters:parametersDic hudString:@"定位中..." success:^(id responseObject)
+     {
+         [self.leftBarButton setTitle:city.cityName forState:UIControlStateNormal];
+         [UserSignData share].user.userInfo.city = city.cityName;
+         [[UserSignData share] storageData:[UserSignData share].user];
+     } failure:^(NSString *error)
+     {
+         [MBProgressHUD showInfoMessage:error];
+     }];
+    [chooseCityController dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+}
+
+- (void) cityPickerControllerDidCancel:(GYZChooseCityController *)chooseCityController
+{
+    [chooseCityController dismissViewControllerAnimated:YES completion:^{
+        
     }];
 }
 
@@ -197,12 +235,19 @@
 {
     [self.conditionFilterView dismiss];
     // 1. Create an Array of popular search
-    NSArray *hotSeaches = @[@"Java", @"Python", @"Objective-C", @"Swift", @"C", @"C++", @"PHP", @"C#", @"Perl", @"Go", @"JavaScript", @"R", @"Ruby", @"MATLAB"];
+//    NSArray *hotSeaches = @[@"Java", @"Python", @"Objective-C", @"Swift", @"C", @"C++", @"PHP", @"C#", @"Perl", @"Go", @"JavaScript", @"R", @"Ruby", @"MATLAB"];
     // 2. Create a search view controller
-    PYSearchViewController *searchViewController = [PYSearchViewController searchViewControllerWithHotSearches:hotSeaches searchBarPlaceholder:@"搜索" didSearchBlock:^(PYSearchViewController *searchViewController, UISearchBar *searchBar, NSString *searchText) {
+    PYSearchViewController *searchViewController = [PYSearchViewController searchViewControllerWithHotSearches:nil searchBarPlaceholder:@"搜索" didSearchBlock:^(PYSearchViewController *searchViewController, UISearchBar *searchBar, NSString *searchText) {
         // Called when search begain.
         // eg：Push to a temp view controller
-        [searchViewController.navigationController pushViewController:[[SearchRuesltVC alloc] init] animated:YES];
+//        SearchRuesltVC * vc = [[SearchRuesltVC alloc] init];
+//        vc.searchText = searchText;
+//        [searchViewController.navigationController pushViewController:vc animated:YES];
+        [self dismissViewControllerAnimated:YES completion:nil];
+        self.jobContent = searchText;
+        _page = 1;
+        [self loadData];
+        
     }];
     // 3. Set style for popular search and search history
     searchViewController.hotSearchStyle = PYHotSearchStyleDefault;
@@ -247,6 +292,7 @@
     [self.view addSubview:self.coustromTableView];
     
     [self addPush2LoadMoreWithTableView:self.coustromTableView WithIsInset:NO];
+    [self addpull2RefreshWithTableView:self.coustromTableView WithIsInset:NO];
     self.coustromTableView.sd_layout
     .topSpaceToView(self.customNavBar, 0)
     .heightIs(SCREEN_HEIGHT - JSH_NavbarAndStatusBarHeight - JSH_TabBarHeight)
@@ -313,8 +359,13 @@
         case testButton:
         {
             //做测试
-            DdTestVC * vc = [[DdTestVC alloc] init];
-            [self.navigationController pushViewController:vc animated:YES];
+//            DdTestVC * vc = [[DdTestVC alloc] init];
+//            [self.navigationController pushViewController:vc animated:YES];
+            NSString* urlStr = @"https://www.d1xz.net/";
+            WKWebViewController* webViewController = [[WKWebViewController alloc] init];
+            webViewController.isNavHidden = NO;
+            [webViewController loadWebURLSring:urlStr];
+            [self.navigationController pushViewController:webViewController animated:YES];
             break;
         }
         case findJobButton:
@@ -334,7 +385,8 @@
         case tishengButton:
         {
             //提升
-            
+            FindTrainingListVC * vc = [[FindTrainingListVC alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
             break;
         }
         default:
@@ -356,24 +408,6 @@
     FindJobListVC * vc = [[FindJobListVC alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
 }
-#pragma mark - QZConditionFilterViewDelegate
-
-#pragma mark - TLCityPickerDelegate
-- (void) cityPickerController:(TLCityPickerController *)cityPickerViewController didSelectCity:(TLCity *)city
-{
-    NSLog(@"%@",city.cityName);
-    
-    [cityPickerViewController dismissViewControllerAnimated:YES completion:^{
-        
-    }];
-}
-
-- (void) cityPickerControllerDidCancel:(TLCityPickerController *)cityPickerViewController
-{
-    [cityPickerViewController dismissViewControllerAnimated:YES completion:^{
-        
-    }];
-}
 
 #pragma mark - SDCycleScrollViewDelegate
 
@@ -387,18 +421,18 @@
 #pragma mark - PYSearchViewControllerDelegate
 - (void)searchViewController:(PYSearchViewController *)searchViewController searchTextDidChange:(UISearchBar *)seachBar searchText:(NSString *)searchText
 {
-    if (searchText.length) {
-        // Simulate a send request to get a search suggestions
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            NSMutableArray *searchSuggestionsM = [NSMutableArray array];
-            for (int i = 0; i < arc4random_uniform(5) + 10; i++) {
-                NSString *searchSuggestion = [NSString stringWithFormat:@"Search suggestion %d", i];
-                [searchSuggestionsM addObject:searchSuggestion];
-            }
-            // Refresh and display the search suggustions
-            searchViewController.searchSuggestions = searchSuggestionsM;
-        });
-    }
+//    if (searchText.length) {
+//        // Simulate a send request to get a search suggestions
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//            NSMutableArray *searchSuggestionsM = [NSMutableArray array];
+//            for (int i = 0; i < arc4random_uniform(5) + 10; i++) {
+//                NSString *searchSuggestion = [NSString stringWithFormat:@"Search suggestion %d", i];
+//                [searchSuggestionsM addObject:searchSuggestion];
+//            }
+//            // Refresh and display the search suggustions
+//            searchViewController.searchSuggestions = searchSuggestionsM;
+//        });
+//    }
 }
 
 #pragma mark UITableViewDataSource
@@ -523,7 +557,7 @@
     {
         _leftBarButton = [[FL_Button alloc] initWithAlignmentStatus:FLAlignmentStatusCenter];
         _leftBarButton.fl_padding = 3;
-        [_leftBarButton setTitle:@"成都" forState: UIControlStateNormal];
+        [_leftBarButton setTitle:[NSString is_NulllWithObject:[UserSignData share].user.userInfo.city] ? @"定位中" : [UserSignData share].user.userInfo.city forState: UIControlStateNormal];
         _leftBarButton.titleLabel.font = [UIFont systemFontOfSize:15];
         [_leftBarButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [_leftBarButton setImage:[UIImage imageNamed:@"下"] forState:UIControlStateNormal];
@@ -570,7 +604,7 @@
 {
     if (!_headerView)
     {
-        _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH * 00 / 375)];
+        _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH * 200 / 375)];
         [_headerView addSubview:self.cycleScrollView];
         [_headerView addSubview:self.cycleScrollTextView];
     }

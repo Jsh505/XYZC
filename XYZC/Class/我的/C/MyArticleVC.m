@@ -8,7 +8,7 @@
 
 #import "MyArticleVC.h"
 #import "ArticleListCell.h"
-#import "MyarticleModel.h"
+#import "MyArtileNewModel.h"
 
 @interface MyArticleVC () <UITableViewDelegate, UITableViewDataSource>
 
@@ -42,7 +42,7 @@
              
              for (NSDictionary * dic in [responseObject objectForKey:@"articleList"])
              {
-                 MyarticleModel * model = [[MyarticleModel alloc] initWithDictionary:dic];
+                 MyArtileNewModel * model = [[MyArtileNewModel alloc] initWithDictionary:dic];
                  [self.dataSource addObject:model];
              }
              [self.coustromTableView reloadData];
@@ -95,8 +95,8 @@
         cell = array[0];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
-    MyarticleModel * model = self.dataSource[indexPath.row];
-    cell.model = model;
+    MyArtileNewModel * model = self.dataSource[indexPath.row];
+    cell.ArtileNewModel = model;
     return cell;
 }
 

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -32,12 +32,6 @@
                     </constraints>
                     <state key="normal" title="        " image="文章_返回"/>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="文章_女汉子" translatesAutoresizingMaskIntoConstraints="NO" id="K9g-57-RmS">
-                    <rect key="frame" x="55" y="109.5" width="166" height="80"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="K9g-57-RmS" secondAttribute="height" multiplier="56:27" id="JZG-0R-Fa9"/>
-                    </constraints>
-                </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="头像" translatesAutoresizingMaskIntoConstraints="NO" id="a6p-Fm-H1f">
                     <rect key="frame" x="15" y="110" width="80" height="80"/>
                     <constraints>
@@ -228,15 +222,23 @@
                     <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="女汉子" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wfh-f0-wqo">
-                    <rect key="frame" x="159" y="142" width="40" height="16"/>
+                    <rect key="frame" x="305" y="229.5" width="40" height="16"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <color key="textColor" red="1" green="0.83137254900000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0标签" translatesAutoresizingMaskIntoConstraints="NO" id="K9g-57-RmS">
+                    <rect key="frame" x="258.5" y="224" width="101.5" height="27"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="K9g-57-RmS" secondAttribute="height" multiplier="1250:333" id="Wtt-Gj-BC4"/>
+                        <constraint firstAttribute="height" constant="27" id="eQH-hQ-Mh1"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="hab-XF-MJA" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="0lN-hF-x5c"/>
+                <constraint firstItem="K9g-57-RmS" firstAttribute="trailing" secondItem="mjh-Sx-hYt" secondAttribute="trailing" id="104-pu-YLg"/>
                 <constraint firstItem="3nn-ih-O4O" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="22T-T4-bzX"/>
                 <constraint firstItem="mjh-Sx-hYt" firstAttribute="centerY" secondItem="SyC-Q8-cEl" secondAttribute="centerY" id="2gN-Dl-H6E"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="EHT-gQ-Y4E" secondAttribute="trailing" id="4C2-wT-bP8"/>
@@ -247,11 +249,9 @@
                 <constraint firstItem="2B9-6N-HeT" firstAttribute="top" secondItem="hab-XF-MJA" secondAttribute="bottom" id="8X5-bg-Uaw"/>
                 <constraint firstItem="EHT-gQ-Y4E" firstAttribute="top" secondItem="SyC-Q8-cEl" secondAttribute="bottom" constant="15" id="8x2-lL-F1o"/>
                 <constraint firstItem="EHT-gQ-Y4E" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="BHE-LS-1bi"/>
-                <constraint firstItem="Wfh-f0-wqo" firstAttribute="centerX" secondItem="K9g-57-RmS" secondAttribute="centerX" multiplier="1.3" id="BXl-GF-Ckl"/>
-                <constraint firstItem="K9g-57-RmS" firstAttribute="height" secondItem="a6p-Fm-H1f" secondAttribute="height" id="G0r-pK-UgZ"/>
+                <constraint firstItem="Wfh-f0-wqo" firstAttribute="centerX" secondItem="K9g-57-RmS" secondAttribute="centerX" multiplier="1.05" id="BXl-GF-Ckl"/>
                 <constraint firstItem="mjh-Sx-hYt" firstAttribute="leading" secondItem="Ice-Tp-drP" secondAttribute="trailing" constant="25" id="Hgu-Um-q1I"/>
                 <constraint firstItem="Nsn-0s-zSN" firstAttribute="leading" secondItem="hab-XF-MJA" secondAttribute="trailing" id="JWE-ao-O3P"/>
-                <constraint firstItem="K9g-57-RmS" firstAttribute="top" secondItem="a6p-Fm-H1f" secondAttribute="top" id="M4p-aE-Wuf"/>
                 <constraint firstAttribute="trailing" secondItem="y7V-zT-2OR" secondAttribute="trailing" id="ODa-wx-R8r"/>
                 <constraint firstItem="Nsn-0s-zSN" firstAttribute="height" secondItem="hab-XF-MJA" secondAttribute="height" id="OFr-8F-aNM"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="mjh-Sx-hYt" secondAttribute="trailing" constant="15" id="Pbm-zg-UFc"/>
@@ -266,7 +266,6 @@
                 <constraint firstItem="y7V-zT-2OR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="b9U-gq-Oqy"/>
                 <constraint firstItem="Wfh-f0-wqo" firstAttribute="centerY" secondItem="K9g-57-RmS" secondAttribute="centerY" id="dX2-wE-Iat"/>
                 <constraint firstItem="y7V-zT-2OR" firstAttribute="top" secondItem="hbt-yt-AkP" secondAttribute="bottom" constant="15" id="dYI-iS-ZOP"/>
-                <constraint firstItem="K9g-57-RmS" firstAttribute="leading" secondItem="a6p-Fm-H1f" secondAttribute="trailing" constant="-40" id="exg-OP-Ioj"/>
                 <constraint firstItem="G75-P9-y6J" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="hZK-od-PLV"/>
                 <constraint firstItem="Nsn-0s-zSN" firstAttribute="width" secondItem="hab-XF-MJA" secondAttribute="width" id="iWj-9y-mu2"/>
                 <constraint firstItem="SyC-Q8-cEl" firstAttribute="trailing" secondItem="a6p-Fm-H1f" secondAttribute="trailing" constant="5" id="iix-i1-ZvW"/>
@@ -277,6 +276,7 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="2B9-6N-HeT" secondAttribute="bottom" id="mD9-Ot-3P0"/>
                 <constraint firstItem="hOx-Uc-Epv" firstAttribute="leading" secondItem="Vwb-fJ-Qrd" secondAttribute="trailing" constant="5" id="pXB-LS-Q42"/>
                 <constraint firstItem="Nsn-0s-zSN" firstAttribute="top" secondItem="hab-XF-MJA" secondAttribute="top" id="pgM-DD-by8"/>
+                <constraint firstItem="K9g-57-RmS" firstAttribute="centerY" secondItem="Vwb-fJ-Qrd" secondAttribute="centerY" id="q7J-gn-vmm"/>
                 <constraint firstItem="Nsn-0s-zSN" firstAttribute="centerY" secondItem="hab-XF-MJA" secondAttribute="centerY" id="qaf-4v-NFz"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="hbt-yt-AkP" secondAttribute="trailing" constant="15" id="r3q-6Z-tro"/>
                 <constraint firstItem="hbt-yt-AkP" firstAttribute="top" secondItem="Vwb-fJ-Qrd" secondAttribute="bottom" constant="15" id="sfc-Nu-TWa"/>
@@ -305,13 +305,13 @@
                 <outlet property="wenzhangButton" destination="tdR-xO-1RH" id="kHl-7p-uyJ"/>
                 <outlet property="wenzhangLB" destination="QPJ-9O-1d8" id="Hcg-eU-oWw"/>
             </connections>
-            <point key="canvasLocation" x="19.5" y="-76"/>
+            <point key="canvasLocation" x="19.5" y="-76.5"/>
         </view>
     </objects>
     <resources>
+        <image name="0标签" width="1250" height="333"/>
         <image name="大图" width="750" height="432"/>
         <image name="头像" width="84" height="84"/>
-        <image name="文章_女汉子" width="168" height="81"/>
         <image name="文章_返回" width="22" height="22"/>
         <image name="文章个人性别女" width="29" height="27"/>
     </resources>

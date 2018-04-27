@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -15,24 +15,24 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GiftCoustomeCCellident" id="gTV-IL-0wX" customClass="GiftCoustomeCCell">
-            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+            <rect key="frame" x="0.0" y="0.0" width="377" height="82"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                <rect key="frame" x="0.0" y="0.0" width="377" height="82"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jnO-8O-QF2">
-                        <rect key="frame" x="10" y="10" width="130" height="130"/>
+                        <rect key="frame" x="5" y="5" width="362" height="67"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="文章_女汉子" translatesAutoresizingMaskIntoConstraints="NO" id="0Lb-BL-bwk">
-                        <rect key="frame" x="20" y="45.5" width="110" height="59"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0标签" translatesAutoresizingMaskIntoConstraints="NO" id="0Lb-BL-bwk">
+                        <rect key="frame" x="79" y="10" width="214.5" height="57"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="0Lb-BL-bwk" secondAttribute="height" multiplier="15:8" id="tpF-bI-BRW"/>
+                            <constraint firstAttribute="width" secondItem="0Lb-BL-bwk" secondAttribute="height" multiplier="1250:333" id="Awz-9v-qiw"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Fb-ho-xMM">
-                        <rect key="frame" x="104.5" y="75.5" width="0.0" height="0.0"/>
+                        <rect key="frame" x="260.5" y="39" width="0.0" height="0.0"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" red="1" green="0.83137254900000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -40,25 +40,27 @@
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="jnO-8O-QF2" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="0Rw-tW-QLO"/>
+                <constraint firstItem="jnO-8O-QF2" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="0Rw-tW-QLO"/>
                 <constraint firstAttribute="bottom" secondItem="jnO-8O-QF2" secondAttribute="bottom" constant="10" id="0jz-VH-I7i"/>
                 <constraint firstItem="0Lb-BL-bwk" firstAttribute="centerY" secondItem="jnO-8O-QF2" secondAttribute="centerY" id="4jj-GD-fkC"/>
-                <constraint firstItem="jnO-8O-QF2" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="Dzr-Tq-UeV"/>
+                <constraint firstItem="jnO-8O-QF2" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="Dzr-Tq-UeV"/>
                 <constraint firstItem="6Fb-ho-xMM" firstAttribute="centerX" secondItem="0Lb-BL-bwk" secondAttribute="centerX" multiplier="1.4" id="Flx-3Q-JeI"/>
                 <constraint firstItem="0Lb-BL-bwk" firstAttribute="centerX" secondItem="jnO-8O-QF2" secondAttribute="centerX" id="NuE-nf-6Za"/>
                 <constraint firstAttribute="trailing" secondItem="jnO-8O-QF2" secondAttribute="trailing" constant="10" id="Oew-bo-Upl"/>
+                <constraint firstItem="0Lb-BL-bwk" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="Ta3-xQ-iLL"/>
                 <constraint firstItem="6Fb-ho-xMM" firstAttribute="centerY" secondItem="0Lb-BL-bwk" secondAttribute="centerY" id="ZB5-zj-svH"/>
-                <constraint firstItem="0Lb-BL-bwk" firstAttribute="leading" secondItem="jnO-8O-QF2" secondAttribute="leading" constant="10" id="tLq-yR-xmR"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
+            <size key="customSize" width="377" height="82"/>
             <connections>
                 <outlet property="labelImageView" destination="0Lb-BL-bwk" id="bE6-c9-4qI"/>
                 <outlet property="labelLB" destination="6Fb-ho-xMM" id="uAs-A9-VaT"/>
                 <outlet property="lineView" destination="jnO-8O-QF2" id="KhW-c7-dml"/>
             </connections>
+            <point key="canvasLocation" x="143.5" y="-11"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="文章_女汉子" width="168" height="81"/>
+        <image name="0标签" width="1250" height="333"/>
     </resources>
 </document>

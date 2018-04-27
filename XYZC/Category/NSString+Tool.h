@@ -44,4 +44,10 @@
 //去掉Html标签
 + (NSString *)filterHTML:(NSString *)html;
 
+
+//创建发起支付时的sige签名
++ (NSString *)createMD5SingForPay:(NSString *)appid_key partnerid:(NSString *)partnerid_key prepayid:(NSString *)prepayid_key package:(NSString *)package_key noncestr:(NSString *)noncestr_key timestamp:(UInt32)timestamp_key;
+
+// MD5加密算法
++ (NSString *) md5:(NSString *)str;
 @end

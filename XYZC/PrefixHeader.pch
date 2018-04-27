@@ -72,12 +72,12 @@
 #define JSH_SafeBottomMargin   ([[UIApplication sharedApplication] statusBarFrame].size.height>20 ? 34.f : 0.f)
 
 //测试环境
-#define APIEHEAD @"http://118.190.205.196/sw/"  //网络请求头
-#define IMAGEHEAD @"http://118.190.205.196/swpicture/"  //图片头
+//#define APIEHEAD @"http://118.190.205.196/sw/"  //网络请求头
+//#define IMAGEHEAD @"http://118.190.205.196/swpicture/"  //图片头
 #define VIDEOHEAD @"http://118.190.205.196/swvideo/" //视频头
 //正式环境
-//#define APIEHEAD @"http://icd.langyadt.com/api.php/"  //网络请求头
-//#define IMAGEHEAD @"http://icd.langyadt.com/"  //图片头
+#define APIEHEAD @"http://xyzx.hx-ar.com/sw/"  //网络请求头
+#define IMAGEHEAD @"http://xyzx.hx-ar.com/swpicture/"  //图片头
 
 //搜索历史
 #define KHistorySearchPath [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"PYSearchhistories.plist"]
@@ -85,7 +85,8 @@
 
 //配置常量
 
-#define WXDoctor_App_ID @"wxd1931d4a0e462***"  // 注册微信时的AppID
+#define WX_APPID @"wx5ac20d6abec2d2fc"
+
 #import "AppDelegate.h"
 #import <SDAutoLayout.h>
 #import "ToolHeader.h"

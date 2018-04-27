@@ -53,6 +53,7 @@
 - (IBAction)logoutButtonCilick:(id)sender
 {
     //退出账号
+    [[AppDelegate delegate] goLogin];
 }
 
 #pragma mark - Public (.h 公共调用方法)
